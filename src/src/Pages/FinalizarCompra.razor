@@ -1,0 +1,24 @@
+﻿@page "/finalizar"
+@using src.Data
+@inject Facade Facade
+
+<h3>FinalizarCompra</h3>
+
+<input type="text" placeholder="Nome de faturação" @bind="@nomeFaturacao">
+<input type="text" placeholder="Morada" @bind="@morada">
+<input type="text" placeholder="Nº de telemóvel" @bind="@numTelemovel">
+
+<div>
+	<ul style="padding:100px">
+		<li style="display: inline; padding: 100px"><button>MBWAY</button></li>
+		<li style="display: inline; padding: 100px"><button>Transferência MB</button></li>
+		<li style="display: inline; padding: 100px"><button>Credit Card</button></li>
+	</ul>
+</div>
+
+
+@code {
+	private String nomeFaturacao;
+	private String morada;
+	private String numTelemovel;
+}

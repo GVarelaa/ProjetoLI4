@@ -19,8 +19,16 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Miguel Braga/source/repos/ProjetoLI4/src/src/Pages/CarrinhoCompras.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FycmluaG9Db21wcmFzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Miguel Braga/source/repos/ProjetoLI4/src/src/Pages/CatalogoFeira.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0YWxvZ29GZWlyYS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Miguel Braga/source/repos/ProjetoLI4/src/src/Pages/FinalizarCompra.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmluYWxpemFyQ29tcHJhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Miguel Braga/source/repos/ProjetoLI4/src/src/Pages/Index.razor]
@@ -33,6 +41,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Miguel Braga/source/repos/ProjetoLI4/src/src/Shared/Topbar.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFRvcGJhci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Miguel Braga/source/repos/ProjetoLI4/src/src/Shared/UserMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFVzZXJNZW51LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Miguel Braga/source/repos/ProjetoLI4/src/src/_Imports.razor]

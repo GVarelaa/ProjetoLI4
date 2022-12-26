@@ -1,0 +1,27 @@
+﻿@page "/carrinho"
+@using src.Data
+@inject Facade Facade
+
+<h3>CarrinhoCompras</h3>
+
+<ul>
+    @foreach(String prod in carrinhoUser){
+        <li><p>@prod</p><button>Remove</button></li>
+    }
+</ul>
+
+<button>
+    <a href="/finalizar">Finalizar compra!</a>
+</button>
+
+@code {
+    private List<String> carrinhoUser;
+
+    protected override async Task OnInitializedAsync()
+    {
+        carrinhoUser = new List<String>();
+        carrinhoUser.Add("Produto1");
+        carrinhoUser.Add("Produto2");
+        carrinhoUser.Add("Produto3");
+    }
+}

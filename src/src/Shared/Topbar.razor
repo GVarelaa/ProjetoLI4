@@ -2,8 +2,27 @@
 	  <a href="#home">Home</a>
 	  <a href="#news">Log in</a>
 	  <a href="#contact">Sign up</a>
+	  <button @onclick="updateUserMenuState">|||</button>  
+</div>
+<div style="@changingStyle">
+	<UserMenu></UserMenu>
 </div>
 
 @code {
+	private string changingStyle;
 
+	protected override async Task OnInitializedAsync()
+	{
+		changingStyle = "display: none";
+	}
+
+	private void updateUserMenuState()
+	{
+		if (changingStyle == "display: unset"){
+			changingStyle = "display: none";
+		}
+		else if (changingStyle == "display: none"){
+			changingStyle = "display: unset";
+		}
+	}
 }

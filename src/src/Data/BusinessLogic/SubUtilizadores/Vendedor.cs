@@ -1,4 +1,5 @@
 ﻿using System;
+using src.Data.BusinessLogic.SubFeiras;
 namespace src.Data.BusinessLogic;
 
 public class Vendedor

@@ -92,3 +92,7 @@ a, .btn-link {
 .container-feiras {
     margin: 100px;
 }
+
+ul {
+    list-style: none
+}

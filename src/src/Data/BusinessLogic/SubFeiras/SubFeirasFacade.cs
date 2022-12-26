@@ -32,6 +32,6 @@ public class SubFeirasFacade
         return detalhes;
     }
 
-    public static void 
+   
 }
 

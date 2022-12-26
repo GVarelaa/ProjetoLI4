@@ -6,7 +6,9 @@
 
 <h1>Escolha a feira</h1>
 
-<input type="text" placeholder="Procurar feira">
+<input type="text" placeholder="Procurar feira" @bind="@filterValue">
+
+<button @onclick="applyFilter">Procurar</button>
 
 @if (feiras == null)
 {
@@ -15,7 +17,7 @@
 else
 {
     <ul>
-        @foreach(String feira in feiras){
+        @foreach(String feira in filteredFeiras){
             <li><a href="catalogo/@feira">@feira</a></li>
         }
     </ul>
@@ -23,9 +25,21 @@ else
 
 @code {
     private List<String>? feiras;
+    private List<String>? filteredFeiras;
+    private String filterValue;
 
     protected override async Task OnInitializedAsync()
     {
         feiras = await Facade.getFeiras();
+        filteredFeiras = feiras;
+    }
+
+    public void applyFilter(){
+        filteredFeiras.Clear();
+        foreach(String feira in feiras){
+            if(feira == filterValue){
+                filteredFeiras.Add(feira);
+            }
+        }
     }
 }
