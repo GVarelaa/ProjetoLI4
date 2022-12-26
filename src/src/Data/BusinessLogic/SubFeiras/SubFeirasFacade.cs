@@ -13,12 +13,12 @@ public class SubFeirasFacade
         this.Feiras = new FeirasDAO();
     }
 
-    public List<Produto> GetProdutosFeira(string nomeFeira) // Para mostrar catálogo
-    {
-        Feira feira = this.Feiras.Get(nomeFeira);
+    //public List<Produto> GetProdutosFeira(string nomeFeira) // Para mostrar catálogo
+    //{
+    //    Feira feira = this.Feiras.Get(nomeFeira);
 
-        return feira.produtos;
-    }
+    //    return feira.produtos;
+    //}
 
     public List<string> GetDetalhesFeira(string nomeFeira) // Para mostrar catálogo
     {
@@ -31,5 +31,7 @@ public class SubFeirasFacade
 
         return detalhes;
     }
+
+    public static void 
 }
 
