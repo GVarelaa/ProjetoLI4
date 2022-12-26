@@ -64,3 +64,31 @@ a, .btn-link {
         content: "An error has occurred."
     }
 
+
+.top-left-feira {
+    background-color: red;
+}
+
+.top-middle-feira {
+    background-color: blue;
+}
+
+.top-right-feira {
+    background-color: yellow;
+}
+
+.bottom-left-feira {
+    background-color: green;
+}
+
+.bottom-middle-feira {
+    background-color: aquamarine
+}
+
+.bottom-right-feira {
+    background-color: pink;
+}
+
+.container-feiras {
+    margin: 100px;
+}

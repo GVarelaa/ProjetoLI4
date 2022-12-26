@@ -1,0 +1,30 @@
+﻿@page "/catalogo/{nomeFeira}/{nomeProduto}"
+@using src.Data
+@inject Facade Facade
+
+<h3>PaginaProduto</h3>
+
+<p>Nome do produto</p>
+<p>Categoria</p>
+<p>Vendedor</p>
+<p>Quantidade em Stock</p>
+<p>Preço</p>
+<button>Adicionar ao carrinho</button>
+
+@code {
+    [Parameter]
+    public String? nomeProduto{ get; set; }
+    [Parameter]
+    public String? nomeFeira{ get; set; }
+    private String? descProduto;
+
+    protected override async Task OnInitializedAsync()
+    {
+        descProduto = await Facade.getProduto();
+    }
+
+    public void OnGet(String nomeProduto, String nomeFeira){
+        this.nomeProduto = nomeProduto;
+        this.nomeFeira = nomeFeira;
+    }
+}
