@@ -17,7 +17,6 @@ C:\Users\Miguel Braga\source\repos\ProjetoLI4\src\src\obj\Debug\net6.0\src.Razor
 C:\Users\Miguel Braga\source\repos\ProjetoLI4\src\src\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\Miguel Braga\source\repos\ProjetoLI4\src\src\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\Miguel Braga\source\repos\ProjetoLI4\src\src\obj\Debug\net6.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
-C:\Users\Miguel Braga\source\repos\ProjetoLI4\src\src\obj\Debug\net6.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
 C:\Users\Miguel Braga\source\repos\ProjetoLI4\src\src\obj\Debug\net6.0\scopedcss\bundle\src.styles.css
 C:\Users\Miguel Braga\source\repos\ProjetoLI4\src\src\obj\Debug\net6.0\scopedcss\projectbundle\src.bundle.scp.css
 C:\Users\Miguel Braga\source\repos\ProjetoLI4\src\src\obj\Debug\net6.0\src.dll

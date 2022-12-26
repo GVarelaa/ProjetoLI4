@@ -21,10 +21,10 @@ CREATE TABLE IF NOT EXISTS Vendedor (
 
 
 CREATE TABLE IF NOT EXISTS RegistoFeira (
-	idFeira INT UNSIGNED NOT NULL,
+	nomeFeira VARCHAR(45) NOT NULL,
 	nifVendedor INT UNSIGNED NOT NULL,
-	PRIMARY KEY (idFeira, nifVendedor),
-    FOREIGN KEY (idFeira) REFERENCES Feira (idFeira),
+	PRIMARY KEY (nomeFeira, nifVendedor),
+    FOREIGN KEY (nomeFeira) REFERENCES Feira (nomeFeira),
     FOREIGN KEY (nifVendedor) REFERENCES Vendedor (nifVendedor)
 );
 
@@ -40,10 +40,10 @@ CREATE TABLE IF NOT EXISTS Produto (
 	fatorAceitacao FLOAT NULL,
 	fatorTolerancia FLOAT NULL,
 	fatorResposta FLOAT NULL,
-	idFeira INT UNSIGNED NOT NULL,
+	nomeFeira VARCHAR(45) NOT NULL,
 	nifVendedor INT UNSIGNED NOT NULL,
 	PRIMARY KEY (idProduto),
-    FOREIGN KEY (idFeira , nifVendedor) REFERENCES RegistoFeira (idFeira , nifVendedor)
+    FOREIGN KEY (nomeFeira , nifVendedor) REFERENCES RegistoFeira (nomeFeira , nifVendedor)
 );
 
 
