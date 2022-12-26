@@ -1,0 +1,31 @@
+﻿@page "/catalogo/{nomeFeira}"
+@using src.Data
+@inject Facade Facade
+
+<h3>CatalogoFeira</h3>
+
+<p>@nomeFeira</p>
+<p>@descfeira</p>
+
+<ul>
+    @foreach(string produto in catalogo){
+        <li>@produto</li>
+    }
+</ul>
+
+@code {
+    [Parameter]
+    public String? nomeFeira{ get; set; }
+    private String? descfeira;
+    private List<String>? catalogo;
+
+    protected override async Task OnInitializedAsync()
+    {
+        descfeira = await Facade.getDetalhesFeira();
+        catalogo = await Facade.getCatalogo();
+    }
+
+    public void OnGet(String feira){
+        this.nomeFeira = feira;
+    }
+}

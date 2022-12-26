@@ -14,7 +14,7 @@ public class Market
         this.theme = theme;
         this.description = description;
         this.local = local;
-        this.sellers = new Dictionary<int, Seller>();
+        //this.sellers = new Dictionary<int, Seller>();
     }
 
     public override bool Equals(object? obj)
