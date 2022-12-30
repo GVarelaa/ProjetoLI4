@@ -1,28 +1,18 @@
-﻿<div class="topnav">
-	  <a href="#home">Home</a>
-	  <a href="#news">Log in</a>
-	  <a href="#contact">Sign up</a>
-	  <button @onclick="updateUserMenuState">|||</button>  
+﻿<div class="menu-bar">
+      <h1 class="logo">U<span>Market</span></h1>
+      <ul>
+        <li><a href="#">Sign Up</a></li>
+        <li><a href="#">Sign In</a></li>
+        <li>
+            <a href="#">Menu Utilizador<i class="fas fa-caret-down"></i></a>
+            <div class="dropdown-menu">
+                <ul>
+                  <li><a href="#">Carrinho de compras</a></li>
+                  <li><a href="#">Produtos favoritos</a></li>
+                  <li><a href="#">Alterar detalhes de utilizador</a></li>
+                </ul>
+              </div>
+        </li>
+     </ul>
 </div>
-<div style="@changingStyle">
-	<UserMenu></UserMenu>
-</div>
 
-@code {
-	private string changingStyle;
-
-	protected override async Task OnInitializedAsync()
-	{
-		changingStyle = "display: none";
-	}
-
-	private void updateUserMenuState()
-	{
-		if (changingStyle == "display: unset"){
-			changingStyle = "display: none";
-		}
-		else if (changingStyle == "display: none"){
-			changingStyle = "display: unset";
-		}
-	}
-}

@@ -10,8 +10,8 @@ public class Feira
     public string Descricao { get; set; }
     public string Local { get; set; }
 
-    public ProdutosDAO produtos;
-    public VendedoresDAO vendedores;
+    //public ProdutosDAO produtos;
+    //public VendedoresDAO vendedores;
 
     public Feira(string nome, string tema, string descricao, string local)
     {

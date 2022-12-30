@@ -1,4 +1,5 @@
-﻿using System;
+﻿/*
+using System;
 using Dapper;
 using Dapper.Contrib;
 using Dapper.Contrib.Extensions;
@@ -62,10 +63,10 @@ public class VendedoresDAO
 
         using (var connection = new SqlConnection(connectionString))
         {
-            connection.Execute("DELETE FROM Vendedor WHERE nifVendedor='" + key.ToString() + "')")
+            connection.Execute("DELETE FROM Vendedor WHERE nifVendedor='" + key.ToString() + "')");
         }
 
         return v;
     }
 }
-
+*/

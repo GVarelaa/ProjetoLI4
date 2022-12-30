@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using Dapper;
 using Dapper.Contrib;
 using Dapper.Contrib.Extensions;
@@ -60,10 +60,11 @@ public class FeirasDAO
 
         using (var connection = new SqlConnection(connectionString))
         {
-            connection.Execute("DELETE FROM Feira WHERE nomeFeira='" + key.ToString() + "')")
+            connection.Execute("DELETE FROM Feira WHERE nomeFeira='" + key.ToString() + "')");
         }
 
         return f;
     }
 }
 
+*/

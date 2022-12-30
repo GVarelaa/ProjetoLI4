@@ -1,4 +1,5 @@
-﻿using System;
+﻿/*
+using System;
 using Dapper;
 using Dapper.Contrib;
 using Dapper.Contrib.Extensions;
@@ -16,3 +17,4 @@ namespace src.Data.Data
     }
 }
 
+*/

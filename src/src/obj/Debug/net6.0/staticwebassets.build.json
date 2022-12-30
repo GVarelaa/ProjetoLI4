@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+JLlwYOopQVOFIJzVJqdlpo+MzsArlLE+8dHDQDeJPc=",
+  "Hash": "6Ku3y7E4yvgsbUPW/90gyIDRxjxxZMfBZ0ZR86YOtSs=",
   "Source": "src",
   "BasePath": "_content/src",
   "Mode": "Default",
@@ -253,6 +253,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\TopBar.css",
+      "SourceId": "src",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
+      "BasePath": "_content/src",
+      "RelativePath": "css/TopBar.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\TopBar.css"
     },
     {
       "Identity": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\favicon.ico",

@@ -1,4 +1,5 @@
-﻿using System;
+﻿/*
+using System;
 using Dapper;
 using Dapper.Contrib;
 using Dapper.Contrib.Extensions;
@@ -76,10 +77,10 @@ public class ProdutosDAO
 
         using (var connection = new SqlConnection(connectionString))
         {
-            connection.Execute("DELETE FROM Produto WHERE idProduto='" + key.ToString() + "')")
+            connection.Execute("DELETE FROM Produto WHERE idProduto='" + key.ToString() + "')");
         }
 
         return p;
     }
 }
-
+*/
