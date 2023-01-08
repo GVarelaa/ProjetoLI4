@@ -1,5 +1,4 @@
-﻿/*
-using System;
+﻿using System;
 using Dapper;
 using Dapper.Contrib;
 using Dapper.Contrib.Extensions;
@@ -83,4 +82,3 @@ public class ProdutosDAO
         return p;
     }
 }
-*/

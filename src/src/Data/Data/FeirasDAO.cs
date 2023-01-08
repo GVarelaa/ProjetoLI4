@@ -1,24 +1,34 @@
-﻿/*using System;
+﻿using System;
 using Dapper;
 using Dapper.Contrib;
 using Dapper.Contrib.Extensions;
 using Microsoft.Data.SqlClient;
+using Microsoft.VisualBasic;
 using src.Data.BusinessLogic.SubFeiras;
 
 namespace src.Data.Data;
 
 public class FeirasDAO
-{
-    public FeirasDAO()
+{   
+
+    private static FeirasDAO singleton = null;
+    private FeirasDAO()
     {
+    }
+
+    public static FeirasDAO GetInstance()
+    {
+        if (singleton == null)
+        {
+            singleton = new FeirasDAO();
+        }
+
+        return singleton;
     }
 
     public Feira Get(string Nome)
     {
-        const string connectionString = "Server=" + DAOConfig.Address +
-                                        ";Database" + DAOConfig.NomeBD +
-                                        ";User ID" + DAOConfig.User +
-                                        ";Password=" + DAOConfig.Password;
+        const string connectionString = DAOConfig.URL;
 
         Feira feira;
         using (var connection = new SqlConnection(connectionString))
@@ -29,42 +39,48 @@ public class FeirasDAO
         return feira;
     }
 
-    public Feira Put(Feira f)
+    public Feira Insert(Feira f)
     {
-        const string connectionString = "Server=" + DAOConfig.Address +
-                                        ";Database=" + DAOConfig.NomeBD +
-                                        ";User ID=" + DAOConfig.User +
-                                        ";Password=" + DAOConfig.Password;
+        const string connectionString = DAOConfig.URL;
+
 
         using (var connection = new SqlConnection(connectionString))
         {
-            connection.Execute("INSERT INTO Feira VALUES ("
-                                                + f.nomeFeira + ", "
-                                                + f.tema + ", "
-                                                + f.descricao + ", "
-                                                + f.localFeira + ") ON DUPLICATE KEY UPDATE "
-                                                                                    + "tema='" + f.tema + "', "
-                                                                                    + "descricao='" + f.descricao + "', "
-                                                                                    + "localFeira='" + f.localFeira + "')");
-        }
-    }
-
-    public Feira Remove(int key)
-    {
-        Feira f = Get(key);
-
-        const string connectionString = "Server=" + DAOConfig.Address +
-                                        ";Database" + DAOConfig.NomeBD +
-                                        ";User ID" + DAOConfig.User +
-                                        ";Password=" + DAOConfig.Password;
-
-        using (var connection = new SqlConnection(connectionString))
-        {
-            connection.Execute("DELETE FROM Feira WHERE nomeFeira='" + key.ToString() + "')");
+            connection.Insert<Feira>(f);
         }
 
         return f;
     }
-}
 
-*/
+    public Feira Delete(string key)
+    {
+        const string connectionString = DAOConfig.URL;
+
+        Feira f = Get(key);
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            bool b = connection.Delete<Feira>(f);
+            Console.WriteLine(b);
+        }
+
+        return f;
+    }
+
+ 
+
+    public IEnumerable<Feira> GetAll()
+    {
+        const string connectionString = DAOConfig.URL;
+        IEnumerable<Feira> feiras;
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            feiras = connection.GetAll<Feira>();
+        }
+
+        return feiras;
+    }
+
+
+}

@@ -10,9 +10,6 @@ public class Feira
     public string Descricao { get; set; }
     public string Local { get; set; }
 
-    //public ProdutosDAO produtos;
-    //public VendedoresDAO vendedores;
-
     public Feira(string nome, string tema, string descricao, string local)
     {
         this.Nome = nome;
@@ -24,10 +21,10 @@ public class Feira
     public override bool Equals(object? obj)
     {
         return obj is Feira feira &&
-               Nome == feira.Nome &&
-               Tema == feira.Tema &&
-               Descricao == feira.Descricao &&
-               Local == feira.Local;
+               Nome.Equals(feira.Nome) &&
+               Tema.Equals(feira.Tema) &&
+               Descricao.Equals(feira.Descricao) &&
+               Local.Equals(feira.Local);
     }
 }
 
