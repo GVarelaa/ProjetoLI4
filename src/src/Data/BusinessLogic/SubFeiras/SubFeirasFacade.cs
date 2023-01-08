@@ -6,11 +6,11 @@ namespace src.Data.BusinessLogic.SubFeiras;
 
 public class SubFeirasFacade
 {
-    //private FeirasDAO Feiras;
+    private FeirasDAO Feiras;
 
     public SubFeirasFacade()
     {
-        //this.Feiras = new FeirasDAO();
+        this.Feiras = FeirasDAO.GetInstance();
     }
 
     //public List<Produto> GetProdutosFeira(string nomeFeira) // Para mostrar catálogo
@@ -31,6 +31,8 @@ public class SubFeirasFacade
         */
         return detalhes;
     }
+
+    // listar todas , detalhes(list com atributos), catalogo (produtos da feira), detalhes do produto,
 
    
 }

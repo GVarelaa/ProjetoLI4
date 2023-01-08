@@ -12,9 +12,8 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<Facade>();
 
 
-FeirasDAO f = FeirasDAO.GetInstance();
+ProdutosDAO f = ProdutosDAO.GetInstance();
 
-Console.WriteLine(f.Get("arcosverde"));
 
 
 
