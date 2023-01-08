@@ -36,5 +36,15 @@ public class SubFeirasFacade
         return Task.FromResult(Produtos.GetProdutosFeira(nomeFeira));
     }
 
+    public void AddProduto(Produto p)
+    {
+        Produtos.Insert(p);
+    }
+
+    public void AddFeira(Feira f)
+    {
+        Feiras.Insert(f);
+    }
+
 }
 
