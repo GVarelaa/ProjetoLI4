@@ -9,76 +9,71 @@ namespace src.Data.Data;
 
 public class ProdutosDAO
 {
-    public ProdutosDAO()
+    private static ProdutosDAO singleton = null;
+    private ProdutosDAO()
     {
     }
 
-    public Produto Get(string id)
+    public static ProdutosDAO GetInstance()
     {
-        const string connectionString = "Server=" + DAOConfig.Address +
-                                        ";Database" + DAOConfig.NomeBD +
-                                        ";User ID" + DAOConfig.User +
-                                        ";Password=" + DAOConfig.Password;
-
-        Produto produto = new Produto();
-        using (var connection = new SqlConnection(connectionString))
+        if (singleton == null)
         {
-            produto = connection.Get<Produto>(id);
+            singleton = new ProdutosDAO();
         }
 
-        return produto;
+        return singleton;
     }
-
-    public Produto Put(Produto p)
+    public Produto Get(int id)
     {
-        const string connectionString = "Server=" + DAOConfig.Address +
-                                        ";Database=" + DAOConfig.NomeBD +
-                                        ";User ID=" + DAOConfig.User +
-                                        ";Password=" + DAOConfig.Password;
+        const string connectionString = DAOConfig.URL;
+        Produto p;
 
         using (var connection = new SqlConnection(connectionString))
         {
-            connection.Execute("INSERT INTO Produto VALUES ("
-                                                  + p.idProduto.ToString() + ", "
-                                                  + p.nome + ", "
-                                                  + p.preco.ToString() + ", "
-                                                  + p.stock.ToString() + ", " 
-                                                  + p.descricao + ", "
-                                                  + p.categoria + ", "
-                                                  + p.avaliacaoMedia.ToString() + ", "
-                                                  + p.fatorAceitacao.ToString() + ", "
-                                                  + p.fatorTolerancia.ToString() + ", "
-                                                  + p.fatorResposta.ToString() + ", "
-                                                  + p.nomeFeira. + ", "
-                                                  + p.nifVendedor.ToString() + ") ON DUPLICATE KEY UPDATE "
-                                                                                                 + "nome='" + p.nome + "', "
-                                                                                                 + "preco='" + p.preco.ToString() + "', "
-                                                                                                 + "stock='" + p.stock.ToString() + "', "
-                                                                                                 + "descricao='" + p.descricao + "', "
-                                                                                                 + "categoria='" + p.categoria + "', "
-                                                                                                 + "avaliacoMedia='" + p.avaliacoMedia.ToString() + "', "
-                                                                                                 + "fatorAceitacao='" + p.fatorAceitacao.ToString() + "', "
-                                                                                                 + "fatorTolerancia='" + p.fatorTolerancia.ToString() + "', "
-                                                                                                 + "fatorResposta='" + p.fatorResposta.ToString() + "', "
-                                                                                                 + "nomeFeira='" + p.nomeFeira.ToString() + "', "
-                                                                                                 + "nifVendedor='" + p.nifVendedor.ToString() + "')");
-        }
-    }
-
-    public Produto Remove(int key)
-    {
-        Produto p = Get(key);
-
-        const string connectionString = "Server=" + DAOConfig.Address +
-                                        ";Database" + DAOConfig.NomeBD +
-                                        ";User ID" + DAOConfig.User +
-                                        ";Password=" + DAOConfig.Password;
-
-        using (var connection = new SqlConnection(connectionString))
-        {
-            connection.Execute("DELETE FROM Produto WHERE idProduto='" + key.ToString() + "')");
+            p = connection.Get<Produto>(id);
         }
 
         return p;
     }
+
+    public Produto Insert(Produto p)
+    {
+        const string connectionString = DAOConfig.URL;
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            connection.Insert<Produto>(p);
+        }
+
+        return p;
+    }
+
+    public Produto Delete(int key)
+    {
+        Produto p = Get(key);
+
+        const string connectionString = DAOConfig.URL;
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            connection.Delete<Produto>(p);
+        }
+
+        return p;
+    }
+
+   public IEnumerable<Produto> GetAll() 
+   {
+        const string connectionString = DAOConfig.URL;
+        IEnumerable<Produto> produtos;
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            produtos = connection.GetAll<Produto>();
+        }
+
+        return produtos;
+    }
+
+
 }

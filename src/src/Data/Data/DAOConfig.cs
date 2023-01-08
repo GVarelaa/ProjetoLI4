@@ -8,6 +8,6 @@ public class DAOConfig
     public const string USER = "teste";
     public const string PASSWORD = "123";
 
-    public const string URL = "Data Souce=" + ADDRESS + ";Initial Catalog=" + DBNAME + ";User Id=" + USER + ";Password=" + PASSWORD + ";Trusted_Connection=true";
+    public const string URL = "Data Source=" + ADDRESS + ";Initial Catalog=" + DBNAME + ";User Id=" + USER + ";Password=" + PASSWORD + ";Trusted_Connection=true;Trust Server Certificate=true";
 }
 

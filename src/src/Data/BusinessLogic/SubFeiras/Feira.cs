@@ -1,31 +1,42 @@
 ﻿using System;
+using Dapper.Contrib.Extensions;
 using src.Data.Data;
 
 namespace src.Data.BusinessLogic.SubFeiras;
 
+[Table("Feira")]
 public class Feira
 {
-    public string Nome { get; set; }
-    public string Tema { get; set; }
-    public string Descricao { get; set; }
-    public string Local { get; set; }
+    [Key]
+    public string nomeFeira { get; set; }
+    public string tema { get; set; }
+    public string descricao { get; set; }
+    public string localFeira { get; set; }
 
     public Feira(string nome, string tema, string descricao, string local)
     {
-        this.Nome = nome;
-        this.Tema = tema;
-        this.Descricao = descricao;
-        this.Local = local;
+        this.nomeFeira = nome;
+        this.tema = tema;
+        this.descricao = descricao;
+        this.localFeira = local;
     }
+
+    public Feira() { }
 
     public override bool Equals(object? obj)
     {
         return obj is Feira feira &&
-               Nome.Equals(feira.Nome) &&
-               Tema.Equals(feira.Tema) &&
-               Descricao.Equals(feira.Descricao) &&
-               Local.Equals(feira.Local);
+               nomeFeira.Equals(feira.nomeFeira) &&
+               tema.Equals(feira.tema) &&
+               descricao.Equals(feira.descricao) &&
+               localFeira.Equals(feira.localFeira);
     }
+
+    public override string ToString()
+    {
+        return this.nomeFeira + ", " + this.tema + ", " + this.localFeira + ", " + this.descricao;
+    }
+
 }
 
 
