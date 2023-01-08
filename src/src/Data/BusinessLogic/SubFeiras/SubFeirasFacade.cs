@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using src.Data.Data;
 
 namespace src.Data.BusinessLogic.SubFeiras;
@@ -7,33 +8,33 @@ namespace src.Data.BusinessLogic.SubFeiras;
 public class SubFeirasFacade
 {
     private FeirasDAO Feiras;
+    private ProdutosDAO Produtos;
 
     public SubFeirasFacade()
     {
         this.Feiras = FeirasDAO.GetInstance();
+        this.Produtos = ProdutosDAO.GetInstance();
     }
 
-    //public List<Produto> GetProdutosFeira(string nomeFeira) // Para mostrar catálogo
-    //{
-    //    Feira feira = this.Feiras.Get(nomeFeira);
-
-    //    return feira.produtos;
-    //}
-
-    public List<string> GetDetalhesFeira(string nomeFeira) // Para mostrar catálogo
+    public Task<IEnumerable<Feira>> GetFeiras()
     {
-        Feira feira; //= this.Feiras.Get(nomeFeira);
-
-        List<string> detalhes = new List<string>();
-        /*detalhes.Add(feira.Nome);
-        detalhes.Add(feira.Tema);
-        detalhes.Add(feira.Local);
-        */
-        return detalhes;
+        return Task.FromResult(Feiras.GetAll());
     }
 
-    // listar todas , detalhes(list com atributos), catalogo (produtos da feira), detalhes do produto,
+    public Task<Feira> GetFeira(string nome)
+    {
+        return Task.FromResult(Feiras.Get(nome));
+    }
 
-   
+    public Task<Produto> GetProduto(int id) 
+    {
+        return Task.FromResult(Produtos.Get(id));
+    }
+       
+    public Task<IEnumerable<Produto>> GetProdutos(string nomeFeira)
+    {
+        return Task.FromResult(Produtos.GetProdutosFeira(nomeFeira));
+    }
+
 }
 

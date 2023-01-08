@@ -36,6 +36,23 @@ public class ProdutosDAO
         return p;
     }
 
+    public IEnumerable<Produto> GetProdutosFeira(string nomeFeira)
+    {
+        const string connectionString = DAOConfig.URL;
+        IEnumerable<Produto> ps = new List<Produto>();
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            IEnumerable<int> ids = connection.Query<int>("SELECT idProduto FROM Produto WHERE nomeFeira=" + nomeFeira);
+
+            foreach(int id in ids)
+            {
+                ps.Append(Get(id));
+            }
+        }
+        return ps;
+    }
+
     public Produto Insert(Produto p)
     {
         const string connectionString = DAOConfig.URL;
