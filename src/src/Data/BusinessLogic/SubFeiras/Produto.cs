@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Dapper.Contrib.Extensions;
+using System;
 namespace src.Data.BusinessLogic.SubFeiras;
 
+[Table("Produto")]
 public class Produto
 {
-   
+    [Key]
     private int Id { get; set; }
     private string Nome { get; set; }
     private float Preco { get; set; }
@@ -29,6 +31,8 @@ public class Produto
         FatorResposta = fatorResposta;
     }
 
+    public Produto() { }
+
     public override bool Equals(object? obj)
     {
         return obj is Produto produto &&
@@ -43,5 +47,14 @@ public class Produto
                FatorTolerancia == produto.FatorTolerancia &&
                FatorResposta == produto.FatorResposta;
     }
+
+    public override string ToString()
+    {
+        return this.Id + ", " + this.Nome + ", " + this.Preco + ", " + 
+               this.Stock + ", " + this.Descricao + ", " + this.Categoria + ", " +
+               this.Avaliacao + ", " + this.FatorAceitacao + ", " + this.FatorTolerancia + ", " + 
+               this.FatorResposta;
+    }
+
 }
 
