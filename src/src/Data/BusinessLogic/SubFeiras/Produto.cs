@@ -6,29 +6,29 @@ namespace src.Data.BusinessLogic.SubFeiras;
 public class Produto
 {
     [Key]
-    private int Id { get; set; }
-    private string Nome { get; set; }
-    private float Preco { get; set; }
-    private int Stock { get; set; }
-    private string Descricao { get; set; }
-    private string Categoria { get; set; }
-    private float Avaliacao { get; set; }
-    private float FatorAceitacao { get; set; }
-    private float FatorTolerancia { get; set; }
-    private float FatorResposta { get; set; }
+    private int idProduto { get; set; }
+    private string nome { get; set; }
+    private float preço { get; set; }
+    private int stock { get; set; }
+    private string descricao { get; set; }
+    private string categoria { get; set; }
+    private float avaliacaoMedia { get; set; }
+    private float fatorAceitacao { get; set; }
+    private float fatorTolerancia { get; set; }
+    private float fatorResposta { get; set; }
 
-    public Produto(int id, string nome, float preco, int stock, string descricao, string categoria, float avaliacao, float fatorAceitacao, float fatorTolerancia, float fatorResposta)
+    public Produto(int id, string nomeProduto, float preco, int stockP, string descricaoP, string categoriaP, float avaliacao, float fatorAceitacaoP, float fatorToleranciaP, float fatorRespostaP)
     {
-        Id = id;
-        Nome = nome;
-        Preco = preco;
-        Stock = stock;
-        Descricao = descricao;
-        Categoria = categoria;
-        Avaliacao = avaliacao;
-        FatorAceitacao = fatorAceitacao;
-        FatorTolerancia = fatorTolerancia;
-        FatorResposta = fatorResposta;
+        idProduto = id;
+        nome = nomeProduto;
+        preço = preco;
+        stock = stockP;
+        descricao = descricaoP;
+        categoria = categoriaP;
+        avaliacaoMedia = avaliacao;
+        fatorAceitacao = fatorAceitacaoP;
+        fatorTolerancia = fatorToleranciaP;
+        fatorResposta = fatorRespostaP;
     }
 
     public Produto() { }
@@ -36,24 +36,24 @@ public class Produto
     public override bool Equals(object? obj)
     {
         return obj is Produto produto &&
-               Id == produto.Id &&
-               Nome.Equals(produto.Nome) &&
-               Preco == produto.Preco &&
-               Stock == produto.Stock &&
-               Descricao.Equals(produto.Descricao) &&
-               Categoria.Equals(produto.Categoria) &&
-               Avaliacao == produto.Avaliacao &&
-               FatorAceitacao == produto.FatorAceitacao &&
-               FatorTolerancia == produto.FatorTolerancia &&
-               FatorResposta == produto.FatorResposta;
+               idProduto == produto.idProduto &&
+               nome.Equals(produto.nome) &&
+               preço == produto.preço &&
+               stock == produto.stock &&
+               descricao.Equals(produto.descricao) &&
+               categoria.Equals(produto.categoria) &&
+               avaliacaoMedia == produto.avaliacaoMedia &&
+               fatorAceitacao == produto.fatorAceitacao &&
+               fatorTolerancia == produto.fatorTolerancia &&
+               fatorResposta == produto.fatorResposta;
     }
 
     public override string ToString()
     {
-        return this.Id + ", " + this.Nome + ", " + this.Preco + ", " + 
-               this.Stock + ", " + this.Descricao + ", " + this.Categoria + ", " +
-               this.Avaliacao + ", " + this.FatorAceitacao + ", " + this.FatorTolerancia + ", " + 
-               this.FatorResposta;
+        return this.idProduto + ", " + this.nome + ", " + this.preço + ", " + 
+               this.stock + ", " + this.descricao + ", " + this.categoria + ", " +
+               this.avaliacaoMedia + ", " + this.fatorAceitacao + ", " + this.fatorTolerancia + ", " + 
+               this.fatorResposta;
     }
 
 }
