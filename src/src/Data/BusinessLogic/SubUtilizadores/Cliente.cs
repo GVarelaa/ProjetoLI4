@@ -13,8 +13,6 @@ public class Cliente
     private String email { get; set; }
     private String passwordCliente { get; set; }
 
-    private ProdutosDAO produtosDAO = ProdutosDAO.GetInstance();
-
     public Cliente() { }
 
     public Cliente(int clientNif, string name, string surname, string email, string password)

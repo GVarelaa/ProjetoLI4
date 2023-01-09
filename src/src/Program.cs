@@ -12,10 +12,6 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<Facade>();
 
 
-ProdutosDAO f = ProdutosDAO.GetInstance();
-
-
-
 
 
 

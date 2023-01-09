@@ -14,8 +14,6 @@ public class Vendedor
     private String email { get; set; }
     private String passwordVendedor { get; set; }
 
-    private ProdutosDAO products = ProdutosDAO.GetInstance();
-
     public Vendedor(int sellerNif, string name, string surname, string email, string password)
     {
         this.nifVendedor = sellerNif;
