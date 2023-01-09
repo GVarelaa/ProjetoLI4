@@ -1,9 +1,12 @@
 ﻿using System;
+using Dapper.Contrib.Extensions;
 using src.Data.BusinessLogic.SubFeiras;
 namespace src.Data.BusinessLogic;
 
+[Table("Vendedor")]
 public class Vendedor
 {
+    [Key]
     private int nifVendedor { get; set; }
     private String nomeProprio { get; set; }
     private String apelido { get; set; }
