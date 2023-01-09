@@ -1,22 +1,29 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+:root {
+    --color-primary: #15661b;
+    --color-white: #e9e9e9;
+    --color-blue: #0094ff;
+    --color-black-1: #212b38;
+}
+
 html, body {
+
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    text-align: center
+    text-align: center;
+    background-color: white
 }
 
 h1:focus {
     outline: none;
 }
 
-a, .btn-link {
-    color: #0071c1;
-}
+
 
 .btn-primary {
     color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+    /*background-color: #1b6ec2;*/
+    /*border-color: #1861ac;*/
 }
 
 .content {

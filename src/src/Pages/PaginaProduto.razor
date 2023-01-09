@@ -2,15 +2,109 @@
 @using src.Data
 @inject Facade Facade
 
-<h3>PaginaProduto</h3>
+<style>
+    body, html {
+        height: 100%;
+        width: 100%;
+        background-color: palegreen;
+    }
 
-<p>Nome do produto</p>
-<p>Categoria</p>
-<p>Vendedor</p>
-<i class="fa fa-heart"></i>
-<p>Quantidade em Stock</p>
-<p>Preço</p>
-<button><a href="carrinho">Adicionar ao carrinho</a></button>
+    .top-content{
+        height: 40%;
+        display: grid;
+        grid-template-columns: 20% auto;
+        background-color: lightskyblue;
+    }
+
+    .img-container {
+        height: 300px;
+        width: 300px;
+        border: dashed;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .right-content{
+        border: solid;
+        width: 80%;
+        height: 300px;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .top-row{
+        display: grid;
+        grid-template-columns: 30% 40% 30%;
+    }
+
+    .desc {
+        margin: 50px;
+    }
+
+    .desc p {
+        text-align: justify;
+        margin-top: 20px;
+    }
+
+    .button-primary{
+        background-color: yellow;
+        color: yellow;
+    }
+
+    .checked {
+        color: orange;
+    }
+
+    .not-checked{
+        color: white;
+    }
+
+</style>
+
+<div class="top-content">
+    <div class="img-container">
+        <img src=css/batata-vermelha-final-1.jpg width="100%" height="100%"/>
+    </div>
+    <div class="right-content">
+        <h1>@nomeProduto</h1>
+        <div class="top-row">
+            <p>Categoria</p>
+            <i class="fa fa-heart" style="color: red"></i>
+            <p>Vendedor</p>
+            
+        </div>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star not-checked"></span>
+        <span class="fa fa-star not-checked"></span>
+        <br />
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star not-checked"></span>
+        <span class="fa fa-star not-checked"></span>
+        
+        <p>Quantidade em Stock</p>
+        <p style="color: gold; font-size: 2em;">100€</p>
+        <button class="button-primary"><a href="carrinho">Adicionar ao carrinho</a></button>
+    </div>
+</div>
+<div class="desc">
+    <h2 style="text-align: left">Descrição do produto</h2>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quam felis, malesuada vel elementum id, molestie at odio. Donec at massa sem. Curabitur laoreet ut turpis eget euismod. Proin placerat dictum lorem, id hendrerit dui tristique nec. Duis eget lorem aliquam velit lacinia rhoncus. Suspendisse scelerisque sapien est, eget ultricies libero consequat sit amet. Pellentesque mollis ornare libero id tempor. Sed rutrum dolor eget dolor mattis tincidunt.
+
+        Vestibulum consectetur gravida mattis. Donec venenatis lobortis velit non interdum. Nunc lectus dolor, ultrices sed justo nec, malesuada posuere nisl. Vestibulum venenatis ipsum et felis iaculis fermentum. In et odio quis risus commodo vulputate. Ut id dui vitae tellus aliquet imperdiet quis sed massa. Quisque hendrerit augue vitae dolor aliquam ullamcorper. Proin tempus metus vitae rutrum condimentum.
+
+        Suspendisse mollis orci ac orci dictum, in fringilla risus varius. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam interdum rutrum justo vel tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Phasellus congue mauris non sodales facilisis. Duis hendrerit suscipit mauris non euismod. In nec dolor sit amet neque placerat accumsan. Mauris ut euismod ex. Praesent eu mauris purus. Fusce non scelerisque nisi. Pellentesque vitae mauris id enim tempus bibendum et euismod nibh. Mauris sodales ultricies porta. Curabitur posuere, magna ac sagittis consectetur, velit ex tincidunt dui, sit amet malesuada velit ipsum quis arcu. Vestibulum accumsan bibendum elit a fringilla.
+
+        Duis in est lobortis, commodo neque sit amet, vestibulum libero. Vestibulum ultricies ante et quam viverra, egestas volutpat magna ultrices. Sed imperdiet, mi et egestas ultrices, ipsum nulla suscipit dui, ac consectetur metus enim et nisl. Aliquam placerat finibus laoreet. Donec molestie viverra purus, non commodo est tincidunt at. Pellentesque tempus, est et pharetra finibus, neque diam pulvinar mauris, eget pulvinar nulla lorem et massa. Quisque malesuada congue felis et vestibulum. Morbi tincidunt venenatis erat. Quisque nec nunc at ex pulvinar luctus. Pellentesque vitae congue mauris. Nam rhoncus pharetra diam ac fermentum. Proin ex tortor, dignissim at augue consequat, mattis tincidunt libero. Nam eget augue vel turpis tempus viverra id at risus. Nulla vel lectus sodales, efficitur tellus sed, vulputate est. Phasellus suscipit erat sit amet laoreet suscipit.
+
+        Vestibulum eu malesuada mauris. Praesent a leo id mi tempus aliquam. Fusce fermentum eleifend lorem sit amet laoreet. Proin eleifend justo at gravida facilisis. Mauris fermentum euismod pretium. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla ultricies nibh eget imperdiet posuere. Vivamus ultricies mi velit, quis commodo mi tristique id. Nunc tempus laoreet mattis. Morbi sodales diam vitae velit rhoncus fermentum non vel nisi. Maecenas pulvinar ligula nisi, sed tristique justo rutrum id. Proin ex diam, sollicitudin sed ex rutrum, sollicitudin dictum lacus.
+    </p>
+</div>
+
 
 @code {
     [Parameter]
