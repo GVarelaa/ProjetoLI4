@@ -7,7 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Remove="Data\BusinessLogic\SubUtilizadores\Utilizador.cs" />
+=======
+    <None Include="wwwroot\css\batata-vermelha-final-1.jpg" />
+>>>>>>> b52fde84048cc6db272d2a8adf9454a8bdd972b9
   </ItemGroup>
 
   <ItemGroup>

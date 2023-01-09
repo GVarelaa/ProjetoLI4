@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "plqe5EpS+QtLXrIkzCI+5AGDaDhiKSzLaVSIUeAqX1A=",
+  "Hash": "+JLlwYOopQVOFIJzVJqdlpo+MzsArlLE+8dHDQDeJPc=",
   "Source": "src",
   "BasePath": "_content/src",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "src\\wwwroot",
       "Source": "src",
-      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\obj\\Debug\\net6.0\\scopedcss\\bundle\\src.styles.css",
+      "Identity": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\obj\\Debug\\net6.0\\scopedcss\\bundle\\src.styles.css",
       "SourceId": "src",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/src",
       "RelativePath": "src.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\obj\\Debug\\net6.0\\scopedcss\\bundle\\src.styles.css"
+      "OriginalItemSpec": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\obj\\Debug\\net6.0\\scopedcss\\bundle\\src.styles.css"
     },
     {
-      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\src.bundle.scp.css",
+      "Identity": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\src.bundle.scp.css",
       "SourceId": "src",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/src",
       "RelativePath": "src.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\src.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\src.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/open-iconic/FONT-LICENSE",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\site.css",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -255,27 +255,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\TopBar.css",
+      "Identity": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\favicon.ico",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
-      "BasePath": "_content/src",
-      "RelativePath": "css/TopBar.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\TopBar.css"
-    },
-    {
-      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\favicon.ico",
-      "SourceId": "src",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
