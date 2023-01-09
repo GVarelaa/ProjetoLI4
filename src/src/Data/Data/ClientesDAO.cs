@@ -73,6 +73,20 @@ namespace src.Data.Data
             }
             return clientes;
         }
+
+        public int GetAvaliacao(int nifCliente, int idProduto)
+        {
+            const string connectionString = DAOConfig.URL;
+            IEnumerable<int> ret;
+
+            using (var connection = new SqlConnection(connectionString))
+            {
+                ret = connection.Query<int>("SELECT valorAval FROM Avaliacao WHERE (nifCliente=" + nifCliente + " and idProduto=" + idProduto + ")");
+            }
+
+            return ret.FirstOrDefault();
+        }
+
     }
 }
 

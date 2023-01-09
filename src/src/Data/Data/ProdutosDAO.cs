@@ -143,4 +143,18 @@ public class ProdutosDAO
     }
 
 
+    public int GetAvaliacaoMediaProduto(int idProduto)
+    {
+        const string connectionString = DAOConfig.URL;
+        IEnumerable<int> avals;
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            avals = connection.Query<int>("SELECT valorAval FROM Avaliacao WHERE idProduto=" + idProduto);
+        }
+
+        int soma = avals.Sum();
+        return soma / (avals.Count());
+    }
+
 }
