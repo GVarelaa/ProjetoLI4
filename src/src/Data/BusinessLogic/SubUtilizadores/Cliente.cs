@@ -1,4 +1,5 @@
 ﻿using Dapper.Contrib.Extensions;
+using src.Data.Data;
 using System;
 namespace src.Data.BusinessLogic;
 
@@ -11,6 +12,8 @@ public class Cliente
     private String apelido { get; set; }
     private String email { get; set; }
     private String passwordCliente { get; set; }
+
+    private ProdutosDAO produtosDAO = ProdutosDAO.GetInstance();
 
     public Cliente() { }
 

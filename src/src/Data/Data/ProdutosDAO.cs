@@ -70,6 +70,38 @@ public class ProdutosDAO
         return ps;
     }
 
+    public IEnumerable<Produto> GetFavs(int id)
+    {
+        const string connectionString = DAOConfig.URL;
+        IEnumerable<int> idsP;
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            idsP = connection.Query<int>("SELECT idProduto FROM Favorito where nifCliente=" + id);
+        }
+
+        IEnumerable<Produto> favs = new List<Produto>();
+        foreach (int idP in idsP)
+        {
+            favs.Append(Get(idP));
+        }
+
+        return favs;
+    }
+
+    public IEnumerable<Tuple<int, int>> GetAvaliacoes(int nifCliente)
+    {
+        const string connectionString = DAOConfig.URL;
+        IEnumerable<Tuple<int, int>> idsP;
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            idsP = connection.Query<Tuple<int, int>>("SELECT (idProduto,valorAval) FROM Avaliacao WHERE nifCliente=" + nifCliente);
+        }
+
+        return idsP;
+    }
+
 
     public Produto Insert(Produto p)
     {

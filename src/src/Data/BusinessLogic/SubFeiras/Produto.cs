@@ -17,8 +17,12 @@ public class Produto
     private float fatorTolerancia { get; set; }
     private float fatorResposta { get; set; }
 
+    private string nomeFeira { get; set; }
 
-    public Produto(int id, string nomeProduto, float preco, int stockP, string descricaoP, string categoriaP, float avaliacao, float fatorAceitacaoP, float fatorToleranciaP, float fatorRespostaP)
+    private int nifVendedor { get; set; } 
+
+
+    public Produto(int id, string nomeProduto, float preco, int stockP, string descricaoP, string categoriaP, float avaliacao, float fatorAceitacaoP, float fatorToleranciaP, float fatorRespostaP, string nomeF, int nifV)
     {
         idProduto = id;
         nome = nomeProduto;
@@ -30,6 +34,8 @@ public class Produto
         fatorAceitacao = fatorAceitacaoP;
         fatorTolerancia = fatorToleranciaP;
         fatorResposta = fatorRespostaP;
+        nomeFeira = nomeF;
+        nifVendedor = nifV;
     }
 
     public Produto() { }
@@ -46,15 +52,17 @@ public class Produto
                avaliacaoMedia == produto.avaliacaoMedia &&
                fatorAceitacao == produto.fatorAceitacao &&
                fatorTolerancia == produto.fatorTolerancia &&
-               fatorResposta == produto.fatorResposta;
+               fatorResposta == produto.fatorResposta &&
+               nomeFeira.Equals(produto.nomeFeira) &&
+               nifVendedor == produto.nifVendedor;
     }
 
     public override string ToString()
     {
-        return this.idProduto + ", " + this.nome + ", " + this.preço + ", " +
+        return this.idProduto + ", " + this.nome + ", " + this.preço + ", " + 
                this.stock + ", " + this.descricao + ", " + this.categoria + ", " +
-               this.avaliacaoMedia + ", " + this.fatorAceitacao + ", " + this.fatorTolerancia + ", " +
-               this.fatorResposta;
+               this.avaliacaoMedia + ", " + this.fatorAceitacao + ", " + this.fatorTolerancia + ", " + 
+               this.fatorResposta + ", " + this.nomeFeira + ", " + this.nifVendedor;
     }
 
 }
