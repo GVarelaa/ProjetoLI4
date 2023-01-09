@@ -2,6 +2,7 @@
 using Dapper;
 using Dapper.Contrib;
 using Dapper.Contrib.Extensions;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.Data.SqlClient;
 using src.Data.BusinessLogic;
 
@@ -38,26 +39,43 @@ public class VendedoresDAO
         return v;
     }
 
-    public Vendedor Put(Vendedor v)
+    public Vendedor Insert(Vendedor v)
     {
-        
-    }
-
-    public Vendedor Remove(int key)
-    {
-        Vendedor v = Get(key);
-
-        const string connectionString = "Server=" + DAOConfig.Address +
-                                        ";Database" + DAOConfig.NomeBD +
-                                        ";User ID" + DAOConfig.User +
-                                        ";Password=" + DAOConfig.Password;
+        const string connectionString = DAOConfig.URL;
 
         using (var connection = new SqlConnection(connectionString))
         {
-            connection.Execute("DELETE FROM Vendedor WHERE nifVendedor='" + key.ToString() + "')");
+            connection.Insert<Vendedor>(v);
         }
 
         return v;
     }
+
+    public Vendedor Delete(int key)
+    {
+        Vendedor v = Get(key);
+
+        const string connectionString = DAOConfig.URL;
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            connection.Delete<Vendedor>(v);
+        }
+
+        return v;
+    }
+
+    public IEnumerable<Vendedor> GetAll()
+    {
+        const string connectionString = DAOConfig.URL;
+        IEnumerable<Vendedor> vs;
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            vs = connection.GetAll<Vendedor>();
+        }
+        return vs;
+    }
+
+
 }
-*/
