@@ -27,10 +27,10 @@ public class Cliente
     {
         return obj is Cliente client &&
                nifClient == client.nifClient &&
-               nomeProprio == client.nomeProprio &&
+               nomeProprio.Equals(client.nomeProprio) &&
                apelido == client.apelido &&
-               email == client.email &&
-               passwordCliente == client.passwordCliente;
+               email.Equals(client.email) &&
+               passwordCliente.Equals(client.passwordCliente);
     }
 
     public override string ToString()
