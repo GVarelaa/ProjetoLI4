@@ -13,8 +13,6 @@ public class Feira
     public string descricao { get; set; }
     public string localFeira { get; set; }
 
-    public VendedoresDAO vendedores = VendedoresDAO.GetInstance(); 
-
     public Feira(string nome, string tema, string descricao, string local)
     {
         this.nomeFeira = nome;

@@ -11,6 +11,16 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<Facade>();
 
+SubFeirasFacade f = new SubFeirasFacade();
+Console.WriteLine(f.GetFeira("arcosverde"));
+Console.WriteLine(f.GetFeiras());
+Console.WriteLine(f.GetProdutosFeira("arcosverde"));
+Console.WriteLine(f.GetAvaliacaoMediaProduto(1));
+Console.WriteLine(f.GetProduto(1));
+Console.WriteLine(f.GetProdutosVendedor(1));
+Console.WriteLine(f.GetProdutosFavoritos(1));
+
+
 
 
 
