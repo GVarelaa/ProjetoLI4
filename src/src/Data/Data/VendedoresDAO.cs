@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Dapper;
 using Dapper.Contrib;
 using Dapper.Contrib.Extensions;
@@ -16,7 +17,7 @@ public class VendedoresDAO
     {
     }
 
-    public static VendedoresDAO GetInstace()
+    public static VendedoresDAO GetInstance()
     {
         if (vendedores == null)
         {
@@ -63,6 +64,25 @@ public class VendedoresDAO
         }
 
         return v;
+    }
+
+    public IEnumerable<Vendedor> VendedoresFeira(string nomeFeira)
+    {
+        const string connectionString = DAOConfig.URL;
+        IEnumerable<int> nifs;
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            nifs = connection.Query<int>("SELECT nifVendedor FROM RegistoFeira WHERE nomeFeira=" + nomeFeira);
+        }
+
+        IEnumerable<Vendedor> vs = new List<Vendedor>();
+        foreach(int nif in nifs)
+        {
+            vs.Append(Get(nif));
+        }
+
+        return vs;
     }
 
     public IEnumerable<Vendedor> GetAll()

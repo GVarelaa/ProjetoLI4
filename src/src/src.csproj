@@ -7,17 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Remove="Data\BusinessLogic\SubUtilizadores\Utilizador.cs" />
-=======
     <None Include="wwwroot\css\batata-vermelha-final-1.jpg" />
->>>>>>> b52fde84048cc6db272d2a8adf9454a8bdd972b9
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="Dapper.Contrib" Version="2.0.78" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.0-preview2.22314.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\BusinessLogic\SubCompras\" />
   </ItemGroup>
 
 </Project>

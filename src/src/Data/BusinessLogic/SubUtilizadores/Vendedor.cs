@@ -1,6 +1,7 @@
 ﻿using System;
 using Dapper.Contrib.Extensions;
 using src.Data.BusinessLogic.SubFeiras;
+using src.Data.Data;
 namespace src.Data.BusinessLogic;
 
 [Table("Vendedor")]
@@ -13,7 +14,7 @@ public class Vendedor
     private String email { get; set; }
     private String passwordVendedor { get; set; }
 
-    //private Dictionary<int, Produto> products;
+    private ProdutosDAO products = ProdutosDAO.GetInstance();
 
     public Vendedor(int sellerNif, string name, string surname, string email, string password)
     {
@@ -22,7 +23,6 @@ public class Vendedor
         this.apelido = surname;
         this.email = email;
         this.passwordVendedor = password;
-        //this.products = new Dictionary<int, Produto>();
     }
 
     public Vendedor() { }
