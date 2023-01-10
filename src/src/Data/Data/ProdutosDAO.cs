@@ -36,6 +36,73 @@ public class ProdutosDAO
         return p;
     }
 
+    public IEnumerable<Produto> GetProdutosFeira(string nomeFeira)
+    {
+        const string connectionString = DAOConfig.URL;
+        IEnumerable<Produto> ps = new List<Produto>();
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            IEnumerable<int> ids = connection.Query<int>("SELECT idProduto FROM Produto WHERE nomeFeira=" + nomeFeira);
+
+            foreach(int id in ids)
+            {
+                ps.Append(Get(id));
+            }
+        }
+        return ps;
+    }
+
+    public IEnumerable<Produto> GetProdutosVendedor(int nif)
+    {
+        const string connectionString = DAOConfig.URL;
+        IEnumerable<Produto> ps = new List<Produto>();
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            IEnumerable<int> ids = connection.Query<int>("SELECT idProduto FROM Produto WHERE nifVendedor=" + nif);
+
+            foreach (int id in ids)
+            {
+                ps.Append(Get(id));
+            }
+        }
+        return ps;
+    }
+
+    public IEnumerable<Produto> GetFavs(int id)
+    {
+        const string connectionString = DAOConfig.URL;
+        IEnumerable<int> idsP;
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            idsP = connection.Query<int>("SELECT idProduto FROM Favorito where nifCliente=" + id);
+        }
+
+        IEnumerable<Produto> favs = new List<Produto>();
+        foreach (int idP in idsP)
+        {
+            favs.Append(Get(idP));
+        }
+
+        return favs;
+    }
+
+    public IEnumerable<Tuple<int, int>> GetAvaliacoes(int nifCliente)
+    {
+        const string connectionString = DAOConfig.URL;
+        IEnumerable<Tuple<int, int>> idsP;
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            idsP = connection.Query<Tuple<int, int>>("SELECT (idProduto,valorAval) FROM Avaliacao WHERE nifCliente=" + nifCliente);
+        }
+
+        return idsP;
+    }
+
+
     public Produto Insert(Produto p)
     {
         const string connectionString = DAOConfig.URL;
@@ -75,5 +142,19 @@ public class ProdutosDAO
         return produtos;
     }
 
+
+    public int GetAvaliacaoMediaProduto(int idProduto)
+    {
+        const string connectionString = DAOConfig.URL;
+        IEnumerable<int> avals;
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            avals = connection.Query<int>("SELECT valorAval FROM Avaliacao WHERE idProduto=" + idProduto);
+        }
+
+        int soma = avals.Sum();
+        return soma / (avals.Count());
+    }
 
 }

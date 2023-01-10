@@ -1,37 +1,65 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using src.Data.Data;
 
 namespace src.Data.BusinessLogic.SubFeiras;
 
 public class SubFeirasFacade
 {
-    //private FeirasDAO Feiras;
+    private FeirasDAO Feiras;
+    private ProdutosDAO Produtos;
 
     public SubFeirasFacade()
     {
-        //this.Feiras = new FeirasDAO();
+        this.Feiras = FeirasDAO.GetInstance();
+        this.Produtos = ProdutosDAO.GetInstance();
     }
 
-    //public List<Produto> GetProdutosFeira(string nomeFeira) // Para mostrar catálogo
-    //{
-    //    Feira feira = this.Feiras.Get(nomeFeira);
-
-    //    return feira.produtos;
-    //}
-
-    public List<string> GetDetalhesFeira(string nomeFeira) // Para mostrar catálogo
+    public Task<IEnumerable<Feira>> GetFeiras()
     {
-        Feira feira; //= this.Feiras.Get(nomeFeira);
-
-        List<string> detalhes = new List<string>();
-        /*detalhes.Add(feira.Nome);
-        detalhes.Add(feira.Tema);
-        detalhes.Add(feira.Local);
-        */
-        return detalhes;
+        return Task.FromResult(Feiras.GetAll());
     }
 
-   
+    public Task<Feira> GetFeira(string nome)
+    {
+        return Task.FromResult(Feiras.Get(nome));
+    }
+
+    public Task<Produto> GetProduto(int id) 
+    {
+        return Task.FromResult(Produtos.Get(id));
+    }
+       
+    public Task<IEnumerable<Produto>> GetProdutosFeira(string nomeFeira)
+    {
+        return Task.FromResult(Produtos.GetProdutosFeira(nomeFeira));
+    }
+
+    public Task<IEnumerable<Produto>> GetProdutosVendedor(int nifVendedor)
+    {
+        return Task.FromResult(Produtos.GetProdutosVendedor(nifVendedor));
+    }
+
+    public Task<IEnumerable<Produto>> GetProdutosFavoritos(int nifCliente)
+    {
+        return Task.FromResult(Produtos.GetFavs(nifCliente));
+    }
+
+    public Task<int> GetAvaliacaoMediaProduto(int idProduto)
+    {
+        return Task.FromResult(Produtos.GetAvaliacaoMediaProduto(idProduto));
+    }
+
+    public void AddProduto(Produto p)
+    {
+        Produtos.Insert(p);
+    }
+
+    public void AddFeira(Feira f)
+    {
+        Feiras.Insert(f);
+    }
+
 }
 
