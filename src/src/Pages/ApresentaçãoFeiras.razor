@@ -1,0 +1,135 @@
+﻿@page "/Feiras"
+@using src.Data
+@inject Facade Facade
+
+<style>
+
+    body, html {
+        height: 100%;
+        width: 100%;
+    }
+
+    .title-bar {
+        margin-bottom: 10px;
+        margin-top: 10px;
+        font-size: 2em;
+    }
+
+        .title-bar h1 {
+            color: green;
+        }
+
+    .feiras {
+        height: 100%;
+        margin-left: 10%;
+        margin-right: 10%;
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+
+    .feira-square {
+        justify-self: center;
+        align-self: center;
+        width: 150px;
+        height: 150px;
+        border: solid;
+    }
+
+        .feira-square:before {
+            content: "";
+            float: left;
+            padding-top: 10%; /* initial ratio of 1:1*/
+        }
+
+    .feiras-container {
+        height: 70%;
+        display: grid;
+        grid-template-columns: 5% auto 5%;
+        grid-template-rows: auto;
+    }
+
+    .icon {
+        justify-self: center;
+        align-self: center;
+    }
+
+    .fa-arrow-left {
+        font-size: 50px;
+        color: var(--color-blue);
+    }
+
+    .fa-arrow-right {
+        font-size: 50px;
+        color: var(--color-blue);
+    }
+
+</style>
+
+<link href="css/FeirasPage.css" rel="stylesheet" />
+
+<div class="title-bar">
+    <h1>Escolha a feira</h1>
+
+    <input type="text" placeholder="Procurar feira" @bind="@filterValue">
+
+    <button @onclick="applyFilter">Procurar</button>
+</div>
+
+<div class="feiras-container">
+    <div class="icon"><button><i class="fa fa-arrow-left"></i></button></div>
+    <div class="feiras">
+        <div class="feira-square">
+            <button><a href="catalogo/Feira1">Feira1</a></button>
+            <h1>Feira1</h1>
+        </div>
+        <div class="feira-square">
+            <button><a href="catalogo/Feira2">Feira2</a></button>
+            <h1>Feira2</h1>
+        </div>
+        <div class="feira-square">
+            <button><a href="catalogo/Feira3">Feira3</a></button>
+            <h1>Feira3</h1>
+        </div>
+        <div class="feira-square">
+            <button><a href="catalogo/Feira4">Feira4</a></button>
+            <h1>Feira4</h1>
+        </div>
+        <div class="feira-square">
+            <button><a href="catalogo/Feira5">Feira5</a></button>
+            <h1>Feira5</h1>
+        </div>
+        <div class="feira-square">
+            <button><a href="catalogo/Feira6">Feira6</a></button>
+            <h1>Feira6</h1>
+        </div>
+    </div>
+    <div class="icon"><button><i class="fa fa-arrow-right"></i></button></div>
+</div>
+
+
+
+
+
+@code {
+    private List<String>? feiras;
+    private List<String>? filteredFeiras;
+    private String filterValue;
+
+    protected override async Task OnInitializedAsync()
+    {
+        feiras = await Facade.getFeiras();
+        filteredFeiras = feiras;
+    }
+
+    public void applyFilter()
+    {
+        filteredFeiras.Clear();
+        foreach (String feira in feiras)
+        {
+            if (feira == filterValue)
+            {
+                filteredFeiras.Add(feira);
+            }
+        }
+    }
+}
