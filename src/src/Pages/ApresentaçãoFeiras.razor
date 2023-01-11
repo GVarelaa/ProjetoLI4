@@ -53,9 +53,9 @@
 
     .feiras-container {
         height: 70%;
-        display: grid;
         grid-template-columns: 5% auto 5%;
         grid-template-rows: auto;
+        display: @feirasStyle;
     }
 
     .icon {
@@ -71,6 +71,25 @@
     .fa-arrow-right {
         font-size: 50px;
         color: var(--color-blue);
+    }
+
+    .filtered-feira-container{
+        display: @filteredStyle;
+        margin-top: 10%;
+        grid-template-columns: auto;
+    }
+
+    .filtered-feira {
+        border: solid;
+        justify-self: center;
+        align-self: center;
+        width: 300px;
+        height: 300px;
+    }
+
+    .filtered-feira button {
+        height: 100%;
+        width: 100%;
     }
 
 </style>
@@ -117,6 +136,13 @@
         <button @onclick="incrementCounter"><i class="fa fa-arrow-right"></i></button>
     </div>
 </div>
+<div class="filtered-feira-container">
+    <div class="filtered-feira">
+        <button><a href="catalogo/Feira"><img src="css/feira.jpg" width="100%" height="100%" /></a></button>
+        <h1>Feira0</h1>
+    </div>
+</div>
+
 
 
 
@@ -126,6 +152,8 @@
     private List<String>? feiras;
     private List<String>? shownFeiras;
     private String filterValue;
+    private string feirasStyle = "grid";
+    private string filteredStyle = "none";
     private int index = 0;
 
     protected override async Task OnInitializedAsync()
@@ -171,6 +199,8 @@
 
     public void applyFilter()
     {
+        this.feirasStyle = "none";
+        this.filteredStyle = "grid";
         //Console.WriteLine("Ola");
         //filteredFeiras = new List<string>();
         // TODO
