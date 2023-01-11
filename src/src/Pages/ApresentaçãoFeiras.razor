@@ -75,8 +75,6 @@
 
 </style>
 
-<link href="css/FeirasPage.css" rel="stylesheet" />
-
 <div class="title-bar">
     <h1>Escolha a feira</h1>
 
@@ -86,34 +84,38 @@
 </div>
 
 <div class="feiras-container">
-    <div class="icon"><button><i class="fa fa-arrow-left"></i></button></div>
+    <div class="icon">
+        <button @onclick="decrementCounter"><i class="fa fa-arrow-left"></i></button>
+    </div>
     <div class="feiras">
         <div class="feira-square">
             <button><a href="catalogo/Feira1"><img src="css/feira.jpg" width="100%" height="100%" /></a></button>
-            <h1>Feira1</h1>
+            <h1>@shownFeiras[0]</h1>
         </div>
         <div class="feira-square">
             <button><a href="catalogo/Feira2"><img src="css/feira.jpg" width="100%" height="100%" /></a></button>
-            <h1>Feira2</h1>
+            <h1>@shownFeiras[1]</h1>
         </div>
         <div class="feira-square">
             <button><a href="catalogo/Feira3"><img src="css/feira.jpg" width="100%" height="100%" /></a></button>
-            <h1>Feira3</h1>
+            <h1>@shownFeiras[2]</h1>
         </div>
         <div class="feira-square">
             <button><a href="catalogo/Feira4"><img src="css/feira.jpg" width="100%" height="100%" /></a></button>
-            <h1>Feira4</h1>
+            <h1>@shownFeiras[3]</h1>
         </div>
         <div class="feira-square">
             <button><a href="catalogo/Feira5"><img src="css/feira.jpg" width="100%" height="100%" /></a></button>
-            <h1>Feira5</h1>
+            <h1>@shownFeiras[4]</h1>
         </div>
         <div class="feira-square">
-            <button><a href="catalogo/Feira6"><img src="css/feira.jpg" width="100%" height="100%" /></a></button>
-            <h1>Feira6</h1>
+            <button><a href="catalogo/Feira"><img src="css/feira.jpg" width="100%" height="100%" /></a></button>
+            <h1>@shownFeiras[5]</h1>
         </div>
     </div>
-    <div class="icon"><button><i class="fa fa-arrow-right"></i></button></div>
+    <div class="icon">
+        <button @onclick="incrementCounter"><i class="fa fa-arrow-right"></i></button>
+    </div>
 </div>
 
 
@@ -122,24 +124,62 @@
 
 @code {
     private List<String>? feiras;
-    private List<String>? filteredFeiras;
+    private List<String>? shownFeiras;
     private String filterValue;
+    private int index = 0;
 
     protected override async Task OnInitializedAsync()
     {
-        feiras = await Facade.getFeiras();
-        filteredFeiras = feiras;
+        this.index = 0;
+        feiras = new List<String>();
+        Console.WriteLine("Ola");
+        shownFeiras = new List<string>(6);
+        feiras.Add("Feira1");
+        feiras.Add("Feira2");
+        feiras.Add("Feira3");
+        feiras.Add("Feira4");
+        feiras.Add("Feira5");
+        feiras.Add("Feira6");
+        feiras.Add("Feira7");
+        feiras.Add("Feira8");
+        feiras.Add("Feira9");
+        feiras.Add("Feira10");
+        feiras.Add("Feira11");
+        feiras.Add("Feira12");
+        this.updateFeiras();
+    }
+
+    private void updateFeiras(){
+        for(int i=0; i<6; i++){
+            shownFeiras.Insert(i, feiras.ElementAt(index * 6 + i));
+        }
+    }
+
+    private void decrementCounter(){
+        if (this.index != 0){
+            this.index--;
+        }
+        this.updateFeiras();
+    }
+
+    private void incrementCounter(){
+        if (feiras.Capacity >= (this.index+1)*6){
+            this.index++;
+        }
+        this.updateFeiras();
     }
 
     public void applyFilter()
     {
-        filteredFeiras.Clear();
-        foreach (String feira in feiras)
+        //Console.WriteLine("Ola");
+        //filteredFeiras = new List<string>();
+        // TODO
+        /*foreach (String feira in feiras)
         {
             if (feira == filterValue)
             {
-                filteredFeiras.Add(feira);
+                filteredFeiras.Add("Feira7");
             }
-        }
+        }*/
     }
 }
