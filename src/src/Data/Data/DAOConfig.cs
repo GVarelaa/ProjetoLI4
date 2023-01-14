@@ -18,7 +18,7 @@ public class DAOConfig
     {
         using (var connection = new SqlConnection(DAOConfig.URL))
         {
-            connection.Execute("CREATE DATABASE IF NOT EXISTS UMarket;");
+            connection.Execute("CREATE DATABASE UMarket;");
 
             connection.Execute("CREATE TABLE Feira (" +
                 "nomeFeira VARCHAR(45) NOT NULL," +
