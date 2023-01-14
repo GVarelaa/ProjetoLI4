@@ -1,8 +1,12 @@
-CREATE DATABASE IF NOT EXISTS UMarket;
+CREATE DATABASE UMarket;
 
 USE UMarket;
 
-CREATE TABLE IF NOT EXISTS Feira (
+CREATE DATABASE UMarket;
+
+USE UMarket;
+
+CREATE TABLE Feira (
 	nomeFeira VARCHAR(45) NOT NULL,
 	tema VARCHAR(45) NOT NULL,
 	descricao VARCHAR(8000) NOT NULL,
@@ -10,8 +14,8 @@ CREATE TABLE IF NOT EXISTS Feira (
 	PRIMARY KEY (nomeFeira)
 );
 
-CREATE TABLE IF NOT EXISTS Vendedor (
-	nifVendedor INT UNSIGNED NOT NULL,
+CREATE TABLE Vendedor (
+	nifVendedor INT NOT NULL,
 	nomeProprio VARCHAR(45) NOT NULL,
 	apelido VARCHAR(45) NOT NULL,
 	email VARCHAR(45) NOT NULL,
@@ -20,17 +24,17 @@ CREATE TABLE IF NOT EXISTS Vendedor (
 );
 
 
-CREATE TABLE IF NOT EXISTS RegistoFeira (
+CREATE TABLE RegistoFeira (
 	nomeFeira VARCHAR(45) NOT NULL,
-	nifVendedor INT UNSIGNED NOT NULL,
+	nifVendedor INT NOT NULL,
 	PRIMARY KEY (nomeFeira, nifVendedor),
     FOREIGN KEY (nomeFeira) REFERENCES Feira (nomeFeira),
     FOREIGN KEY (nifVendedor) REFERENCES Vendedor (nifVendedor)
 );
 
 
-CREATE TABLE IF NOT EXISTS Produto (
-	idProduto INT UNSIGNED NOT NULL,
+CREATE TABLE Produto (
+	idProduto INT NOT NULL,
 	nome VARCHAR(45) NOT NULL,
 	preço DECIMAL(5,2) NOT NULL,
 	stock INT NOT NULL,
@@ -41,14 +45,14 @@ CREATE TABLE IF NOT EXISTS Produto (
 	fatorTolerancia FLOAT NULL,
 	fatorResposta FLOAT NULL,
 	nomeFeira VARCHAR(45) NOT NULL,
-	nifVendedor INT UNSIGNED NOT NULL,
+	nifVendedor INT NOT NULL,
 	PRIMARY KEY (idProduto),
     FOREIGN KEY (nomeFeira , nifVendedor) REFERENCES RegistoFeira (nomeFeira , nifVendedor)
 );
 
 
-CREATE TABLE IF NOT EXISTS Cliente (
-	nifCliente INT UNSIGNED NOT NULL,
+CREATE TABLE Cliente (
+	nifCliente INT NOT NULL,
 	nomeProprio VARCHAR(45) NOT NULL,
 	apelido VARCHAR(45) NOT NULL,
 	email VARCHAR(45) NOT NULL,
@@ -56,41 +60,50 @@ CREATE TABLE IF NOT EXISTS Cliente (
 	PRIMARY KEY (nifCliente)
 );
 
-CREATE TABLE IF NOT EXISTS Avaliacao (
-	nifCliente INT UNSIGNED NOT NULL,
-	idProduto INT UNSIGNED NOT NULL,
-	valorAval TINYINT(1) NOT NULL,
+CREATE TABLE Avaliacao (
+	nifCliente INT NOT NULL,
+	idProduto INT NOT NULL,
+	valorAval INT NOT NULL,
 	PRIMARY KEY (nifCliente, idProduto),
     FOREIGN KEY (nifCliente) REFERENCES Cliente (nifCliente),
     FOREIGN KEY (idProduto) REFERENCES Produto (idProduto)
 );
 
-CREATE TABLE IF NOT EXISTS Favorito (
-	nifCliente INT UNSIGNED NOT NULL,
-	idProduto INT UNSIGNED NOT NULL,
+CREATE TABLE Favorito (
+	nifCliente INT NOT NULL,
+	idProduto INT NOT NULL,
 	PRIMARY KEY (nifCliente, idProduto),
     FOREIGN KEY (nifCliente) REFERENCES Cliente (nifCliente),
     FOREIGN KEY (idProduto) REFERENCES Produto (idProduto)
 );
 
 
-CREATE TABLE IF NOT EXISTS Compra (
-	idCompra INT UNSIGNED NOT NULL,
+CREATE TABLE Carrinho (
+	nifCliente INT NOT NULL,
+	idProduto INT NOT NULL,
+	valorVenda DECIMAL(5,2) NOT NULL,
+	PRIMARY KEY (nifCliente, idProduto),
+    FOREIGN KEY (nifCliente) REFERENCES Cliente (nifCliente),
+    FOREIGN KEY (idProduto) REFERENCES Produto (idProduto)
+);
+
+CREATE TABLE Compra (
+	idCompra INT NOT NULL,
 	nomeFaturacao VARCHAR(45) NOT NULL,
 	moradaEntrega VARCHAR(90) NOT NULL,
 	telemovel VARCHAR(9) NOT NULL,
 	valorTotal DECIMAL(5,2) NOT NULL,
 	timestampCompra DATETIME NOT NULL,
-	nifCliente INT UNSIGNED NOT NULL,
+	nifCliente INT NOT NULL,
 	PRIMARY KEY (idCompra, nifCliente),
     FOREIGN KEY (nifCliente) REFERENCES Cliente (nifCliente)
 );
 
-CREATE TABLE IF NOT EXISTS ProdutoDaCompra (
-	idCompra INT UNSIGNED NOT NULL,
-	nifCliente INT UNSIGNED NOT NULL,
+CREATE TABLE ProdutoDaCompra (
+	idCompra INT NOT NULL,
+	nifCliente INT NOT NULL,
 	valorVenda DECIMAL(5,2) NOT NULL,
-	idProduto INT UNSIGNED NOT NULL,
+	idProduto INT NOT NULL,
 	PRIMARY KEY (idCompra, nifCliente, idProduto),
     FOREIGN KEY (idCompra, nifCliente) REFERENCES Compra (idCompra , nifCliente),
     FOREIGN KEY (idProduto) REFERENCES Produto (idProduto)

@@ -87,6 +87,18 @@ public class ClientesDAO
         return ret.FirstOrDefault();
     }
 
+        public void AddProdutoCarrinho(int nifCliente, int idProduto, int valorVenda)
+        {
+            const string connectionString = DAOConfig.URL;
+
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Execute("INSERT INTO Carrinho (nifCliente,idProduto,valorVenda) VALUES (" + nifCliente + "," + idProduto + "," + valorVenda + ")");
+            }
+
+        }
+
+    }
 }
 
 
