@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\src.csproj": {}
+    "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\src.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\src.csproj": {
+    "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\src.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\src.csproj",
+        "projectUniqueName": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\src.csproj",
         "projectName": "src",
-        "projectPath": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\src.csproj",
-        "packagesPath": "C:\\Users\\gui\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\obj\\",
+        "projectPath": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\src.csproj",
+        "packagesPath": "C:\\Users\\joaoa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\gui\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\joaoa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -76,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
