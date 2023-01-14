@@ -93,10 +93,33 @@
 		color: white;
 	}
 
-	input {
+	.semi input {
 		margin-top: -100px;
+		border: solid;
+		border-color: var(--color-blue);
 	}
 
+	.last-row{
+		position: absolute;
+		bottom: 10px;
+		margin-left: 15%;
+	}
+
+	.semi {
+		position: relative;
+	}
+
+	.semi .btn{
+		background-color: var(--color-blue);
+		border-radius: 20px;
+		transform: scale(1.2);
+		margin-left: 20px;
+	}
+
+	.semi .btn p {
+		margin: 4px;
+		color: white;
+	}
 
 </style>
 
@@ -107,17 +130,22 @@
 		<h1 style="margin-bottom: 100px;">Cliente</h1>
 		
 		@foreach(var f in clientValues){
-			<div class="value-box"><p>f</p></div>
+			@if(f != 0){
+				<div class="value-box"><p>@f</p></div>
+			}
 		}
 		
 		<div class="last-row">
 			<input type="text" placeholder="Insira novo valor ..." @bind="@input">
+			<button @onclick="submitValue" class="btn"><p>Negociar</p></button>
 		</div>
 	</div>
 	<div class="semi">
 		<h1 style="margin-bottom: -25px">Vendedor</h1>
-		@foreach(var f in sellerValues){
-			<div class="value-box"><p>f</p></div>
+		@foreach(var v in sellerValues){
+			@if(v != 0){
+				<div class="value-box"><p>@v</p></div>
+			}
 		}
 	</div>
 	
@@ -144,12 +172,15 @@
 	protected override async Task OnInitializedAsync()
 	{
 		valorFinal = 10f;
-		clientValues = new List<float>(4);
+		clientValues = new List<float>(3);
 		sellerValues = new List<float>(4);
 		sellerValues.Add(1);
-		sellerValues.Add(2);
-		sellerValues.Add(3);
-		sellerValues.Add(4);
+		sellerValues.Add(0);
+		sellerValues.Add(0);
+		sellerValues.Add(0);
+		clientValues.Add(0);
+		clientValues.Add(0);
+		clientValues.Add(0);
 	}
 
 	private void openPopup(){
@@ -158,5 +189,24 @@
 
 	private void closePopup(){
 		popupState = "popup";
+	}
+
+	private void submitValue(){
+		if (clientValues.Count == 3){
+			clientValues[0] = clientValues[1];
+			clientValues[1] = clientValues[2];
+			clientValues[2] = input;
+		}
+		else {
+			clientValues.Add(input);
+		}
+
+		if (sellerValues.Count == 4){
+			sellerValues[0] = sellerValues[1];
+			sellerValues[1] = sellerValues[2];
+			sellerValues[2] = sellerValues[3];
+			sellerValues[3] = -1;
+		}
+		
 	}
 }

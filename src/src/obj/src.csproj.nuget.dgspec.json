@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\src.csproj": {}
+    "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\src.csproj": {}
   },
   "projects": {
-    "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\src.csproj": {
+    "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\src.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\src.csproj",
+        "projectUniqueName": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\src.csproj",
         "projectName": "src",
-        "projectPath": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\src.csproj",
-        "packagesPath": "C:\\Users\\joaoa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\obj\\",
+        "projectPath": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\src.csproj",
+        "packagesPath": "C:\\Users\\Miguel Braga\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\joaoa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Miguel Braga\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -72,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
