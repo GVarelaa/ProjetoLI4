@@ -78,6 +78,7 @@ CREATE TABLE Carrinho (
 	nifCliente INT NOT NULL,
 	idProduto INT NOT NULL,
 	valorVenda DECIMAL(5,2) NOT NULL,
+	quantidade INT NOT NULL,
 	PRIMARY KEY (nifCliente, idProduto),
     FOREIGN KEY (nifCliente) REFERENCES Cliente (nifCliente),
     FOREIGN KEY (idProduto) REFERENCES Produto (idProduto)
@@ -99,6 +100,7 @@ CREATE TABLE ProdutoDaCompra (
 	idCompra INT NOT NULL,
 	valorVenda DECIMAL(5,2) NOT NULL,
 	idProduto INT NOT NULL,
+	quantidade INT NOT NULL,
 	PRIMARY KEY (idCompra, idProduto),
     FOREIGN KEY (idCompra) REFERENCES Compra (idCompra),
     FOREIGN KEY (idProduto) REFERENCES Produto (idProduto)
