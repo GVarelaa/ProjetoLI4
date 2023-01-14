@@ -1,6 +1,7 @@
 ﻿using System;
 using src.Data.Data;
 using src.Data.BusinessLogic.SubFeiras;
+using src.Data.BusinessLogic.Excecoes;
 
 namespace src.Data.BusinessLogic.SubUsers;
 
@@ -25,7 +26,7 @@ namespace src.Data.BusinessLogic.SubUsers;
             }
             else
             {
-                // atirar exceção
+                throw new AlreadyRegisteredException("Conta já registada");
             }
         }
 
@@ -38,7 +39,7 @@ namespace src.Data.BusinessLogic.SubUsers;
             }
             else
             {
-                // atirar exceção
+                throw new AlreadyRegisteredException("Conta já registada");
             }
         }
 
@@ -54,7 +55,7 @@ namespace src.Data.BusinessLogic.SubUsers;
                 }
                 else
                 {
-                    // exceção password errada
+                    throw new WrongPasswordException("Password inválida!");
                 }
             }
 
@@ -68,12 +69,11 @@ namespace src.Data.BusinessLogic.SubUsers;
                 }
                 else
                 {
-                    // exceção password errada
+                    throw new WrongPasswordException("Password inválida!");
                 }
             }
 
-            return 0;
-            // exceção conta não criada
+            throw new NonExistentAccountException("Conta inexistente!");
         }
 
         public Task<IEnumerable<Cliente>> GetClientes()
