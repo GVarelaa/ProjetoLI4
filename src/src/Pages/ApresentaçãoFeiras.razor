@@ -1,6 +1,6 @@
 ﻿@page "/Feiras"
-@using src.Data
-@inject Facade Facade
+@using src.Data.BusinessLogic.SubFeiras
+@inject SubFeirasFacade Facade
 
 <style>
 
@@ -160,7 +160,7 @@
 </div>
 
 
-
+<p>@aux</p>
 
 
 
@@ -172,9 +172,19 @@
     private string filteredStyle = "none";
     private string filteredFeira;
     private int index = 0;
+    private string aux;
 
     protected override async Task OnInitializedAsync()
     {
+        SubFeirasFacade f = new SubFeirasFacade();
+        //SubUtilizadoresFacade uf = new SubUtilizadoresFacade();
+
+        Feira f1 = new Feira("feira de ponte de lima", "Rural", "Muito boa", "Ponte de lima");
+        //f.AddFeira(f1);
+        IEnumerable<Feira> teste = await f.GetFeiras();
+
+        aux = teste.First().descricao;
+
         this.index = 0;
         feiras = new List<String>();
         shownFeiras = new List<string>(6);
