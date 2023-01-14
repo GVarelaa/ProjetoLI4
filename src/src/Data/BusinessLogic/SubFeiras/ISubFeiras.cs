@@ -17,6 +17,8 @@ public interface ISubFeiras
 
     public void AddFeira();
 
+    public void AddRegistoFeira();
+
 
 }
 

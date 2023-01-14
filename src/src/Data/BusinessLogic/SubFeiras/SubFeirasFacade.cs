@@ -61,5 +61,10 @@ public class SubFeirasFacade
         Feiras.Insert(f);
     }
 
+    public void AddRegistoFeira(String nomeFeira, int nifVendedor)
+    {
+        Feiras.AddRegistoFeira(nomeFeira, nifVendedor);
+    }
+
 }
 
