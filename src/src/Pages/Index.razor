@@ -1,7 +1,9 @@
 ﻿@page "/"
+@inject IJSRuntime js 
 
 <PageTitle>Index</PageTitle>
 
+@*
 <style>
 	body, html {
 		height: 100%;
@@ -38,5 +40,29 @@
 	<button><a href="/Vendedor"><h1>Vendedor</h1></a></button>
 	<button><a href="/CriarFeira"><h1>Admin</h1></a></button>
 </div>
+*@
+
+<AuthorizeView>
+	<Authorized>
+
+	</Authorized>
+	<NotAuthorized>
+		
+	</NotAuthorized>
+</AuthorizeView>
 
 
+@code{
+	[CascadingParameter]
+
+	private Task<AuthenticationState> authenticationState { get; set; }
+
+	private async Task DisplayGreetingAlert()
+	{
+		var authState = await authenticationState;
+		var message = $"Hello {authState.User.Identity.Name}";
+		await js.InvokeVoidAsync("alert", message);
+	}
+
+
+}
