@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tiBrZK7UwvG6YqD8D2jp0GgznbPI9sYpvKTlxbc0OiA=",
+  "Hash": "THGCrF1S/4g2enyzGp0gGiPnbYnJagboLdWLeoaJgUw=",
   "Source": "src",
   "BasePath": "_content/src",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "src\\wwwroot",
       "Source": "src",
-      "ContentRoot": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\obj\\Debug\\net6.0\\scopedcss\\bundle\\src.styles.css",
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\obj\\Debug\\net6.0\\scopedcss\\bundle\\src.styles.css",
       "SourceId": "src",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/src",
       "RelativePath": "src.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\obj\\Debug\\net6.0\\scopedcss\\bundle\\src.styles.css"
+      "OriginalItemSpec": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\obj\\Debug\\net6.0\\scopedcss\\bundle\\src.styles.css"
     },
     {
-      "Identity": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\src.bundle.scp.css",
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\src.bundle.scp.css",
       "SourceId": "src",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/src",
       "RelativePath": "src.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\src.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\src.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\batata-vermelha-final-1.jpg",
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\batata-vermelha-final-1.jpg",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/batata-vermelha-final-1.jpg",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\css\\batata-vermelha-final-1.jpg"
     },
     {
-      "Identity": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\feira.jpg",
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\feira.jpg",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/feira.jpg",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\css\\feira.jpg"
     },
     {
-      "Identity": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\logo.png",
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\logo.png",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/logo.png",
       "AssetKind": "All",
@@ -136,10 +136,61 @@
       "OriginalItemSpec": "wwwroot\\css\\logo.png"
     },
     {
-      "Identity": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\MasterCard.png",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
+      "BasePath": "_content/src",
+      "RelativePath": "css/MasterCard.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\MasterCard.png"
+    },
+    {
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\MBWay.png",
+      "SourceId": "src",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
+      "BasePath": "_content/src",
+      "RelativePath": "css/MBWay.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\MBWay.png"
+    },
+    {
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\Multibanco.svg.png",
+      "SourceId": "src",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
+      "BasePath": "_content/src",
+      "RelativePath": "css/Multibanco.svg.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Multibanco.svg.png"
+    },
+    {
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "SourceId": "src",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -153,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -170,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -187,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -204,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -221,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -238,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/open-iconic/FONT-LICENSE",
       "AssetKind": "All",
@@ -255,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -272,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -289,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\site.css",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -306,10 +357,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\favicon.ico",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",

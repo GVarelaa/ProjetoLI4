@@ -9,69 +9,69 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = src
 build_property.RootNamespace = src
-build_property.ProjectDir = C:\Users\gui\source\repos\ProjetoLI444\src\src\
+build_property.ProjectDir = C:\Users\joaoa\source\repos\ProjetoLI4\src\src\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\gui\source\repos\ProjetoLI444\src\src
+build_property.MSBuildProjectDirectory = C:\Users\joaoa\source\repos\ProjetoLI4\src\src
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/gui/source/repos/ProjetoLI444/src/src/App.razor]
+[C:/Users/joaoa/source/repos/ProjetoLI4/src/src/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gui/source/repos/ProjetoLI444/src/src/Pages/AdicionarProduto.razor]
+[C:/Users/joaoa/source/repos/ProjetoLI4/src/src/Pages/AdicionarProduto.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRpY2lvbmFyUHJvZHV0by5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gui/source/repos/ProjetoLI444/src/src/Pages/ApresentaçãoFeiras.razor]
+[C:/Users/joaoa/source/repos/ProjetoLI4/src/src/Pages/ApresentaçãoFeiras.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXByZXNlbnRhw6fDo29GZWlyYXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gui/source/repos/ProjetoLI444/src/src/Pages/CarrinhoCompras.razor]
+[C:/Users/joaoa/source/repos/ProjetoLI4/src/src/Pages/CarrinhoCompras.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FycmluaG9Db21wcmFzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gui/source/repos/ProjetoLI444/src/src/Pages/CatalogoFeira.razor]
+[C:/Users/joaoa/source/repos/ProjetoLI4/src/src/Pages/CatalogoFeira.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0YWxvZ29GZWlyYS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gui/source/repos/ProjetoLI444/src/src/Pages/FinalizarCompra.razor]
+[C:/Users/joaoa/source/repos/ProjetoLI4/src/src/Pages/FinalizarCompra.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmluYWxpemFyQ29tcHJhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gui/source/repos/ProjetoLI444/src/src/Pages/Index.razor]
+[C:/Users/joaoa/source/repos/ProjetoLI4/src/src/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gui/source/repos/ProjetoLI444/src/src/Pages/Negociacao.razor]
+[C:/Users/joaoa/source/repos/ProjetoLI4/src/src/Pages/Negociacao.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmVnb2NpYWNhby5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gui/source/repos/ProjetoLI444/src/src/Pages/PaginaProduto.razor]
+[C:/Users/joaoa/source/repos/ProjetoLI4/src/src/Pages/PaginaProduto.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnaW5hUHJvZHV0by5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gui/source/repos/ProjetoLI444/src/src/Shared/Topbar.razor]
+[C:/Users/joaoa/source/repos/ProjetoLI4/src/src/Shared/Topbar.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFRvcGJhci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gui/source/repos/ProjetoLI444/src/src/Shared/UserMenu.razor]
+[C:/Users/joaoa/source/repos/ProjetoLI4/src/src/Shared/UserMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFVzZXJNZW51LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gui/source/repos/ProjetoLI444/src/src/_Imports.razor]
+[C:/Users/joaoa/source/repos/ProjetoLI4/src/src/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gui/source/repos/ProjetoLI444/src/src/Shared/MainLayout.razor]
+[C:/Users/joaoa/source/repos/ProjetoLI4/src/src/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-949z5oit77
 
-[C:/Users/gui/source/repos/ProjetoLI444/src/src/Pages/_Host.cshtml]
+[C:/Users/joaoa/source/repos/ProjetoLI4/src/src/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gui/source/repos/ProjetoLI444/src/src/Pages/_Layout.cshtml]
+[C:/Users/joaoa/source/repos/ProjetoLI4/src/src/Pages/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
