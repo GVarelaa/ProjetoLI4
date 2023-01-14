@@ -1,0 +1,148 @@
+﻿@page "/CriarFeira"
+@using src.Data.BusinessLogic.SubFeiras
+@inject SubFeirasFacade facade;
+
+<style>
+	html, body {
+		height: 100%;
+		width: 100%;
+	}
+
+	.top-row {
+		height: 40%;
+		display: grid;
+		grid-template-columns: 30% auto;
+	}
+
+		.left-container {
+			display: grid;
+			grid-template-columns: auto;
+		}
+
+			.img-container{
+				border: solid;
+				width: 200px; 
+				height: 200px;
+				justify-self: center;
+				align-self: center;
+			}
+
+			.img-container:before {
+				content: "";
+				float: left;
+				padding-top: 10%; /* initial ratio of 1:1*/
+			}
+
+			.left-container button {
+				width: 100px;
+				height: 50px;
+				transform: scale(0.8);
+			}
+
+	.descricao{
+	}
+
+	button {
+		background-color: var(--color-blue);
+		border: none;
+		border-radius: 100px;
+	}
+
+	.btn-container button {
+		width: 100px;
+		height: 50px;
+		align-self: center;
+		justify-self: center;
+		margin: 10px 0 10px 0;
+	}
+
+	button h1 {
+		font-size: 20px;
+	}
+
+	.btn-container {
+	}
+
+	.right-container{
+		height: 100%;
+		width: 100%;
+	}
+
+		.form-container{
+			width: 100%;
+			display: flex;
+			justify-content: center;
+		}
+
+		.form-container form {
+			width: 100%;
+		}
+
+			.form-container input {
+				height: 30px;
+				width: 70%;
+				margin-bottom: 30px;
+				margin-top: 10px;
+			}
+
+		.descricao {
+			height: 40%;
+		}
+
+			.descricao textarea {
+				width: 80%;
+				height: 90%;
+			}
+</style>
+
+
+
+<div class="top-row">
+	<div class="left-container">
+		<div class="img-container">
+
+		</div>
+		<button>
+			<h3>Adicionar imagem</h3>
+		</button>
+		
+	</div>
+	
+	<div class="right-container">
+		<h3>Adicionar Feira</h3><br />
+		<div class="form-container">
+			<form>
+				<label for="name">Nome da Feira: </label>
+				<input type="text" id="name" @bind="@name"/><br />
+				<label for="theme">Contexto da feira</label>
+				<input type="text" id="theme" @bind="@theme"/><br />
+				<label for="place">Local da feira: </label>
+				<input type="text" id="place" @bind="@local"><br />
+			</form>
+		</div>
+	</div>
+	
+</div>
+
+<div class="descricao">
+	<label for="description">Descreva a feira: </label>
+	<textarea id="description" rows="5" cols="33" @bind="@description"></textarea>
+</div>
+
+<div class="btn-container">
+	<button @onclick="createFeira"><h1>Criar feira</h1></button>
+</div>
+
+
+@code {
+	private String name;
+	private String theme;
+	private String local;
+	private String description;
+
+	private void createFeira(){
+		SubFeirasFacade f = new SubFeirasFacade();
+		Feira feira = new Feira(name, theme, description, local);
+		f.AddFeira(feira);
+	}
+}

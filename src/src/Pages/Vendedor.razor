@@ -1,16 +1,14 @@
-﻿@page "/"
-
-<PageTitle>Index</PageTitle>
+﻿@page "/Vendedor"
 
 <style>
 	body, html {
 		height: 100%;
 	}
 
-	.container{
+	.container {
 		height: 80%;
 		display: grid;
-		grid-template-columns: 33% 33% 33%;
+		grid-template-columns: 50% 50%;
 	}
 
 	button {
@@ -23,7 +21,7 @@
 		justify-self: center;
 	}
 
-	a{
+	a {
 		text-decoration: none;
 	}
 
@@ -33,10 +31,13 @@
 	}
 </style>
 
+<h1>Página do Vendedor</h1>
+
+
 <div class="container">
-	<button><a href="/Feiras"><h1>Cliente</h1></a></button>
-	<button><a href="/Vendedor"><h1>Vendedor</h1></a></button>
-	<button><a href="/CriarFeira"><h1>Admin</h1></a></button>
+	<button><a href="/Vendedor/AdicionarProduto"><h1>Adicionar produto</h1></a></button>
 </div>
 
+@code {
 
+}
