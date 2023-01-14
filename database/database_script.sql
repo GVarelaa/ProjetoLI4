@@ -56,6 +56,15 @@ CREATE TABLE IF NOT EXISTS Cliente (
 	PRIMARY KEY (nifCliente)
 );
 
+CREATE TABLE Carrinho (
+	nifCliente INT NOT NULL,
+	idProduto INT NOT NULL,
+	valorVenda DECIMAL(5,2) NOT NULL,
+	PRIMARY KEY (nifCliente, idProduto),
+    FOREIGN KEY (nifCliente) REFERENCES Cliente (nifCliente),
+    FOREIGN KEY (idProduto) REFERENCES Produto (idProduto)
+);
+
 CREATE TABLE IF NOT EXISTS Avaliacao (
 	nifCliente INT UNSIGNED NOT NULL,
 	idProduto INT UNSIGNED NOT NULL,
