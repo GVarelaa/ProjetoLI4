@@ -2,7 +2,30 @@
 @using src.Data
 @inject Facade Facade
 
-<h3>CarrinhoCompras</h3>
+<style>
+    body, html {
+        height: 100%;
+        width: 100%;
+        background-color: white;
+    }
+
+    .top-content {
+        height: 25%;
+        /* padding: 50px;*/
+        display: grid;
+        /*grid-template-columns: 20% auto;*/
+        background-color: lightskyblue;
+    }
+
+</style>
+
+
+<div class="top-content">
+    <div align = "center">
+    <h3>Carrinho de Compras</h3>
+    </div>
+</div>
+
 
 <ul>
     @foreach(String prod in carrinhoUser){
@@ -11,7 +34,7 @@
 </ul>
 
 <button>
-    <a href="/finalizar">Finalizar compra!</a>
+    <a href="/finalizar" style="color: blue"> Finalizar compra! </a>
 </button>
 
 @code {
