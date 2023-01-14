@@ -58,5 +58,23 @@ public class ComprasDAO
         return compras;
     }
 
+    public IEnumerable<Tuple<Produto, float>> GetProdutosCarrinho(int nifCliente)
+    {
+        const string connectionString = DAOConfig.URL;
+        IEnumerable<Tuple<int, float>> idpds;
 
+        using (var connection = new SqlConnection(connectionString))
+        {
+            idpds = connection.Query<Tuple<int, float>>("SELECT (idProduto,valorVenda) FROM Carrinho where nifCliente=" + nifCliente);
+        }
+
+        IEnumerable<Tuple<Produto, float>> pds = new List<Tuple<Produto, float>>();
+
+        foreach (Tuple<int, float> t in idpds)
+        {
+            pds.Append(new Tuple<Produto, float>(Get(t.Item1), t.Item2));
+        }
+
+        return pds;
+    }
 }

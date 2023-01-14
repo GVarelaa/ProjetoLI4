@@ -25,6 +25,16 @@ public class Compra
         this.nifCliente = nifCliente;
     }
 
+    public Compra(string nomeFaturacao, string moradaEntrega, string telemovel, float valorTotal, DateTime timestamp, int nifCliente)
+    {
+        this.nomeFaturacao = nomeFaturacao;
+        this.moradaEntrega = moradaEntrega;
+        this.telemovel = telemovel;
+        this.valorTotal = valorTotal;
+        this.timestamp = timestamp;
+        this.nifCliente = nifCliente;
+    }
+
     public override bool Equals(object? obj)
     {
         return obj is Compra compra &&
