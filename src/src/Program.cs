@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using src.Data;
+using src.Data.BusinessLogic;
 using src.Data.BusinessLogic.SubFeiras;
+using src.Data.BusinessLogic.SubFeiras;
+using src.Data.BusinessLogic.SubUsers;
 using src.Data.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,11 +15,33 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<Facade>();
 
 SubFeirasFacade f = new SubFeirasFacade();
-Task<Feira> f1 = f.GetFeira("arcosverde");
-Task<IEnumerable<Feira>> f2 = f.GetFeiras();
+SubUtilizadoresFacade uf = new SubUtilizadoresFacade();
 
+
+
+Vendedor v = new Vendedor(22323323, "joao", "p", "joao@gmail.com", "123");
+uf.AddVendedor(v);
+//Vendedor v1 = await uf.GetVendedor(22323323);
+//Console.WriteLine(v1.Equals(v));
+
+
+
+//Cliente c = new Cliente(12245677, "joao", "p", "joao@gmail.com", "123");
+//uf.AddCliente(c);
+//Cliente c1 = await uf.GetCliente(12245677);
+//Console.WriteLine(c1.Equals(c));
+
+Feira f1 = new Feira("feira de ponte de lima","Rural","Muito boa","Ponte de lima");
+Feira f2 = await f.GetFeira(f1.nomeFeira);
+Console.WriteLine(f1.Equals(f2));   
+
+
+    
+
+/*Produto p = new Produto("batatas", (float)3.45, 200, "Batatas de Qualidade", "Produtos Agrícolas", 0, (float)0.2, (float)0.2, (float)0.2, "arcosverde", 1234567);
+f.AddProduto(p);
 Console.WriteLine(await f1);
-/*Console.WriteLine(f.GetProdutosFeira("arcosverde"));
+Console.WriteLine(f.GetProdutosFeira("arcosverde"));
 Console.WriteLine(f.GetAvaliacaoMediaProduto(1));
 Console.WriteLine(f.GetProduto(1));
 Console.WriteLine(f.GetProdutosVendedor(1));

@@ -22,9 +22,8 @@ public class Produto
     private int nifVendedor { get; set; } 
 
 
-    public Produto(int id, string nomeProduto, float preco, int stockP, string descricaoP, string categoriaP, float avaliacao, float fatorAceitacaoP, float fatorToleranciaP, float fatorRespostaP, string nomeF, int nifV)
+    public Produto(string nomeProduto, float preco, int stockP, string descricaoP, string categoriaP, float avaliacao, float fatorAceitacaoP, float fatorToleranciaP, float fatorRespostaP, string nomeF, int nifV)
     {
-        idProduto = id;
         nome = nomeProduto;
         preço = preco;
         stock = stockP;

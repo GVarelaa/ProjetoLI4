@@ -42,13 +42,12 @@ public class FeirasDAO
     public Feira Insert(Feira f)
     {
         const string connectionString = DAOConfig.URL;
-
-
+        
         using (var connection = new SqlConnection(connectionString))
         {
             connection.Insert<Feira>(f);
         }
-
+               
         return f;
     }
 

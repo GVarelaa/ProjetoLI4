@@ -10,7 +10,7 @@ public class SubComprasFacade
     public SubComprasFacade()
     {
         this.Compras = ComprasDAO.getInstance();
-    }
+    } 
 
 
     public void AddCompra(int nifCliente, string nomeFaturacao, string morada, string telemovel)
