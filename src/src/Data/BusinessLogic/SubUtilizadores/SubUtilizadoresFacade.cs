@@ -2,8 +2,8 @@
 using src.Data.Data;
 using src.Data.BusinessLogic.SubFeiras;
 
-namespace src.Data.BusinessLogic.SubUsers
-{
+namespace src.Data.BusinessLogic.SubUsers;
+
     public class SubUtilizadoresFacade
     {
         private ClientesDAO clientesDAO;
@@ -41,5 +41,5 @@ namespace src.Data.BusinessLogic.SubUsers
         }
         
     }
-}
+
 

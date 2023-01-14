@@ -11,5 +11,9 @@ public interface ISubUtilizadores
 
     public Task<Vendedor> GetVendedor(int nifVendedor);
 
+    public Task<int> GetAvaliacao(int nifCliente, int idProduto);
+    {
+
+    }
 }
 
