@@ -91,7 +91,7 @@ CREATE TABLE Compra (
 	valorTotal DECIMAL(5,2) NOT NULL,
 	timestampCompra DATETIME NOT NULL,
 	nifCliente INT NOT NULL,
-	PRIMARY KEY idCompra,
+	PRIMARY KEY (idCompra),
     FOREIGN KEY (nifCliente) REFERENCES Cliente (nifCliente)
 );
 
@@ -100,8 +100,8 @@ CREATE TABLE ProdutoDaCompra (
 	nifCliente INT NOT NULL,
 	valorVenda DECIMAL(5,2) NOT NULL,
 	idProduto INT NOT NULL,
-	PRIMARY KEY (idCompra, nifCliente, idProduto),
-    FOREIGN KEY (idCompra, nifCliente) REFERENCES Compra (idCompra , nifCliente),
+	PRIMARY KEY (idCompra, idProduto),
+    FOREIGN KEY (idCompra) REFERENCES Compra (idCompra),
     FOREIGN KEY (idProduto) REFERENCES Produto (idProduto)
 );
 
