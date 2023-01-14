@@ -96,7 +96,7 @@ public class ProdutosDAO
 
         using (var connection = new SqlConnection(connectionString))
         {
-            idsP = connection.Query<Tuple<int, int>>("SELECT (idProduto,valorAval) FROM Avaliacao WHERE nifCliente=" + nifCliente);
+            idsP = connection.Query<Tuple<int, int>>("SELECT idProduto,valorAval FROM Avaliacao WHERE nifCliente=" + nifCliente);
         }
 
         return idsP;

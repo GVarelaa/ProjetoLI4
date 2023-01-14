@@ -13,7 +13,7 @@ public class Compra
     public string moradaEntrega { get; set; }
     public string telemovel { get; set; }
     public float valorTotal { get; set; }
-    public DateTime timestamp { get; set; }
+    public DateTime timestampCompra { get; set; }
     public int nifCliente { get; set;}
 
     public Compra(int idCompra, string nomeFaturacao, string moradaEntrega, string telemovel, float valorTotal, DateTime timestamp, int nifCliente)
@@ -23,7 +23,7 @@ public class Compra
         this.moradaEntrega = moradaEntrega;
         this.telemovel = telemovel;
         this.valorTotal = valorTotal;
-        this.timestamp = timestamp;
+        this.timestampCompra = timestamp;
         this.nifCliente = nifCliente;
     }
 
@@ -33,7 +33,7 @@ public class Compra
         this.moradaEntrega = moradaEntrega;
         this.telemovel = telemovel;
         this.valorTotal = valorTotal;
-        this.timestamp = timestamp;
+        this.timestampCompra = timestamp;
         this.nifCliente = nifCliente;
     }
 
@@ -50,13 +50,13 @@ public class Compra
                this.moradaEntrega.Equals(compra.moradaEntrega) &&
                this.telemovel.Equals(compra.telemovel) &&
                this.valorTotal == compra.valorTotal &&
-               this.timestamp.Equals(compra.timestamp) &&
+               this.timestampCompra.Equals(compra.timestampCompra) &&
                this.nifCliente == compra.nifCliente;
     }
 
     public override string ToString()
     {
-        return this.idCompra + ", " + this.nomeFaturacao + ", " + this.moradaEntrega + ", " + this.telemovel + ", " + this.valorTotal + ", " + this.timestamp + ", " + this.nifCliente;
+        return this.idCompra + ", " + this.nomeFaturacao + ", " + this.moradaEntrega + ", " + this.telemovel + ", " + this.valorTotal + ", " + this.timestampCompra + ", " + this.nifCliente;
     }
 
 }
