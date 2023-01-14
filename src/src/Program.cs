@@ -13,6 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<SubFeirasFacade>();
+builder.Services.AddSingleton<SubComprasFacade>();
 
 //DAOConfig.createDatabase();
 
