@@ -1,0 +1,162 @@
+﻿@page "/Negociacao"
+
+<style>
+	body, html {
+		height: 100%;
+		width: 100%;
+	}
+
+	.container {
+		width: 100%;
+		/*height: 100vh;*/
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.popup{
+		border: solid;
+		width: 300px;
+		background-color: lightgreen;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		border-radius: 6px;
+		transform: translate(-50%, -50%) scale(0.1);
+		visibility: hidden;
+		transition: transform 0.4s;
+	}
+
+	.open-popup{
+		visibility: visible;
+		top: 50%;
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+	.popup h2 {
+		margin-top: 10px;
+		margin-bottom: 30px;
+	}
+
+	.popup h3 {
+		margin-bottom: 50px;
+	}
+
+	.popup button {
+		margin-bottom: 30px;
+		height: 30px;
+		width: 50px;
+		border: solid;
+		border-color: var(--color-primary);
+		border-radius: 30px;
+		border-width: 5px;
+		background-color: transparent;
+	}
+
+	.popup button p{
+		color: var(--color-primary);
+		font-weight: bold;
+		font-size: 1.5em;
+	}
+
+	.negociacao {
+		/*border: solid;*/
+		height: 80%;
+		width: 100%;
+		display: grid;
+		grid-template-columns: 50% 50%;
+	}
+
+	.negociacao .semi {
+		border: solid;
+	}
+
+	.value-box {
+		margin: 70px 10px 70px 10px;
+		background-color: lightgreen;
+		height: 40px;
+		border-radius: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+	}
+
+	.open {
+		border: solid;
+		background-color: red;
+		border-radius: 10px;
+	}
+
+	.open p {
+		font-weight: bold;
+		color: white;
+	}
+
+	input {
+		margin-top: -100px;
+	}
+
+
+</style>
+
+<h1>Negociacao</h1>
+
+<div class="negociacao">
+	<div class="semi">
+		<h1 style="margin-bottom: 100px;">Cliente</h1>
+		
+		@foreach(var f in clientValues){
+			<div class="value-box"><p>f</p></div>
+		}
+		
+		<div class="last-row">
+			<input type="text" placeholder="Insira novo valor ..." @bind="@input">
+		</div>
+	</div>
+	<div class="semi">
+		<h1 style="margin-bottom: -25px">Vendedor</h1>
+		@foreach(var f in sellerValues){
+			<div class="value-box"><p>f</p></div>
+		}
+	</div>
+	
+</div>
+
+<div class="container">
+	<div class=@popupState>
+		<h2 style=>Negociação finalizada</h2>
+		<h3>Valor final: @valorFinal €</h3>
+		<button @onclick="closePopup"><p>OK</p></button>
+	</div>
+	
+	<button @onclick="openPopup" class="open"><p>Open Popup</p></button>
+</div>
+
+
+@code {
+	private String popupState = "popup";
+	private List<float> clientValues;
+	private List<float> sellerValues;
+	private float input;
+	private float valorFinal;
+
+	protected override async Task OnInitializedAsync()
+	{
+		valorFinal = 10f;
+		clientValues = new List<float>(4);
+		sellerValues = new List<float>(4);
+		sellerValues.Add(1);
+		sellerValues.Add(2);
+		sellerValues.Add(3);
+		sellerValues.Add(4);
+	}
+
+	private void openPopup(){
+		popupState = "popup open-popup";
+	}
+
+	private void closePopup(){
+		popupState = "popup";
+	}
+}
