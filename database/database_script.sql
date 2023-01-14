@@ -97,7 +97,6 @@ CREATE TABLE Compra (
 
 CREATE TABLE ProdutoDaCompra (
 	idCompra INT NOT NULL,
-	nifCliente INT NOT NULL,
 	valorVenda DECIMAL(5,2) NOT NULL,
 	idProduto INT NOT NULL,
 	PRIMARY KEY (idCompra, idProduto),
