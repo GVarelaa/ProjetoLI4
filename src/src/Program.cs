@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Components.Web;
 using src.Data;
 using src.Data.BusinessLogic;
 using src.Data.BusinessLogic.SubFeiras;
-using src.Data.BusinessLogic.SubFeiras;
 using src.Data.BusinessLogic.SubUsers;
 using src.Data.Data;
 
