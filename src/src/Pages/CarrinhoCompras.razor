@@ -1,6 +1,6 @@
 ﻿@page "/carrinho"
-@using src.Data
-@inject Facade Facade
+@using src.Data.BusinessLogic.SubFeiras
+@inject SubFeirasFacade Facade
 
 <style>
     body, html {
@@ -10,11 +10,74 @@
     }
 
     .top-content {
-        height: 25%;
-        /* padding: 50px;*/
+        height: 15%;
         display: grid;
-        /*grid-template-columns: 20% auto;*/
+        font-size: 24px;
         background-color: lightskyblue;
+    }
+
+    .produtos {
+        background-color: white;
+        display: grid;
+        grid-template-columns: 20% auto;
+        justify-self: center;
+        align-self: center;
+        font-size: 15px;
+        margin: 50px;
+        border: solid;
+        height: 40%;
+    }
+
+    .img-container {
+        margin-top:25px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .right-content {
+        border: solid;
+        width: 90%;
+        height: 80%;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .name-product {
+        margin-top: 15px;
+        border:solid;
+    }
+
+    .price_quantity {
+        display: grid;
+        grid-template-columns: 60% 40%;
+        border:solid;
+        margin-top: 25px;
+    }
+
+    .description {
+        margin-top: 30px;
+        margin-left: 30px;
+        margin-right: 15px;
+        height: 100%;
+        border: solid;
+    }
+
+    .name-price-quantity {
+        margin-top: 30px;
+        margin-left: 30px;
+        margin-right: 15px;
+        height: 100%;
+        border: solid;
+    }
+
+    .top-row {
+        margin-top: 15px;
+        display: grid;
+        grid-template-columns: 35% 50% 15%;
+    }
+
+    .trash {
+        margin-top: 50px;
     }
 
 </style>
@@ -22,16 +85,37 @@
 
 <div class="top-content">
     <div align = "center">
-    <h3>Carrinho de Compras</h3>
+        <h3 style="margin-top: 50px ">Carrinho de Compras</h3>
     </div>
 </div>
 
+<div class="produtos">
+    <div class="img-container">
+        <img src=css/batata-vermelha-final-1.jpg width="75%" height="75%" />
+    </div>
 
-<ul>
-    @foreach(String prod in carrinhoUser){
-        <li><p>@prod</p><button>Remove</button></li>
-    }
-</ul>
+    <div class="right-content">  
+        <div class="top-row">
+            <div class="name-price-quantity">
+                <div class="name-product"> 
+                    <p> Nome do Produto </p> 
+                </div>
+                <div class="price_quantity"> 
+                    <p> Preço do Produto</p>
+                    <p> Quantidade do Produto</p>
+                </div>
+            </div>
+
+            <div class="description"> <p> Descrição </p> </div>
+
+
+           <div class="trash">
+                <i class="fa fa-trash" style="color: grey ; font-size: 100px"></i>
+           </div> 
+       
+        </div>
+    </div>
+</div>
 
 <button>
     <a href="/finalizar" style="color: blue"> Finalizar compra! </a>
