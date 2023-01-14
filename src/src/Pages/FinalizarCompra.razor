@@ -2,31 +2,149 @@
 @using src.Data
 @inject Facade Facade
 
-<h2>Insira os dados de faturação</h2>
+<style>
+	html, body{
+		height: 100%;
+		width: 100%;
+		background-color: lightgray;
+	}
 
-<form>
-  <label for="fname">Nome:</label><br>
-  <input type="text" id="fname" name="fname" value="Insira o seu nome"><br>
-  <label for="lname">Apelido:</label><br>
-  <input type="text" id="lname" name="lname" value="Insira o seu apelido"><br><br>
-  <label for="telephone">Número de telemóvel:</label><br>
-  <input type="text" id="telephone" name="telephone" value="Insira o seu número de telemóvel"><br><br>
-  <label for="lname">Morada:</label><br>
-  <input type="text" id="address" name="address" value="Insira a sua morada"><br><br>
-  <input type="submit" value="Submit">
-</form> 
+	.payments-container {
+		height: 20%;
+		border: solid;
+		display: grid;
+		grid-template-columns: auto auto auto;
+		background-color: white;
+	}
 
-<div>
-	<ul style="padding:100px">
-		<li style="display: inline; padding: 100px"><button>MBWAY</button></li>
-		<li style="display: inline; padding: 100px"><button>Transferência MB</button></li>
-		<li style="display: inline; padding: 100px"><button>Credit Card</button></li>
-	</ul>
+	.payment {
+		width: 100px;
+		justify-self: center;
+		align-self: center;
+	}
+
+		.payment:before {
+			content: "";
+			float: left;
+			padding-top: 10%; /* initial ratio of 1:1*/
+		}
+
+	.form-container {
+		border: solid;
+		background-color: lightgrey;
+	}
+
+	.mbway {
+		margin-top: 100px;
+		visibility: @mbwayVisibility;
+	}
+
+	.mb {
+		visibility: @mbVisibility;
+	}
+
+	.credit-card {
+		margin-top: -80px;
+		visibility: @ccVisibility;
+	}
+
+	.payment-data-container {
+
+	}
+
+</style>
+
+<div class="form-container">
+	<h2>Insira os dados de faturação</h2>
+	<form id="myform">
+		<label for="fname">Nome:</label><br>
+		<input type="text" id="fname" @bind="@firstName"/><br /><br />
+		<label for="lname">Apelido:</label><br>
+		<input type="text" id="lname" @bind="@lastName"><br><br>
+		<label for="telephone">Número de telemóvel:</label><br>
+		<input type="text" id="telephone" @bind="@telephoneNumber"><br><br>
+		<label for="lname">Morada:</label><br>
+		<input type="text" id="lname" @bind="@address" ><br><br>
+	</form>
+</div>
+
+<div class="payments-container">
+	<div class="payment">
+		<button type="submit" @onclick="mbway"><img src="css/MBWay.png" width="140%" height="100%"/></button>
+	</div>
+	<div class="payment">
+		<button type="submit" @onclick="mb"><img src="css/Multibanco.svg.png" width="100%" height="100%" /></button>
+	</div>
+	<div class="payment">
+		<button type="submit" @onclick="creditCard"><img src="css/MasterCard.png" width="100%" height="100%"/></button>
+	</div>
+</div>
+<div class="payment-data-container">
+	<div class="mbway">
+		<form>
+			<label for="mbwayphone">Número de telefone MBWay</label><br />
+			<input type="text" id="mbwayphone" @bind="@mbwayphone"><br /><br />
+		</form>
+	</div>
+
+	<div class="mb">
+		<p><span style="font-weight: bold">Entidade: </span>12345</p>
+		<p><span style="font-weight: bold">Referência: </span>123 456 789</p>
+		<p><span style="font-weight: bold">Valor: </span>20€</p>
+	</div>
+
+	<div class="credit-card">
+		<form>
+			<label for="ccnum">Número do cartão: </label><br />
+			<input type="text" id="ccnum" @bind="@ccNum" /><br /><br />
+			<label for="cccode"></label>Security code: <br />
+			<input type="text" id="cccode" @bind="@ccCode" /><br /><br />
+			<label for="edate">Expiration date: </label><br />
+			<input type="date" id="edate" @bind="@expDate" />
+		</form>
+	</div>
 </div>
 
 
+
 @code {
-	private String nomeFaturacao;
-	private String morada;
-	private String numTelemovel;
+	private String firstName;
+	private String lastName;
+	private String telephoneNumber;
+	private String address;
+
+	private String mbwayphone;
+
+	private String ccNum;
+	private String ccCode;
+	private System.DateTime expDate;
+
+	private String mbwayVisibility;
+	private String mbVisibility;
+	private String ccVisibility;
+
+	protected override async Task OnInitializedAsync()
+	{
+		mbVisibility = "hidden";
+		mbwayVisibility = "hidden";
+		ccVisibility = "hidden";
+	}
+
+	private void mbway(){
+		mbwayVisibility = "visible";
+		mbVisibility = "hidden";
+		ccVisibility = "hidden";
+	}
+
+	private void mb(){
+		mbVisibility = "visible";
+		mbwayVisibility = "hidden";
+		ccVisibility = "hidden";
+	}
+
+	private void creditCard(){
+		ccVisibility = "visible";
+		mbwayVisibility = "hidden";
+		mbVisibility = "hidden";
+	}
 }
