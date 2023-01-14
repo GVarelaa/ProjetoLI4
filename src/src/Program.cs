@@ -12,21 +12,21 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<Facade>();
+builder.Services.AddSingleton<SubFeirasFacade>();
 
 //DAOConfig.createDatabase();
 
-SubFeirasFacade f = new SubFeirasFacade();
-SubUtilizadoresFacade uf = new SubUtilizadoresFacade();
-SubComprasFacade compras = new SubComprasFacade();
+//SubFeirasFacade f = new SubFeirasFacade();
+//SubUtilizadoresFacade uf = new SubUtilizadoresFacade();
+//SubComprasFacade compras = new SubComprasFacade();
 
-Feira f1 = new Feira("feira de ponte de lima", "Rural", "Muito boa", "Ponte de lima");
+//Feira f1 = new Feira("feira de ponte de lima", "Rural", "Muito boa", "Ponte de lima");
 //f.AddFeira(f1);
-Feira f2 = await f.GetFeira(f1.nomeFeira);
-Console.WriteLine(f1.Equals(f2));
+//Feira f2 = await f.GetFeira(f1.nomeFeira);
+//Console.WriteLine(f1.Equals(f2));
 
 
-Produto p = new Produto("couves", (float)3.45, 200, "Batatas de Qualidade", "Produtos Agrícolas", 0, (float)0.2, (float)0.2, (float)0.2, "feira de ponte de lima", 223);
+//Produto p = new Produto("couves", (float)3.45, 200, "Batatas de Qualidade", "Produtos Agrícolas", 0, (float)0.2, (float)0.2, (float)0.2, "feira de ponte de lima", 223);
 //Produto pcp = f.AddProduto(p);
 //Console.WriteLine(pcp);
 
@@ -40,11 +40,11 @@ Produto p = new Produto("couves", (float)3.45, 200, "Batatas de Qualidade", "Pro
 
 
 
-Cliente c = new Cliente(12245677, "joao", "p", "joao@gmail.com", "123");
+//Cliente c = new Cliente(12245677, "joao", "p", "joao@gmail.com", "123");
 
 //uf.AddCliente(c);
-Cliente c1 = await uf.GetCliente(12245677);
-Console.WriteLine(c1.Equals(c));
+//Cliente c1 = await uf.GetCliente(12245677);
+//Console.WriteLine(c1.Equals(c));
 
 
 //compras.AdicionarAoCarrinho(c.nifCliente, 4, 40);
@@ -54,7 +54,7 @@ Console.WriteLine(c1.Equals(c));
 
 
 
-compras.AddCompra(c.nifCliente, "Arcos de Valdevez", "Loteamento mira barca", "9646263"); 
+//compras.AddCompra(c.nifCliente, "Arcos de Valdevez", "Loteamento mira barca", "9646263"); 
 //IEnumerable<(Produto, float)> carrinho = await compras.GetCarrinho(c.nifCliente);
 
 

@@ -1,0 +1,32 @@
+﻿@page "/popup"
+
+<style>
+    body, html {
+        height: 100%;
+        width: 100%;
+        background-image: linear-gradient(lightgreen 0%, white);
+    }
+
+    .popup {
+        height: 30%;
+        width: 30%;
+    }
+
+    .options {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+
+</style>
+
+<div class="popup">
+    <h3 style="font:400; font-style:normal ; color: black">Deseja negociar o preço do produto?</h3>
+    <div class="options">
+        <p> Sim </p>
+        <p> Não </p>
+    </div>
+</div>
+
+@code {
+
+}
