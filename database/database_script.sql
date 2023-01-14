@@ -84,14 +84,14 @@ CREATE TABLE Carrinho (
 );
 
 CREATE TABLE Compra (
-	idCompra INT NOT NULL,
+	idCompra INT NOT NULL IDENTITY(1,1),
 	nomeFaturacao VARCHAR(45) NOT NULL,
 	moradaEntrega VARCHAR(90) NOT NULL,
 	telemovel VARCHAR(9) NOT NULL,
 	valorTotal DECIMAL(5,2) NOT NULL,
 	timestampCompra DATETIME NOT NULL,
 	nifCliente INT NOT NULL,
-	PRIMARY KEY (idCompra, nifCliente),
+	PRIMARY KEY idCompra,
     FOREIGN KEY (nifCliente) REFERENCES Cliente (nifCliente)
 );
 
