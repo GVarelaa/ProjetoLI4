@@ -13,8 +13,7 @@ CREATE TABLE Feira (
 
 CREATE TABLE Vendedor (
 	nifVendedor INT NOT NULL,
-	nomeProprio VARCHAR(45) NOT NULL,
-	apelido VARCHAR(45) NOT NULL,
+	nome VARCHAR(45) NOT NULL,
 	email VARCHAR(45) NOT NULL,
 	passwordVendedor VARCHAR(45) NOT NULL,
 	PRIMARY KEY (nifVendedor)
@@ -49,8 +48,7 @@ CREATE TABLE Produto (
 
 CREATE TABLE Cliente (
 	nifCliente INT NOT NULL,
-	nomeProprio VARCHAR(45) NOT NULL,
-	apelido VARCHAR(45) NOT NULL,
+	nome VARCHAR(45) NOT NULL,
 	email VARCHAR(45) NOT NULL,
 	passwordCliente VARCHAR(45) NOT NULL,
 	PRIMARY KEY (nifCliente)

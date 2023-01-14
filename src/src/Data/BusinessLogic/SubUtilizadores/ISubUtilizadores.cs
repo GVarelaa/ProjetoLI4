@@ -17,6 +17,10 @@ public interface ISubUtilizadores
 
     public void AddVendedor(Vendedor cliente);
 
+    public void RegistarCliente(String nome, String email, String password, int nifCliente);
 
+    public void RegistarVendedor(String nome, String email, String password, int nifCliente);
+
+    public int Autenticar(int nif, String password);
 }
 
