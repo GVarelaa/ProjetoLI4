@@ -6,25 +6,24 @@ namespace src.Data.BusinessLogic.SubFeiras;
 public class Produto
 {
     [Key]
-    private int idProduto { get; set; }
-    private string nome { get; set; }
-    private float preço { get; set; }
-    private int stock { get; set; }
-    private string descricao { get; set; }
-    private string categoria { get; set; }
-    private float avaliacaoMedia { get; set; }
-    private float fatorAceitacao { get; set; }
-    private float fatorTolerancia { get; set; }
-    private float fatorResposta { get; set; }
+    public int idProduto { get; set; }
+    public string nome { get; set; }
+    public float preço { get; set; }
+    public int stock { get; set; }
+    public string descricao { get; set; }
+    public string categoria { get; set; }
+    public float avaliacaoMedia { get; set; }
+    public float fatorAceitacao { get; set; }
+    public float fatorTolerancia { get; set; }
+    public float fatorResposta { get; set; }
 
-    private string nomeFeira { get; set; }
+    public string nomeFeira { get; set; }
 
-    private int nifVendedor { get; set; } 
+    public int nifVendedor { get; set; } 
 
 
-    public Produto(int id, string nomeProduto, float preco, int stockP, string descricaoP, string categoriaP, float avaliacao, float fatorAceitacaoP, float fatorToleranciaP, float fatorRespostaP, string nomeF, int nifV)
+    public Produto(string nomeProduto, float preco, int stockP, string descricaoP, string categoriaP, float avaliacao, float fatorAceitacaoP, float fatorToleranciaP, float fatorRespostaP, string nomeF, int nifV)
     {
-        idProduto = id;
         nome = nomeProduto;
         preço = preco;
         stock = stockP;
