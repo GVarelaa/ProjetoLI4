@@ -20,6 +20,7 @@ public class DAOConfig
         {
             connection.Execute("CREATE DATABASE UMarket;");
 
+
             connection.Execute("CREATE TABLE Feira (" +
                 "nomeFeira VARCHAR(45) NOT NULL," +
                 "tema VARCHAR(45) NOT NULL," +
