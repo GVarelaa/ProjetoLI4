@@ -1,6 +1,3 @@
-CREATE DATABASE UMarket;
-
-USE UMarket;
 
 CREATE DATABASE UMarket;
 
@@ -19,7 +16,7 @@ CREATE TABLE Vendedor (
 	nomeProprio VARCHAR(45) NOT NULL,
 	apelido VARCHAR(45) NOT NULL,
 	email VARCHAR(45) NOT NULL,
-	passwordVendedor VARBINARY(100) NOT NULL,
+	passwordVendedor VARCHAR(45) NOT NULL,
 	PRIMARY KEY (nifVendedor)
 );
 
@@ -50,13 +47,12 @@ CREATE TABLE Produto (
     FOREIGN KEY (nomeFeira , nifVendedor) REFERENCES RegistoFeira (nomeFeira , nifVendedor)
 );
 
-
 CREATE TABLE Cliente (
 	nifCliente INT NOT NULL,
 	nomeProprio VARCHAR(45) NOT NULL,
 	apelido VARCHAR(45) NOT NULL,
 	email VARCHAR(45) NOT NULL,
-	passwordCliente VARBINARY(100) NOT NULL,
+	passwordCliente VARCHAR(45) NOT NULL,
 	PRIMARY KEY (nifCliente)
 );
 
@@ -108,3 +104,4 @@ CREATE TABLE ProdutoDaCompra (
     FOREIGN KEY (idCompra, nifCliente) REFERENCES Compra (idCompra , nifCliente),
     FOREIGN KEY (idProduto) REFERENCES Produto (idProduto)
 );
+
