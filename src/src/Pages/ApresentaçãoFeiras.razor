@@ -210,15 +210,24 @@
     }
 
     private void decrementCounter(){
-        if (this.index != 0){
+        Console.WriteLine(index);
+        if (this.index > 0){
             this.index--;
         }
+        else if (index == 0){
+            this.index = (this.feiras.Count-1)/6;
+        }
+        Console.WriteLine(index);
         this.updateFeiras();
     }
 
     private void incrementCounter(){
         if (feiras.Count > (this.index+1)*6){
             this.index++;
+        }
+        else if ((this.index + 1) * 6 >= feiras.Count)
+        {
+            this.index = 0;
         }
         this.updateFeiras();
     }
