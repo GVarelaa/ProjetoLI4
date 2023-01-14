@@ -5,6 +5,18 @@
       "PackagePath": "staticwebassets\\src.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\MBWay.png",
+      "PackagePath": "staticwebassets\\css\\MBWay.png"
+    },
+    {
+      "Id": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\MasterCard.png",
+      "PackagePath": "staticwebassets\\css\\MasterCard.png"
+    },
+    {
+      "Id": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\Multibanco.svg.png",
+      "PackagePath": "staticwebassets\\css\\Multibanco.svg.png"
+    },
+    {
       "Id": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\batata-vermelha-final-1.jpg",
       "PackagePath": "staticwebassets\\css\\batata-vermelha-final-1.jpg"
     },
