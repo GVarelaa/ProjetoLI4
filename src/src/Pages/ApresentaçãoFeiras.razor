@@ -165,7 +165,7 @@
 
 
 @code {
-    private List<String>? feiras;
+    private List<Feira>? feiras;
     private List<String>? shownFeiras;
     private String filterValue;
     private string feirasStyle = "grid";
@@ -179,33 +179,24 @@
         SubFeirasFacade f = new SubFeirasFacade();
         //SubUtilizadoresFacade uf = new SubUtilizadoresFacade();
 
-        Feira f1 = new Feira("feira de ponte de lima", "Rural", "Muito boa", "Ponte de lima");
         //f.AddFeira(f1);
-        IEnumerable<Feira> teste = await f.GetFeiras();
-
-        aux = teste.First().descricao;
 
         this.index = 0;
-        feiras = new List<String>();
+        IEnumerable<Feira> aux = await f.GetFeiras();
+        feiras = aux.ToList();
+        Console.WriteLine(feiras.Count);
         shownFeiras = new List<string>(6);
-        feiras.Add("Feira1");
-        feiras.Add("Feira2");
-        feiras.Add("Feira3");
-        feiras.Add("Feira4");
-        feiras.Add("Feira5");
-        feiras.Add("Feira6");
-        feiras.Add("Feira7");
-        feiras.Add("Feira8");
-        feiras.Add("Feira9");
-        feiras.Add("Feira10");
-        feiras.Add("Feira11");
-        feiras.Add("Feira12");
         this.updateFeiras();
     }
 
     private void updateFeiras(){
         for(int i=0; i<6; i++){
-            shownFeiras.Insert(i, feiras.ElementAt(index * 6 + i));
+            if (index * 6 + i + 1 <= feiras.Count)
+            {
+                Feira f = feiras.ElementAt(index * 6 + i);
+                shownFeiras.Insert(i, f.nomeFeira);
+            }
+            else shownFeiras.Insert(i, "Feira não existente");
         }
     }
 
@@ -239,11 +230,11 @@
         //Console.WriteLine("Ola");
         //filteredFeiras = new List<string>();
         Boolean foundFeira = false;
-        foreach (String feira in feiras)
+        foreach (Feira feira in feiras)
         {
-            if (feira == filterValue)
+            if (feira.nomeFeira == filterValue)
             {
-                filteredFeira = feira;
+                filteredFeira = feira.nomeFeira;
                 foundFeira = true;
             }
         }

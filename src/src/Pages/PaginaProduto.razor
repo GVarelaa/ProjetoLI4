@@ -1,6 +1,6 @@
 ﻿@page "/catalogo/{nomeFeira}/{nomeProduto}"
-@using src.Data
-@inject Facade Facade
+@using src.Data.BusinessLogic.SubFeiras
+@inject SubFeirasFacade Facade
 
 <style>
     body, html {
@@ -118,7 +118,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        descProduto = await Facade.getProduto();
+        descProduto = "Produto muito fixe";//descProduto = await Facade.getProduto();
     }
 
     public void OnGet(String nomeProduto, String nomeFeira){
