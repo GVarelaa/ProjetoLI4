@@ -1,0 +1,176 @@
+﻿@page "/Vendedor"
+
+<style>
+	body, html{
+		height: 100%;
+	}
+
+	.container{
+		margin: 40px;
+	}
+
+		.first-row {
+			height: 10%;
+			display: grid;
+			grid-template-columns: 75% auto;
+			grid-template-rows: auto;
+		}
+
+			.title {
+				border: solid;
+				border-width: 2px;
+				align-self: center;
+				justify-self: center;
+				padding: 10px;
+				width: 100%;
+				margin-bottom: 40px;
+			}
+
+			.title h1{
+				color: grey;
+			}
+
+			.feira{
+				align-self: center;
+				justify-self: center;
+			}
+
+			.feira h3 {
+				color: green;
+			}
+
+	.second-row{
+		display: grid;
+		grid-template-columns: 25% auto;
+		grid-template-rows: auto;
+	}
+
+		.img-container{
+			border: solid;
+			width: 200px;
+			height: 200px;
+			background-color: green;
+			justify-self: center;
+			align-self: center;
+		}
+
+		.form-container{
+
+		}
+
+		.form-container input {
+			width: 90%;
+			height: 100%;
+		}
+
+		.form-container span {
+			margin-top: 15px;
+			display: block;
+			height: 30px;
+		}
+
+
+	.btn-add-img{
+		float: left;
+		margin-top: 5px;
+		margin-left: 20px;
+	}
+
+	.desc-container {
+		margin-top: 40px;
+		width: 100%;
+	}
+
+	.desc-container textarea {
+		width: 100%;
+		height: 100%;
+		max-width: 150%;
+	}
+
+	.container-params {
+		margin-top: 25px;
+		width: 100%;
+		height: 300px;
+	}
+
+	.container-params form {
+		height: 85%;
+		width: 100%;
+	}
+
+	.container-params form span {
+		width: 100%;
+	}
+
+	.container-params form span input{
+		margin: 15px 0;
+		width: 100%;
+		height: 25%;
+	}
+
+	.btn-primary{
+		background-color: var(--color-blue);
+		border: none;
+		height: 40px;
+		width: 100px;
+		border-radius: 10px;
+		align-self: center;
+		justify-self: center;
+		margin-top: 20px;
+		float: left;
+	}
+
+
+</style>
+
+<div class="container">
+	<div class="first-row">
+		<div class="title"><h1>Adicionar Produto</h1></div>
+		<div class="feira"><h3>Feira Ponte dos Arcos Verdes</h3></div>
+	</div>
+
+	<div class="second-row">
+		<div class="img-container">
+			<img src="css/batata-vermelha-final-1.jpg" width="100%" height="100%" />
+		</div>
+		<div class="form-container">
+			<form>
+				<!--<label for="nome"><p>Nome: </p></label>-->
+				<span><input type="text" id="nome" name="nome" value="Inserir nome do produto"></span>
+				
+				<!--label for="quantidade"><p>Quantidade disponível: </p></label> -->
+				<span><input type="text" id="quantidade" name="quantidade" value="Inserir quantidade"></span>
+				
+				<!--label for="categoria"><p>Categoria:</p></label>-->
+				<span><input type="text" id="categoria" name="categoria" value="Inserir categoria"></span>
+				
+				<!--label for="preço"><p>Preço</p>:</label><br>-->
+				<span><input type="text" id="preço" name="preço" value="Inserir preço"></span>
+			</form>
+		</div>
+	</div>
+
+	<button class="btn-add-img">Adicionar imagem</button>
+
+	<div class="desc-container">
+		<form>
+			<textarea rows="5" cols="50" name="description">
+			Enter description here...
+			</textarea>
+		</form>
+	</div>
+
+	<div class="container-params">
+		<h2>Parâmetros de negociação</h2>
+		<form>
+			<span><input type="text" id="ft-tolerancia" name="ft-tolerancia" value="Inserir fator de tolerância"></span>
+			<span><input type="text" id="ft-aceitacao" name="ft-aceitacao" value="Inserir fator de aceitação"></span>
+			<span><input type="text" id="ft-resposta" name="ft-resposta" value="Inserir fator de resposta"></span>
+		</form>
+	</div>
+
+	<button class="btn-primary">Adicionar produto</button>
+</div>
+
+
+
