@@ -6,26 +6,98 @@
 		width: 100%;
 	}
 
+	.top-row {
+		border: solid;
+		height: 40%;
+		display: grid;
+		grid-template-columns: 30% auto;
+	}
+
+		.left-container {
+			border: solid;
+			display: grid;
+			grid-template-columns: auto;
+		}
+
+			.img-container{
+				border: solid;
+				width: 200px; 
+				justify-self: center;
+				align-self: center;
+			}
+
+			.img-container:before {
+				content: "";
+				float: left;
+				padding-top: 10%; /* initial ratio of 1:1*/
+			}
+
 	.descricao{
-		height: 50%;
+		border: solid;
+	}
+
+	button {
+		background-color: var(--color-blue);
+		border: none;
+		border-radius: 100px;
+		width: 100px;
+		height: 50px;
+		align-self: center;
+		justify-self: center;
+		margin: 10px 0 10px 0;
+	}
+
+	button h1 {
+		font-size: 20px;
+	}
+
+	.btn-container {
+		border: solid;
+	}
+
+	.right-container{
+		border: solid;
+		height: 100%;
+		width: 100%;
+		display: flex;
 	}
 </style>
 
-<h3>CriarFeira</h3>
 
-<img src="css/feira.jpg" width="100px"/>
+
+<div class="top-row">
+	<div class="left-container">
+		<div class="img-container">
+			<img src="css/feira.jpg" width="100%" height="100%"/>
+		</div>
+		<button>
+			<h3>Adicionar imagem</h3>
+		</button>
+		
+	</div>
+	
+	<div class="right-container">
+		<h3>CriarFeira</h3>
+		<div>
+			<form>
+				<input type="text"/>
+				<input type="text"/>
+				<input type="text"/>
+			</form
+		</div>>
+	</div>
+	
+</div>
 
 <div class="descricao">
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et lacus urna. Morbi vitae mattis leo. Integer sed pharetra ex, vel vestibulum risus. In ac massa cursus velit tincidunt fermentum pellentesque volutpat tortor. Nam accumsan viverra mauris ut congue. Maecenas nibh dolor, consequat vel tortor et, porta sodales ex. Pellentesque quis felis eget tortor pharetra accumsan. Quisque nunc turpis, sollicitudin ut orci quis, congue consectetur est. Phasellus neque eros, auctor id quam nec, dictum laoreet diam. Vestibulum non neque eros. Praesent augue est, pulvinar eu urna in, maximus euismod sapien. Aliquam feugiat eu nisi quis iaculis. Nunc elit erat, pretium et turpis quis, laoreet auctor ligula. Suspendisse imperdiet lobortis erat commodo ultricies.
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed justo et nisi laoreet sollicitudin. Quisque varius, lectus a commodo eleifend, nisi felis scelerisque eros, id tempor sapien ipsum eu ipsum. Vivamus eget viverra risus, in varius nibh. Aenean varius consequat gravida. Vivamus malesuada sed ipsum sed volutpat. Cras convallis elit non lectus rhoncus, vitae pharetra mi condimentum. Phasellus dapibus, magna non interdum accumsan, risus ex porttitor urna, ut egestas dolor urna sagittis lacus.
 
-	Praesent consectetur consectetur turpis, et cursus sapien pulvinar ac. Integer lobortis lectus id elit dignissim, et vestibulum leo pulvinar. Quisque tempus tincidunt efficitur. Integer orci lacus, volutpat ac suscipit non, maximus id velit. Vestibulum ut risus id augue laoreet ultricies non sed ante. Proin vehicula lorem quis scelerisque facilisis. Cras efficitur auctor enim sit amet pulvinar. Pellentesque at interdum ligula. Cras ac felis sem. Sed feugiat ligula in malesuada tincidunt.
-
-	Sed vel velit odio. Aliquam in posuere massa. Pellentesque volutpat sit amet diam vehicula aliquam. Nunc orci odio, sodales id sodales ac, commodo in lacus. Aliquam a risus felis. Aenean consectetur eget felis at blandit. Nam tempus diam eget lacus consectetur, ac blandit neque volutpat. Sed vitae eros risus. Integer porttitor quam eu dapibus ornare. Cras a commodo odio. Vivamus tincidunt rutrum urna, eget efficitur leo eleifend vitae. Cras tellus nulla, bibendum eget eros et, tincidunt pulvinar nibh. Etiam ac ornare dui. Quisque at purus condimentum eros feugiat aliquam.
-
-	Quisque neque tortor, scelerisque quis bibendum sed, commodo eu lacus. Nam semper urna felis, vel hendrerit orci sollicitudin nec. Suspendisse facilisis orci sed neque imperdiet, ac posuere dolor aliquam. Curabitur at finibus ipsum, non placerat libero. Nulla nibh metus, tristique ut ante dapibus, facilisis imperdiet velit. Ut ligula augue, laoreet sed aliquam ut, lacinia id tellus. Aenean non ultrices turpis. Donec et eleifend eros, vitae vestibulum tellus. Suspendisse vel felis ligula. Morbi ac enim ante. Sed sit amet arcu odio. Donec quam dui, porta id sem non, consectetur rhoncus mi. Vestibulum id finibus nisl.
-
-	In dictum convallis ultrices. Proin venenatis, nibh quis molestie vulputate, orci lectus euismod nibh, eget imperdiet magna libero id velit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris in risus sollicitudin, posuere urna eget, laoreet metus. Donec volutpat, turpis at ultrices accumsan, dui dui tristique magna, non aliquam nisi orci ornare dolor. Proin eget dui et nisi accumsan porttitor ut aliquam ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In hac habitasse platea dictumst. Pellentesque condimentum fermentum lacus, et tristique ligula. Ut semper nec enim at scelerisque. Fusce eleifend ut justo vitae fermentum.
+	Nulla pretium, mi non iaculis rhoncus, augue arcu ultrices ante, sed venenatis ex nulla nec odio. Mauris turpis ante, ultricies non aliquet a, gravida in massa. Vivamus sollicitudin pellentesque nulla, at rutrum metus faucibus sit amet. Aenean eleifend neque quam. Quisque in maximus tortor. Duis in magna ut elit pretium suscipit et sagittis erat. Aenean elementum diam quis diam sollicitudin, posuere pellentesque erat pulvinar. Maecenas eu felis in neque posuere rutrum ut eu risus. Vivamus suscipit tristique ante eu convallis. Duis sagittis porttitor libero. Etiam facilisis nisi ut tellus luctus, ac posuere diam mattis. Quisque aliquet vehicula mi, id malesuada arcu ultricies non. Duis lacus magna, vestibulum in metus nec, tincidunt finibus massa. In quis massa eu urna commodo sagittis.
 </div>
+<div class="btn-container">
+	<button><h1>Criar feira</h1></button>
+</div>
+
 
 @code {
 
