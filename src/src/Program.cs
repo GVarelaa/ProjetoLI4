@@ -14,13 +14,15 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<Facade>();
 
-SubFeirasFacade f = new SubFeirasFacade();
-SubUtilizadoresFacade uf = new SubUtilizadoresFacade();
+DAOConfig.createDatabase();
+
+//SubFeirasFacade f = new SubFeirasFacade();
+//SubUtilizadoresFacade uf = new SubUtilizadoresFacade();
 
 
 
-Vendedor v = new Vendedor(22323323, "joao", "p", "joao@gmail.com", "123");
-uf.AddVendedor(v);
+//Vendedor v = new Vendedor(22323323, "joao", "p", "joao@gmail.com", "123");
+//uf.AddVendedor(v);
 //Vendedor v1 = await uf.GetVendedor(22323323);
 //Console.WriteLine(v1.Equals(v));
 
@@ -31,9 +33,9 @@ uf.AddVendedor(v);
 //Cliente c1 = await uf.GetCliente(12245677);
 //Console.WriteLine(c1.Equals(c));
 
-Feira f1 = new Feira("feira de ponte de lima","Rural","Muito boa","Ponte de lima");
-Feira f2 = await f.GetFeira(f1.nomeFeira);
-Console.WriteLine(f1.Equals(f2));   
+//Feira f1 = new Feira("feira de ponte de lima","Rural","Muito boa","Ponte de lima");
+//Feira f2 = await f.GetFeira(f1.nomeFeira);
+//Console.WriteLine(f1.Equals(f2));   
 
 
     

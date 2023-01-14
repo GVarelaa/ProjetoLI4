@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\src.csproj": {}
+    "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\src.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\src.csproj": {
+    "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\src.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\src.csproj",
+        "projectUniqueName": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\src.csproj",
         "projectName": "src",
-        "projectPath": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\src.csproj",
-        "packagesPath": "C:\\Users\\Miguel Braga\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\obj\\",
+        "projectPath": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\src.csproj",
+        "packagesPath": "C:\\Users\\gui\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Miguel Braga\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gui\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -50,7 +50,11 @@
             },
             "Microsoft.Data.SqlClient": {
               "target": "Package",
-              "version": "[5.1.0-preview2.22314.2, )"
+              "version": "[5.0.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[9.0.1, )"
             }
           },
           "imports": [
@@ -72,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
