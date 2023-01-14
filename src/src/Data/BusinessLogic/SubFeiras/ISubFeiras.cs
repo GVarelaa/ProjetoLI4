@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+
 namespace src.Data.BusinessLogic.SubFeiras;
 
 public interface ISubFeiras
@@ -9,16 +11,20 @@ public interface ISubFeiras
 
     public Task<Produto> GetProduto(int id);
 
-    public Task<IEnumerable<Produto>> GetProdutos(string nomeFeira);
+    public Task<IEnumerable<Produto>> GetProdutosFeira(string nomeFeira);
 
     public Task<IEnumerable<Produto>> GetProdutosVendedor(int nifVendedor);
 
-    public void AddProduto();
+    public Task<IEnumerable<Produto>> GetProdutosFavoritos(int nifCliente);
 
-    public void AddFeira();
+    public Task<int> GetAvaliacaoMediaProduto(int idProduto);
 
-    public void AddRegistoFeira();
+    public void AddProduto(Produto p);
 
+    public void AddFeira(Feira f);
 
+    public void AddRegistoFeira(string nomeFeira, int nifVendedor);
+
+    public Task<IEnumerable<(string produto, DateTime timestamp, float valorVenda, int quantidade, int nifCliente)>> HistoricoVendas(int nifVendedor);
 }
 
