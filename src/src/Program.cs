@@ -12,13 +12,15 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<Facade>();
 
 SubFeirasFacade f = new SubFeirasFacade();
-Console.WriteLine(f.GetFeira("arcosverde"));
-Console.WriteLine(f.GetFeiras());
-Console.WriteLine(f.GetProdutosFeira("arcosverde"));
+Task<Feira> f1 = f.GetFeira("arcosverde");
+Task<IEnumerable<Feira>> f2 = f.GetFeiras();
+
+Console.WriteLine(await f1);
+/*Console.WriteLine(f.GetProdutosFeira("arcosverde"));
 Console.WriteLine(f.GetAvaliacaoMediaProduto(1));
 Console.WriteLine(f.GetProduto(1));
 Console.WriteLine(f.GetProdutosVendedor(1));
-Console.WriteLine(f.GetProdutosFavoritos(1));
+Console.WriteLine(f.GetProdutosFavoritos(1));*/
 
 
 
