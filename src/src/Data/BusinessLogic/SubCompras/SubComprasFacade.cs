@@ -1,10 +1,11 @@
 using src.Data.Data;
-
+using src.Data.BusinessLogic.SubFeiras;
 namespace src.Data.BusinessLogic.SubCompras;
 
 public class SubComprasFacade
 {
     private ComprasDAO Compras;
+    private ProdutosDAO produtos;
     
     public SubComprasFacade()
     {
@@ -14,10 +15,10 @@ public class SubComprasFacade
 
     public void AddCompra(int nifCliente, string nomeFaturacao, string morada, string telemovel)
     {
-        IEnumerable<Tuple<Produto, float>> produtos = this.Compras.GetProdutosCarrinho(nifCliente);
+        IEnumerable<Tuple<Produto, float>> produtos = this.produtos.GetProdutosCarrinho(nifCliente);
 
-        float valorTotal;
-        foreach (Tuple t in produtos)
+        float valorTotal = 0;
+        foreach (Tuple<Produto, float> t in produtos)
         {
             valorTotal += t.Item2;
         }

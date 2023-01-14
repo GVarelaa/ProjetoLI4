@@ -1,7 +1,11 @@
 using Dapper;
 using Dapper.Contrib;
 using Dapper.Contrib.Extensions;
-using src.Data.BusinessLogic;
+using src.Data.BusinessLogic.SubFeiras;
+using src.Data.BusinessLogic.SubCompras;
+using System;
+using Microsoft.Data.SqlClient;
+
 
 namespace src.Data.Data;
 
@@ -28,10 +32,10 @@ public class ComprasDAO
         Compra c;
         using (var connection = new SqlConnection(connectionString))
         {
-            compra = connection.Get<Compra>(id);
+            c = connection.Get<Compra>(id);
         }
 
-        return compra;
+        return c;
     }
 
     public Compra Insert(Compra compra)
@@ -40,7 +44,7 @@ public class ComprasDAO
 
         using (var connection = new SqlConnection(connectionString))
         {
-            compra = connection.Insert<Compra>(compra);
+            connection.Insert<Compra>(compra);
         }
 
         return compra;
@@ -58,23 +62,4 @@ public class ComprasDAO
         return compras;
     }
 
-    public IEnumerable<Tuple<Produto, float>> GetProdutosCarrinho(int nifCliente)
-    {
-        const string connectionString = DAOConfig.URL;
-        IEnumerable<Tuple<int, float>> idpds;
-
-        using (var connection = new SqlConnection(connectionString))
-        {
-            idpds = connection.Query<Tuple<int, float>>("SELECT (idProduto,valorVenda) FROM Carrinho where nifCliente=" + nifCliente);
-        }
-
-        IEnumerable<Tuple<Produto, float>> pds = new List<Tuple<Produto, float>>();
-
-        foreach (Tuple<int, float> t in idpds)
-        {
-            pds.Append(new Tuple<Produto, float>(Get(t.Item1), t.Item2));
-        }
-
-        return pds;
-    }
 }
