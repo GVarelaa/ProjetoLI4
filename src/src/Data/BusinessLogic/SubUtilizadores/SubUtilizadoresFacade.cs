@@ -15,6 +15,67 @@ namespace src.Data.BusinessLogic.SubUsers;
             vendedoresDAO = VendedoresDAO.GetInstance();
         }
 
+
+        public void RegistarCliente(String nome, String email, String password, int nifCliente)
+        {
+            if( clientesDAO.Get(nifCliente) == null )
+            {
+                Cliente cliente = new Cliente(nifCliente, nome, email, password);
+                clientesDAO.Insert(cliente);
+            }
+            else
+            {
+                // atirar exceção
+            }
+        }
+
+        public void RegistarVendedor(String nome, String email, String password, int nifVendedor)
+        {
+            if (vendedoresDAO.Get(nifVendedor) == null)
+            {
+                Vendedor vendedor = new Vendedor(nifVendedor, nome, email, password);
+                vendedoresDAO.Insert(vendedor);
+            }
+            else
+            {
+                // atirar exceção
+            }
+        }
+
+        public int Autenticar(int nif, String password)
+        {
+            Cliente cliente = clientesDAO.Get(nif);
+            
+            if(cliente != null)
+            {
+                if (cliente.passwordCliente.Equals(password))
+                {
+                    return 1;
+                }
+                else
+                {
+                    // exceção password errada
+                }
+            }
+
+            Vendedor vendedor = vendedoresDAO.Get(nif);
+
+            if(vendedor != null)
+            {
+                if (vendedor.passwordVendedor.Equals(password))
+                {
+                    return 2;
+                }
+                else
+                {
+                    // exceção password errada
+                }
+            }
+
+            return 0;
+            // exceção conta não criada
+        }
+
         public Task<IEnumerable<Cliente>> GetClientes()
         {
             return Task.FromResult(clientesDAO.GetAll());
