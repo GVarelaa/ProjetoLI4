@@ -7,11 +7,11 @@ namespace src.Data.BusinessLogic;
 public class Cliente
 {
     [ExplicitKey]
-    private int nifCliente { get; set; }
-    private String nomeProprio { get; set; }
-    private String apelido { get; set; }
-    private String email { get; set; }
-    private String passwordCliente { get; set; }
+    public int nifCliente { get; set; }
+    public String nomeProprio { get; set; }
+    public String apelido { get; set; }
+    public String email { get; set; }
+    public String passwordCliente { get; set; }
 
     public Cliente() { }
 
