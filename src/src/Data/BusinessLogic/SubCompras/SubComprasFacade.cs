@@ -14,10 +14,10 @@ public class SubComprasFacade
 
     public void AddCompra(int nifCliente, string nomeFaturacao, string morada, string telemovel)
     {
-        IEnumerable<Tuple<Produto, float>> produtos = this.Compras.GetProdutosCarrinho(nifCliente);
+        IEnumerable<(Produto, float, int)> produtos = this.Compras.GetProdutosCarrinho(nifCliente);
 
         float valorTotal = 0;
-        foreach (Tuple<Produto, float> t in produtos)
+        foreach ((Produto, float, int) t in produtos)
         {
             valorTotal += t.Item2;
         }
@@ -26,16 +26,25 @@ public class SubComprasFacade
 
         int idCompra = compra.idCompra;
         
-        foreach (Tuple<Produto, float> t in produtos)
+        foreach ((Produto, float, int) t in produtos)
         {
-            //this.Compras.InsertProdutoCompra(idCompra, t.Item1.idProduto, nifCliente, t.Item2);
-            this.Compras.InsertProdutoCompra(idCompra, t.Item1.idProduto, nifCliente, t.Item2);
-            this.Compras.DeleteProdutoCarinho(nifCliente, t.Item1.idProduto);
+            this.Compras.InsertProdutoCompra(idCompra, t.Item1.idProduto, t.Item2);
+            this.Compras.DeleteProdutoCarrinho(nifCliente, t.Item1.idProduto);
         }
     }
 
-    public Task<IEnumerable<Tuple<Produto, float>>> GetCarrinho(int nifCliente)
+    public Task<IEnumerable<(Produto, float, int)>> GetCarrinho(int nifCliente)
     {
+        foreach((Produto, float, int) t in this.Compras.GetProdutosCarrinho(nifCliente))
+        {
+            Console.WriteLine(t.Item1.descricao);
+        }
+
         return Task.FromResult(this.Compras.GetProdutosCarrinho(nifCliente));
+    }
+
+    public void AdicionarAoCarrinho(int nifCliente, int idProduto, float valorVenda, int quantidade)
+    {
+        this.Compras.InsertProdutoCarrinho(nifCliente, idProduto, valorVenda, quantidade);
     }
 }

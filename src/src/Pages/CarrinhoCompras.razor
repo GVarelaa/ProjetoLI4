@@ -49,6 +49,7 @@
 
     .price_quantity {
         display: grid;
+        margin-right: 20px;
         grid-template-columns: 60% 40%;
         border:solid;
         margin-top: 25px;
@@ -110,7 +111,7 @@
 
 
            <div class="trash">
-                <i class="fa fa-trash" style="color: grey ; font-size: 100px"></i>
+                <button @onclick = "disappear" ><i class="fa fa-trash" style="color: grey ; font-size: 100px"></i></button>
            </div> 
        
         </div>
@@ -130,5 +131,10 @@
         carrinhoUser.Add("Produto1");
         carrinhoUser.Add("Produto2");
         carrinhoUser.Add("Produto3");
+    }
+
+    protected void disappear()
+    {
+        
     }
 }
