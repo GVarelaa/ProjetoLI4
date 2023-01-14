@@ -100,20 +100,19 @@
       <ul>
         <AuthorizeView>
             <Authorized>
-                <li><a href="#">Sign Up</a></li>
-                <li><a href="#">Sign In</a></li>
-            </Authorized>
-            <NotAuthorized>
-                <li>
-                    <a href="#">Menu Utilizador<i class="fas fa-caret-down"></i></a>
+                <li><a href="#">Menu Utilizador<i class="fas fa-caret-down"></i></a>
                     <div class="dropdown-menu">
                         <ul>
                             <li><a href="/Carrinho">Carrinho de compras</a></li>
                             <li><a href="#">Produtos favoritos</a></li>
-                            <li><a href="#">Alterar detalhes de utilizador</a></li>
+                <li><a href="#">Alterar detalhes de utilizador</a></li>
                         </ul>
-                    </div>
+                   </div>
                 </li>
+            </Authorized>
+            <NotAuthorized>
+                <li><a href="#">Sign Up</a></li>
+                <li><a href="#">Sign In</a></li>
             </NotAuthorized>
             
         </AuthorizeView>
