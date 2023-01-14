@@ -5,7 +5,7 @@ using src.Data.BusinessLogic.Excecoes;
 
 namespace src.Data.BusinessLogic.SubUsers;
 
-    public class SubUtilizadoresFacade
+    public class SubUtilizadoresFacade : ISubUtilizadores
     {
         private ClientesDAO clientesDAO;
         private VendedoresDAO vendedoresDAO;
