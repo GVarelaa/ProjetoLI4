@@ -14,11 +14,12 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<Facade>();
 
+//DAOConfig.createDatabase();
+
 SubFeirasFacade f = new SubFeirasFacade();
 SubUtilizadoresFacade uf = new SubUtilizadoresFacade();
 
 Feira f1 = new Feira("feira de ponte de lima", "Rural", "Muito boa", "Ponte de lima");
-//f.AddFeira(f1);
 Feira f2 = await f.GetFeira(f1.nomeFeira);
 Console.WriteLine(f1.Equals(f2));
 
@@ -35,12 +36,13 @@ Cliente c1 = await uf.GetCliente(12245677);
 Console.WriteLine(c1.Equals(c));
 
 
-Produto p = new Produto("batatas", (float)3.45, 200, "Batatas de Qualidade", "Produtos Agrícolas", 0, (float)0.2, (float)0.2, (float)0.2, "feira de ponte de lima", 223);
-p = f.AddProduto(p);
-Produto p1 = await f.GetProduto(p.idProduto);
-Console.WriteLine(f1);
 
 
+    
+
+Produto p = new Produto("couves", (float)3.45, 200, "Batatas de Qualidade", "Produtos Agrícolas", 0, (float)0.2, (float)0.2, (float)0.2, "feira de ponte de lima", 223);
+Produto pcp = f.AddProduto(p);
+Console.WriteLine(pcp);
 /*Console.WriteLine(f.GetProdutosFeira("arcosverde"));
 Console.WriteLine(f.GetAvaliacaoMediaProduto(1));
 Console.WriteLine(f.GetProduto(1));

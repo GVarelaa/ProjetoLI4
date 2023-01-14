@@ -81,5 +81,15 @@ public class FeirasDAO
         return feiras;
     }
 
+    public void AddRegistoFeira(String nomeFeira, int nifVendedor)
+    {
+        const string connectionString = DAOConfig.URL;
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            connection.Execute("INSERT INTO RegistoFeira VALUES ('" + nomeFeira + "'," + nifVendedor + ")");
+        }
+
+    }
 
 }

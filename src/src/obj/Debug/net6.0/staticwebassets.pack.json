@@ -5,7 +5,35 @@
       "PackagePath": "staticwebassets\\src.bundle.scp.css"
     },
     {
+<<<<<<< HEAD
+      "Id": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\MBWay.png",
+      "PackagePath": "staticwebassets\\css\\MBWay.png"
+    },
+    {
+      "Id": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\MasterCard.png",
+      "PackagePath": "staticwebassets\\css\\MasterCard.png"
+    },
+    {
+      "Id": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\Multibanco.svg.png",
+      "PackagePath": "staticwebassets\\css\\Multibanco.svg.png"
+    },
+    {
+      "Id": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\batata-vermelha-final-1.jpg",
+=======
+      "Id": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\MBWay.png",
+      "PackagePath": "staticwebassets\\css\\MBWay.png"
+    },
+    {
+      "Id": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\MasterCard.png",
+      "PackagePath": "staticwebassets\\css\\MasterCard.png"
+    },
+    {
+      "Id": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\Multibanco.svg.png",
+      "PackagePath": "staticwebassets\\css\\Multibanco.svg.png"
+    },
+    {
       "Id": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\batata-vermelha-final-1.jpg",
+>>>>>>> c6ae2808188dcb0f32e3eda7f41c44feebb2f0b4
       "PackagePath": "staticwebassets\\css\\batata-vermelha-final-1.jpg"
     },
     {

@@ -1,14 +1,10 @@
 {
   "Version": 1,
 <<<<<<< HEAD
-<<<<<<< HEAD
-  "Hash": "qjNAKsXiksfYoJGP9FbdjuTerLk7/jUkftmxTyNhX+s=",
+  "Hash": "lxfTSp3PGgojpV0ky/AR5/cCjrz5Hn73hAVAAGGSzic=",
 =======
-  "Hash": "oHs9GZQ8uEmHvwpyDmSAfKFyQde/eC//oug4erOlG2o=",
->>>>>>> 71f54fad7a21c7966cf4cfdaaa3128f423cb9dbf
-=======
-  "Hash": "oHs9GZQ8uEmHvwpyDmSAfKFyQde/eC//oug4erOlG2o=",
->>>>>>> 71f54fad7a21c7966cf4cfdaaa3128f423cb9dbf
+  "Hash": "THGCrF1S/4g2enyzGp0gGiPnbYnJagboLdWLeoaJgUw=",
+>>>>>>> c6ae2808188dcb0f32e3eda7f41c44feebb2f0b4
   "Source": "src",
   "BasePath": "_content/src",
   "Mode": "Default",
@@ -145,11 +141,61 @@
     },
     {
 <<<<<<< HEAD
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\MasterCard.png",
+      "Identity": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\MasterCard.png",
+      "SourceId": "src",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\",
+      "BasePath": "_content/src",
+      "RelativePath": "css/MasterCard.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\MasterCard.png"
+    },
+    {
+      "Identity": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\MBWay.png",
+      "SourceId": "src",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\",
+      "BasePath": "_content/src",
+      "RelativePath": "css/MBWay.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\MBWay.png"
+    },
+    {
+      "Identity": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\Multibanco.svg.png",
+      "SourceId": "src",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\",
+      "BasePath": "_content/src",
+      "RelativePath": "css/Multibanco.svg.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Multibanco.svg.png"
+    },
+    {
+      "Identity": "C:\\Users\\gui\\source\\repos\\ProjetoLI444\\src\\src\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
 =======
-      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
->>>>>>> 71f54fad7a21c7966cf4cfdaaa3128f423cb9dbf
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\MasterCard.png",
+>>>>>>> c6ae2808188dcb0f32e3eda7f41c44feebb2f0b4
       "SourceId": "src",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
@@ -166,10 +212,10 @@
       "OriginalItemSpec": "wwwroot\\css\\MasterCard.png"
     },
     {
-      "Identity": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\MBWay.png",
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\MBWay.png",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/MBWay.png",
       "AssetKind": "All",
@@ -183,10 +229,10 @@
       "OriginalItemSpec": "wwwroot\\css\\MBWay.png"
     },
     {
-      "Identity": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\Multibanco.svg.png",
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\Multibanco.svg.png",
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/Multibanco.svg.png",
       "AssetKind": "All",
@@ -200,10 +246,7 @@
       "OriginalItemSpec": "wwwroot\\css\\Multibanco.svg.png"
     },
     {
-      "Identity": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
-=======
       "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
->>>>>>> 71f54fad7a21c7966cf4cfdaaa3128f423cb9dbf
       "SourceId": "src",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
