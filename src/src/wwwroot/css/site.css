@@ -18,6 +18,15 @@ h1:focus {
     outline: none;
 }
 
+button {
+    border: none;
+    background-color: white;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
 
 
 .btn-primary {

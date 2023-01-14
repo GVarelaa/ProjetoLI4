@@ -177,7 +177,6 @@
     {
         this.index = 0;
         feiras = new List<String>();
-        Console.WriteLine("Ola");
         shownFeiras = new List<string>(6);
         feiras.Add("Feira1");
         feiras.Add("Feira2");
@@ -208,7 +207,7 @@
     }
 
     private void incrementCounter(){
-        if (feiras.Capacity >= (this.index+1)*6){
+        if (feiras.Count > (this.index+1)*6){
             this.index++;
         }
         this.updateFeiras();
