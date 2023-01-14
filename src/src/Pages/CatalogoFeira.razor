@@ -171,12 +171,19 @@
         if (this.index != 0){
             this.index--;
         }
+        else if (index == 0)
+        {
+            this.index = (this.catalogo.Count-1) / 6;
+        }
         this.updateProdutos();
     }
 
     private void incrementCounter(){
         if (catalogo.Count > (this.index+1)*6){
             this.index++;
+        }
+        else if ((this.index+1)*6 >= catalogo.Count){
+            this.index = 0;
         }
         this.updateProdutos();
     }

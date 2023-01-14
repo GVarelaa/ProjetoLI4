@@ -1,0 +1,40 @@
+﻿@page "/popup"
+
+<style>
+    body, html {
+        height: 100%;
+        width: 100%;
+    }
+
+    .popup {
+        margin-top: 12%;
+        border: solid;
+        text-align: center;
+        vertical-align: middle;
+        display:  table-cell;
+        margin-left: 300px;
+        margin-right: 300px;
+    }
+
+    .options {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+
+</style>
+
+<div class="popup">
+    <br>
+        <h3 style="font:400; font-style:normal ; color: black">Deseja negociar o preço do produto?</h3>
+        <br>
+        <br>
+        <div class="options">
+            <p><a href="/Negociacao"> Sim </a></p>
+            <p><a href="/catalogo/{nomeFeira}/{nomeProduto}"> Não </a></p>
+        </div>
+        <br>
+</div>
+
+@code {
+
+}
