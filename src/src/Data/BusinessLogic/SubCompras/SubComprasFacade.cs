@@ -5,7 +5,6 @@ namespace src.Data.BusinessLogic.SubCompras;
 public class SubComprasFacade
 {
     private ComprasDAO Compras;
-    private ProdutosDAO produtos;
     
     public SubComprasFacade()
     {
@@ -15,7 +14,7 @@ public class SubComprasFacade
 
     public void AddCompra(int nifCliente, string nomeFaturacao, string morada, string telemovel)
     {
-        IEnumerable<Tuple<Produto, float>> produtos = this.produtos.GetProdutosCarrinho(nifCliente);
+        IEnumerable<Tuple<Produto, float>> produtos = this.Compras.GetProdutosCarrinho(nifCliente);
 
         float valorTotal = 0;
         foreach (Tuple<Produto, float> t in produtos)
@@ -30,11 +29,12 @@ public class SubComprasFacade
         foreach (Tuple<Produto, float> t in produtos)
         {
             this.Compras.InsertProdutoCompra(idCompra, t.Item1.idProduto, nifCliente, t.Item2);
+            this.Compras.DeleteProdutoCarinho(nifCliente, t.Item1.idProduto);
         }
-
-
-        // faco amanha
     }
 
-
+    public Task<IEnumerable<Tuple<Produto, float>>> GetCarrinho(int nifCliente)
+    {
+        return Task.FromResult(this.Compras.GetProdutosCarrinho(nifCliente));
+    }
 }
