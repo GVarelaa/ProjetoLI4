@@ -110,6 +110,7 @@ public class ProdutosDAO
 
         using (var connection = new SqlConnection(connectionString))
         {
+            connection.Execute("INSERT INTO RegistoFeira (nomeFeira,nifVendedor) VALUES (" + p.nomeFeira + "," + p.nifVendedor + ")");
             id = connection.Insert<Produto>(p);
         }
 
