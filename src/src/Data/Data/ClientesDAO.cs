@@ -51,7 +51,7 @@ public class ClientesDAO
     }
 
 
-    public void Delete(int id) 
+    public void Delete(int id)
     {
         const string connectionString = DAOConfig.URL;
 
@@ -87,31 +87,28 @@ public class ClientesDAO
         return ret.FirstOrDefault();
     }
 
-        public void AddProdutoCarrinho(int nifCliente, int idProduto, int valorVenda)
-        {
-            const string connectionString = DAOConfig.URL;
+    public void AddProdutoCarrinho(int nifCliente, int idProduto, int valorVenda)
+    {
+        const string connectionString = DAOConfig.URL;
 
-            using (var connection = new SqlConnection(connectionString))
-            {
-                connection.Execute("INSERT INTO Carrinho (nifCliente,idProduto,valorVenda) VALUES (" + nifCliente + "," + idProduto + "," + valorVenda + ")");
-            }
-                        
+        using (var connection = new SqlConnection(connectionString))
+        {
+            connection.Execute("INSERT INTO Carrinho (nifCliente,idProduto,valorVenda) VALUES (" + nifCliente + "," + idProduto + "," + valorVenda + ")");
         }
 
-        public Boolean RemoveProdutoCarrinho(int nifCliente, int idProduto)
+    } 
+
+    public Boolean RemoveProdutoCarrinho(int nifCliente, int idProduto)
+    {
+        const string connectionString = DAOConfig.URL;
+        int nrows;
+
+        using (var connection = new SqlConnection(connectionString))
         {
-            const string connectionString = DAOConfig.URL;
-            int nrows;
-
-            using (var connection = new SqlConnection(connectionString))
-            {
-                nrows = connection.Execute("DELETE FROM Carrinho WHERE (nifCliente=" + nifCliente + "and idProduto=" + idProduto + ")");
-            }
-
-            return nrows > 0;
+            nrows = connection.Execute("DELETE FROM Carrinho WHERE (nifCliente=" + nifCliente + "and idProduto=" + idProduto + ")");
         }
 
-
+        return nrows > 0;
     }
 }
 
