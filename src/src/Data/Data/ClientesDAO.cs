@@ -95,8 +95,22 @@ namespace src.Data.Data
             {
                 connection.Execute("INSERT INTO Carrinho (nifCliente,idProduto,valorVenda) VALUES (" + nifCliente + "," + idProduto + "," + valorVenda + ")");
             }
-
+                        
         }
+
+        public Boolean RemoveProdutoCarrinho(int nifCliente, int idProduto)
+        {
+            const string connectionString = DAOConfig.URL;
+            int nrows;
+
+            using (var connection = new SqlConnection(connectionString))
+            {
+                nrows = connection.Execute("DELETE FROM Carrinho WHERE (nifCliente=" + nifCliente + "and idProduto=" + idProduto + ")");
+            }
+
+            return nrows > 0;
+        }
+
 
     }
 }
