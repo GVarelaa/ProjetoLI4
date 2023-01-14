@@ -28,6 +28,7 @@ public class SubComprasFacade
         
         foreach (Tuple<Produto, float> t in produtos)
         {
+            //this.Compras.InsertProdutoCompra(idCompra, t.Item1.idProduto, nifCliente, t.Item2);
             this.Compras.InsertProdutoCompra(idCompra, t.Item1.idProduto, nifCliente, t.Item2);
             this.Compras.DeleteProdutoCarinho(nifCliente, t.Item1.idProduto);
         }

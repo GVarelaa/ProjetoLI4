@@ -106,13 +106,14 @@ public class ProdutosDAO
     public Produto Insert(Produto p)
     {
         const string connectionString = DAOConfig.URL;
+        long id;
 
         using (var connection = new SqlConnection(connectionString))
         {
-            connection.Insert<Produto>(p);
+            id = connection.Insert<Produto>(p);
         }
 
-        return p;
+        return Get((int) id);
     }
 
     public Produto Delete(int key)
