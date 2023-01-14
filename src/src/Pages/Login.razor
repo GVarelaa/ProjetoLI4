@@ -1,5 +1,24 @@
-﻿<h3>Login</h3>
+﻿@page "/Login"
+
+<h3>Login</h3>
+
+<form>
+	<label for="contribuinte">NIF: </label>
+	<input type="text" id="contribuinte" @bind="@nif" /> <br />
+	<label for="pass">Pass: </label>
+	<input type="text" id="pass" @bind="@password" /> <br />
+
+	<input type="submit" value="Autenticar" @onclick="loginUser" />
+</form>
+
+<p style="color: green">Utilizador autenticado com sucesso</p>
+<p style="color: red">Não foi possível autenticar</p>
 
 @code {
+	private string nif;
+	private string password;
 
+	private void loginUser(){
+		// back-end
+	}
 }
