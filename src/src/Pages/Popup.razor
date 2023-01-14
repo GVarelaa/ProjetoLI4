@@ -4,12 +4,16 @@
     body, html {
         height: 100%;
         width: 100%;
-        background-image: linear-gradient(lightgreen 0%, white);
     }
 
     .popup {
-        height: 30%;
-        width: 30%;
+        margin-top: 12%;
+        border: solid;
+        text-align: center;
+        vertical-align: middle;
+        display:  table-cell;
+        margin-left: 300px;
+        margin-right: 300px;
     }
 
     .options {
@@ -20,11 +24,15 @@
 </style>
 
 <div class="popup">
-    <h3 style="font:400; font-style:normal ; color: black">Deseja negociar o preço do produto?</h3>
-    <div class="options">
-        <p> Sim </p>
-        <p> Não </p>
-    </div>
+    <br>
+        <h3 style="font:400; font-style:normal ; color: black">Deseja negociar o preço do produto?</h3>
+        <br>
+        <br>
+        <div class="options">
+            <p><a href="/Negociacao"> Sim </a></p>
+            <p><a href="/catalogo/{nomeFeira}/{nomeProduto}"> Não </a></p>
+        </div>
+        <br>
 </div>
 
 @code {
