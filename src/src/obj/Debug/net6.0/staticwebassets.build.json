@@ -1,7 +1,11 @@
 {
   "Version": 1,
 <<<<<<< HEAD
+<<<<<<< HEAD
   "Hash": "qjNAKsXiksfYoJGP9FbdjuTerLk7/jUkftmxTyNhX+s=",
+=======
+  "Hash": "oHs9GZQ8uEmHvwpyDmSAfKFyQde/eC//oug4erOlG2o=",
+>>>>>>> 71f54fad7a21c7966cf4cfdaaa3128f423cb9dbf
 =======
   "Hash": "oHs9GZQ8uEmHvwpyDmSAfKFyQde/eC//oug4erOlG2o=",
 >>>>>>> 71f54fad7a21c7966cf4cfdaaa3128f423cb9dbf
@@ -141,10 +145,14 @@
     },
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\MasterCard.png",
+=======
+      "Identity": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+>>>>>>> 71f54fad7a21c7966cf4cfdaaa3128f423cb9dbf
       "SourceId": "src",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Miguel Braga\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\joaoa\\source\\repos\\ProjetoLI4\\src\\src\\wwwroot\\",
       "BasePath": "_content/src",
       "RelativePath": "css/MasterCard.png",
       "AssetKind": "All",
