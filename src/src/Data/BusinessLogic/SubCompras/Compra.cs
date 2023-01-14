@@ -37,6 +37,11 @@ public class Compra
         this.nifCliente = nifCliente;
     }
 
+    public Compra()
+    {
+
+    }
+
     public override bool Equals(object? obj)
     {
         return obj is Compra compra &&

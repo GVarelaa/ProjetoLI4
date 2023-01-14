@@ -25,7 +25,13 @@ public class SubComprasFacade
 
         Compra compra = this.Compras.Insert(new Compra(nomeFaturacao, morada, telemovel, valorTotal, DateTime.Now, nifCliente));
 
-        int id = compra.idCompra;
+        int idCompra = compra.idCompra;
+        
+        foreach (Tuple<Produto, float> t in produtos)
+        {
+            this.Compras.InsertProdutoCompra(idCompra, t.Item1.idProduto, nifCliente, t.Item2);
+        }
+
 
         // faco amanha
     }
