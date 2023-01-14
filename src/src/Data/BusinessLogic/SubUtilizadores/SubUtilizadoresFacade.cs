@@ -2,8 +2,8 @@
 using src.Data.Data;
 using src.Data.BusinessLogic.SubFeiras;
 
-namespace src.Data.BusinessLogic.SubUsers
-{
+namespace src.Data.BusinessLogic.SubUsers;
+
     public class SubUtilizadoresFacade
     {
         private ClientesDAO clientesDAO;
@@ -40,6 +40,16 @@ namespace src.Data.BusinessLogic.SubUsers
             return Task.FromResult(clientesDAO.GetAvaliacao(nifCliente,idProduto));
         }
         
-    }
+        public void AddCliente(Cliente cliente)
+        {
+           clientesDAO.Insert(cliente);
+        }
+
+        public void AddVendedor(Vendedor vendedor)
+        {
+            vendedoresDAO.Insert(vendedor);
+        }
+
 }
+
 

@@ -5,99 +5,87 @@ using Dapper.Contrib.Extensions;
 using Microsoft.Data.SqlClient;
 using src.Data.BusinessLogic;
 
-namespace src.Data.Data
+namespace src.Data.Data;
+
+public class ClientesDAO
 {
-    public class ClientesDAO
+    private static ClientesDAO clientes = null;
+
+    private ClientesDAO()
     {
-        private static ClientesDAO clientes = null;
+    }
 
-        private ClientesDAO()
+    public static ClientesDAO GetInstance()
+    {
+        if (clientes == null)
         {
+            clientes = new ClientesDAO();
         }
 
-        public static ClientesDAO GetInstance()
-        {
-            if (clientes == null)
-            {
-                clientes = new ClientesDAO();
-            }
+        return clientes;
+    }
 
-            return clientes;
+    public Cliente Get(int id)
+    {
+        const string connectionString = DAOConfig.URL;
+
+        Cliente cliente;
+        using (var connection = new SqlConnection(connectionString))
+        {
+            cliente = connection.Get<Cliente>(id);
         }
 
-        public Cliente Get(int id)
+        return cliente;
+    }
+
+    public Cliente Insert(Cliente cliente)
+    {
+        const string connectionString = DAOConfig.URL;
+
+        using (var connection = new SqlConnection(connectionString))
         {
-            const string connectionString = DAOConfig.URL;
-
-            Cliente cliente;
-            using (var connection = new SqlConnection(connectionString))
-            {
-                cliente = connection.Get<Cliente>(id);
-            }
-
-            return cliente;
+            connection.Insert<Cliente>(cliente);
         }
 
-        public Cliente Insert(Cliente cliente)
+        return cliente;
+    }
+
+
+    public void Delete(int id)
+    {
+        const string connectionString = DAOConfig.URL;
+
+        Cliente cliente = Get(id);
+        using (var connection = new SqlConnection(connectionString))
         {
-            const string connectionString = DAOConfig.URL;
+            connection.Delete<Cliente>(cliente);
+        }
+    }
 
-            using (var connection = new SqlConnection(connectionString))
-            {
-                connection.Insert<Cliente>(cliente);
-            }
+    public IEnumerable<Cliente> GetAll()
+    {
+        const string connectionString = DAOConfig.URL;
 
-            return cliente;
+        IEnumerable<Cliente> clientes;
+        using (var connection = new SqlConnection(connectionString))
+        {
+            clientes = connection.GetAll<Cliente>();
+        }
+        return clientes;
+    }
+
+    public int GetAvaliacao(int nifCliente, int idProduto)
+    {
+        const string connectionString = DAOConfig.URL;
+        IEnumerable<int> ret;
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            ret = connection.Query<int>("SELECT valorAval FROM Avaliacao WHERE (nifCliente=" + nifCliente + " and idProduto=" + idProduto + ")");
         }
 
-
-        public void Delete(int id) 
-        {
-            const string connectionString = DAOConfig.URL;
-
-            Cliente cliente = Get(id);
-            using (var connection = new SqlConnection(connectionString))
-            {
-                connection.Delete<Cliente>(cliente);
-            }
-        }
-
-        public IEnumerable<Cliente> GetAll()
-        {
-            const string connectionString = DAOConfig.URL;
-
-            IEnumerable<Cliente> clientes;
-            using (var connection = new SqlConnection(connectionString))
-            {
-                clientes = connection.GetAll<Cliente>();
-            }
-            return clientes;
-        }
-
-        public int GetAvaliacao(int nifCliente, int idProduto)
-        {
-            const string connectionString = DAOConfig.URL;
-            IEnumerable<int> ret;
-
-            using (var connection = new SqlConnection(connectionString))
-            {
-                ret = connection.Query<int>("SELECT valorAval FROM Avaliacao WHERE (nifCliente=" + nifCliente + " and idProduto=" + idProduto + ")");
-            }
-
-            return ret.FirstOrDefault();
-        }
-
-        public void AddProdutoCarrinho(int nifCliente, int idProduto, int valorVenda)
-        {
-            const string connectionString = DAOConfig.URL;
-
-            using (var connection = new SqlConnection(connectionString))
-            {
-                connection.Execute("INSERT INTO Carrinho (nifCliente,idProduto,valorVenda) VALUES (" + nifCliente + "," + idProduto + "," + valorVenda + ")");
-            }
-
-        }
-
+        return ret.FirstOrDefault();
     }
 }
+
 

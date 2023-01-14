@@ -7,12 +7,12 @@ namespace src.Data.BusinessLogic;
 [Table("Vendedor")]
 public class Vendedor
 {
-    [Key]
-    private int nifVendedor { get; set; }
-    private String nomeProprio { get; set; }
-    private String apelido { get; set; }
-    private String email { get; set; }
-    private String passwordVendedor { get; set; }
+    [ExplicitKey]
+    public int nifVendedor { get; set; }
+    public String nomeProprio { get; set; }
+    public String apelido { get; set; }
+    public String email { get; set; }
+    public String passwordVendedor { get; set; }
 
     public Vendedor(int sellerNif, string name, string surname, string email, string password)
     {

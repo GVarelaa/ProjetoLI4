@@ -7,7 +7,7 @@ namespace src.Data.BusinessLogic.SubFeiras;
 [Table("Feira")]
 public class Feira
 {
-    [Key]
+    [ExplicitKey]
     public string nomeFeira { get; set; }
     public string tema { get; set; }
     public string descricao { get; set; }

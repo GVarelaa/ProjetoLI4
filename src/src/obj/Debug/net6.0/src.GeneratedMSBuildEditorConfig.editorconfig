@@ -20,6 +20,14 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/joaoa/source/repos/ProjetoLI4/src/src/Pages/AdicionarProduto.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRpY2lvbmFyUHJvZHV0by5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joaoa/source/repos/ProjetoLI4/src/src/Pages/ApresentaçãoFeiras.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXByZXNlbnRhw6fDo29GZWlyYXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/joaoa/source/repos/ProjetoLI4/src/src/Pages/CarrinhoCompras.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FycmluaG9Db21wcmFzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -34,6 +42,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/joaoa/source/repos/ProjetoLI4/src/src/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joaoa/source/repos/ProjetoLI4/src/src/Pages/Negociacao.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmVnb2NpYWNhby5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/joaoa/source/repos/ProjetoLI4/src/src/Pages/PaginaProduto.razor]

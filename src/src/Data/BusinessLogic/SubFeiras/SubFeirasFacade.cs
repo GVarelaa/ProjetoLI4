@@ -51,9 +51,9 @@ public class SubFeirasFacade
         return Task.FromResult(Produtos.GetAvaliacaoMediaProduto(idProduto));
     }
 
-    public void AddProduto(Produto p)
+    public Produto AddProduto(Produto p)
     {
-        Produtos.Insert(p);
+        return Produtos.Insert(p);
     }
 
     public void AddFeira(Feira f)
