@@ -1,6 +1,8 @@
 ﻿@page "/catalogo/{nomeFeira}/{productId}"
 @using src.Data.BusinessLogic.SubFeiras
 @inject SubFeirasFacade Facade
+@using src.Data.BusinessLogic
+@inject LogicaNegocio LogicaNegocio
 
 <style>
     body, html {
@@ -27,7 +29,7 @@
         vertical-align: middle;
         display:  table-cell;
         width: 300px;
-        height: 100px;
+        height: 130px;
         position: absolute;
         top: 0;
         left: 50%;
@@ -301,6 +303,8 @@
 
     private void closePopup()
     {
+        LogicaNegocio ln = new LogicaNegocio();
+        ln.AdicionarAoCarrinho(12345678, int.Parse(productId), p.preço, 1);
         popupState = "popup";
     }
 }

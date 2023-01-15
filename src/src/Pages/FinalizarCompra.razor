@@ -3,6 +3,7 @@
 @inject SubComprasFacade Facade
 @using src.Data.BusinessLogic
 @inject LogicaNegocio LogicaNegocio
+@inject IJSRuntime js
 
 <style>
 	html, body{
@@ -37,7 +38,7 @@
 	}
 
 	.mbway {
-		margin-top: 100px;
+		margin-top: 30px;
 		visibility: @mbwayVisibility;
 	}
 
@@ -46,7 +47,7 @@
 	}
 
 	.credit-card {
-		margin-top: -80px;
+		margin-top: -120px;
 		visibility: @ccVisibility;
 	}
 
@@ -60,19 +61,19 @@
 	<h2>Insira os dados de faturação</h2>
 	<form id="myform">
 		<label for="fname">Nome:</label><br>
-		<input type="text" id="fname" @bind="@firstName"/><br /><br />
+		<input type="text" id="fname" @bind="@firstName" required/><br /><br />
 		<label for="lname">Apelido:</label><br>
-		<input type="text" id="lname" @bind="@lastName"><br><br>
+		<input type="text" id="lname" @bind="@lastName" required><br><br>
 		<label for="telephone">Número de telemóvel:</label><br>
-		<input type="text" id="telephone" @bind="@telephoneNumber"><br><br>
+		<input type="text" id="telephone" @bind="@telephoneNumber" required><br><br>
 		<label for="lname">Morada:</label><br>
-		<input type="text" id="lname" @bind="@address" ><br><br>
+		<input type="text" id="lname" @bind="@address" required><br><br>
 	</form>
 </div>
 
 <div class="payments-container">
 	<div class="payment">
-		<button type="submit" @onclick="mbway"><img src="css/images/MBWay.png" width="140%" height="100%" /></button>
+		<button type="submit" form="myform" @onclick="mbway"><img src="css/images/MBWay.png" width="140%" height="100%" /></button>
 	</div>
 	<div class="payment">
 		<button type="submit" @onclick="mb"><img src="css/images/Multibanco.svg.png" width="100%" height="100%" /></button>
@@ -81,33 +82,37 @@
 		<button type="submit" @onclick="creditCard"><img src="css/images/MasterCard.png" width="100%" height="100%" /></button>
 	</div>
 </div>
+
 <div class="payment-data-container">
-	<div class="mbway">
+	<div class="mbway" style="display: @mbwayVisibility">
 		<form>
 			<label for="mbwayphone">Número de telefone MBWay</label><br />
 			<input type="text" id="mbwayphone" @bind="@mbwayphone"><br /><br />
 		</form>
+		<button @onclick="buy" style="margin-top: 30px;">Finalizar compra!</button>
 	</div>
 
-	<div class="mb">
+	<div class="mb" style="display: @mbVisibility">
 		<p><span style="font-weight: bold">Entidade: </span>12345</p>
 		<p><span style="font-weight: bold">Referência: </span>123 456 789</p>
 		<p><span style="font-weight: bold">Valor: </span>20€</p>
+		<button @onclick="buy" style="margin-top: 30px;">Finalizar compra!</button>
 	</div>
 
-	<div class="credit-card">
-		<form>
+	<div class="credit-card" style="display:@ccVisibility">
+		<form id="snd-form">
 			<label for="ccnum">Número do cartão: </label><br />
-			<input type="text" id="ccnum" @bind="@ccNum" /><br /><br />
+			<input type="text" form="snd-form" id="ccnum" @bind="@ccNum" required/><br /><br />
 			<label for="cccode"></label>Security code: <br />
-			<input type="text" id="cccode" @bind="@ccCode" /><br /><br />
+			<input type="text" form="snd-form" id="cccode" @bind="@ccCode" required/><br /><br />
 			<label for="edate">Expiration date: </label><br />
-			<input type="date" id="edate" @bind="@expDate" />
+			<input type="date" form="snd-form" id="edate" @bind="@expDate" />
 		</form>
+		<button @onclick="buy" style="margin-top: 30px;">Finalizar compra!</button>
 	</div>
 </div>
 
-<button>Finalizar compra!</button>
+
 
 
 
@@ -129,31 +134,35 @@
 
 	protected override async Task OnInitializedAsync()
 	{
-		mbVisibility = "hidden";
-		mbwayVisibility = "hidden";
-		ccVisibility = "hidden";
+		mbVisibility = "none";
+		mbwayVisibility = "none";
+		ccVisibility = "none";
 	}
 
 	private void mbway(){
-		mbwayVisibility = "visible";
+		mbwayVisibility = "block";
 		mbVisibility = "hidden";
 		ccVisibility = "hidden";
 	}
 
 	private void mb(){
-		mbVisibility = "visible";
+		mbVisibility = "block";
 		mbwayVisibility = "hidden";
 		ccVisibility = "hidden";
 	}
 
 	private void creditCard(){
-		ccVisibility = "visible";
+		ccVisibility = "block";
 		mbwayVisibility = "hidden";
 		mbVisibility = "hidden";
 	}
 
-	private void buy(){
+	private async void buy(){
 		LogicaNegocio ln = new LogicaNegocio();
-		ln.FinalizarCompra(12345678, firstName + lastName, address, telephoneNumber);
+		try{
+			ln.FinalizarCompra(12345678, firstName + lastName, address, telephoneNumber);
+		} catch (Exception e) {
+			await js.InvokeVoidAsync("alert", e.Message);
+		}
 	}
 }
