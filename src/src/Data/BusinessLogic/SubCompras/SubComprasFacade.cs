@@ -48,4 +48,9 @@ public class SubComprasFacade
     {
         this.Compras.InsertProdutoCarrinho(nifCliente, idProduto, valorVenda, quantidade);
     }
+
+    public Boolean DeleteProdutoCarrinho(int nifCliente, int idProduto)
+    {
+        return this.Compras.DeleteProdutoCarrinho(nifCliente, idProduto);
+    }
 }

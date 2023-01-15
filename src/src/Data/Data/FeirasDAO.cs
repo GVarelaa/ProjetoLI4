@@ -88,6 +88,7 @@ public class FeirasDAO
         return feiras;
     }
 
+
     public void AddRegistoFeira(String nomeFeira, int nifVendedor)
     {
         const string connectionString = DAOConfig.URL;

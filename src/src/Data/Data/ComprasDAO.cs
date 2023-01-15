@@ -63,15 +63,6 @@ public class ComprasDAO
         return compras;
     }
 
-    public void InsertProdutoCompra(int idCompra, int idProduto, float valorVenda)
-    {
-        const string connectionString = DAOConfig.URL;
-
-        using (var connection = new SqlConnection(connectionString))
-        {
-            connection.Execute("INSERT INTO ProdutoDaCompra (idCompra, valorVenda, idProduto) VALUES (" + idCompra + "," + valorVenda + "," + idProduto + ")");
-        }
-    }
 
     public void InsertProdutoCarrinho(int nifCliente, int idProduto, float valorVenda, int quantidade)
     {
