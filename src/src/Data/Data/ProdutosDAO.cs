@@ -43,7 +43,8 @@ public class ProdutosDAO
 
         using (var connection = new SqlConnection(connectionString))
         {
-            IEnumerable<int> ids = connection.Query<int>("SELECT idProduto FROM Produto WHERE nomeFeira='" + nomeFeira + "'");
+            var parameters = new { NomeFeira = nomeFeira };
+            IEnumerable<int> ids = connection.Query<int>("SELECT idProduto FROM Produto WHERE nomeFeira=@NomeFeira", parameters);
 
             foreach(int id in ids)
             {
@@ -59,8 +60,9 @@ public class ProdutosDAO
         IEnumerable<Produto> ps = new List<Produto>();
 
         using (var connection = new SqlConnection(connectionString))
-        {
-            IEnumerable<int> ids = connection.Query<int>("SELECT idProduto FROM Produto WHERE nifVendedor=" + nif);
+        {   
+            var parameters = new { NifVendedor = nif };
+            IEnumerable<int> ids = connection.Query<int>("SELECT idProduto FROM Produto WHERE nifVendedor= @NifVendedor", parameters);
 
             foreach (int id in ids)
             {
@@ -77,7 +79,8 @@ public class ProdutosDAO
 
         using (var connection = new SqlConnection(connectionString))
         {
-            idsP = connection.Query<int>("SELECT idProduto FROM Favorito where nifCliente=" + id);
+            var parameters = new {NifCliente = id};
+            idsP = connection.Query<int>("SELECT idProduto FROM Favorito where nifCliente=@NifCliente", parameters);
         }
 
         IEnumerable<Produto> favs = new List<Produto>();
@@ -96,7 +99,8 @@ public class ProdutosDAO
 
         using (var connection = new SqlConnection(connectionString))
         {
-            idsP = connection.Query<Tuple<int, int>>("SELECT idProduto,valorAval FROM Avaliacao WHERE nifCliente=" + nifCliente);
+            var parameters = new { NifClient = nifCliente};
+            idsP = connection.Query<Tuple<int, int>>("SELECT idProduto,valorAval FROM Avaliacao WHERE nifCliente=@NifCliente", parameters);
         }
 
         return idsP;
@@ -114,6 +118,45 @@ public class ProdutosDAO
         }
 
         return Get((int) id);
+    } 
+
+    public void InsertAvaliacao(int nifCliente, int idProduto, int valorAval)
+    {
+        const string connectionString = DAOConfig.URL;
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            var parameters1 = new { ValorAval = valorAval, NifCliente = nifCliente, IdProduto = idProduto};
+            int affected = connection.Execute("UPDATE Avaliacao SET valorAval=@ValorAval WHERE (nifCliente=@NifCliente and idProduto=@IdProduto)", parameters1);
+            if (affected == 0)
+            {
+                var parameters2 = new { NifCliente = nifCliente, IdProduto = idProduto, ValorAval = valorAval};
+                connection.Execute("INSERT INTO Avaliacao (nifCliente, idProduto, valorAval) VALUES (@NifCliente, @IdProduto, @ValorAval)", parameters2);
+            }
+        }
+    }
+
+    public void UpdateAvaliacaoProduto(int idProduto)
+    {
+        const string connectionString = DAOConfig.URL;
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            IEnumerable<int> avaliacoes = connection.Query<int>("SELECT valorAval FROM Avaliacao WHERE idProduto=" + idProduto);
+
+            float soma = 0;
+            int n = 0;
+            foreach(var avaliacao in avaliacoes)
+            {
+                soma += avaliacao;
+                n++;
+            }
+
+            float avaliacaoMedia = soma / (float)n;
+
+            var parameters = new { AvaliacaoMedia = avaliacaoMedia, IdProduto = idProduto };
+            connection.Execute("UPDATE Produto SET avaliacaoMedia= @AvaliacaoMedia WHERE idProduto= @IdProduto", parameters);
+        }
     }
 
     public Produto Delete(int key)
@@ -151,7 +194,8 @@ public class ProdutosDAO
 
         using (var connection = new SqlConnection(connectionString))
         {
-            avals = connection.Query<int>("SELECT valorAval FROM Avaliacao WHERE idProduto=" + idProduto);
+            var parameters = new { IdProduto = idProduto};
+            avals = connection.Query<int>("SELECT valorAval FROM Avaliacao WHERE idProduto=@IdProduto", parameters);
         }
 
         int soma = avals.Sum();
@@ -166,11 +210,13 @@ public class ProdutosDAO
 
         using (var connection = new SqlConnection(connectionString))
         {
-            IEnumerable<(int, float, int)> transacoes = connection.Query<(int, float, int)>("SELECT idCompra,valorVenda,quantidade FROM ProdutoDaCompra WHERE idProduto=" + idProduto);
+            var parameters1 = new { IdProduto = idProduto};
+            IEnumerable<(int, float, int)> transacoes = connection.Query<(int, float, int)>("SELECT idCompra,valorVenda,quantidade FROM ProdutoDaCompra WHERE idProduto=@IdProduto", parameters1);
 
             foreach(var transacao in transacoes)
             {
-                IEnumerable<(int, DateTime)> compra = connection.Query<(int, DateTime)>("SELECT nifCliente, timestampCompra FROM Compra WHERE idCompra=" + idProduto);
+                var parameters2 = new { IdCompra = transacao.Item1 };
+                IEnumerable<(int, DateTime)> compra = connection.Query<(int, DateTime)>("SELECT nifCliente, timestampCompra FROM Compra WHERE idCompra=@IdCompra", parameters2);
                 compras = compras.Append((compra.First().Item2, transacao.Item2, transacao.Item3, compra.First().Item1));
             }
         }

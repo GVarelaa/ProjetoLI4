@@ -73,7 +73,8 @@ public class ClientesDAO
 
         using (var connection = new SqlConnection(connectionString))
         {
-            ret = connection.Query<int>("SELECT valorAval FROM Avaliacao WHERE (nifCliente=" + nifCliente + " and idProduto=" + idProduto + ")");
+		var parameters = new { NIFCliente = nifCliente, IDProduto = idProduto };
+        	ret = connection.Query<int>("SELECT valorAval FROM Avaliacao WHERE (nifCliente=@NIFCliente and idProduto=@IDProduto)", parameters);
         }
 
         return ret.FirstOrDefault();
