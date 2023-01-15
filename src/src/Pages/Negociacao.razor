@@ -107,6 +107,10 @@
 		margin-left: 15%;
 	}
 
+	.last-row input {
+		
+	}
+
 	.semi {
 		position: relative;
 	}
@@ -187,6 +191,7 @@
 @code {
 	[Parameter]
 	public String idProduto { get; set; }
+	private Produto p;
 	private String popupState = "popup";
 	private List<float> clientValues = new List<float>(3);
 	private List<float> sellerValues = new List<float>(4);
@@ -195,6 +200,7 @@
 	private float li;
 	private float ls;
 	private float ta;
+	SubComprasFacade sc;
 
 	public void OnGet(String productId)
 	{
@@ -203,10 +209,10 @@
 
 	protected override async Task OnInitializedAsync()
 	{
-		SubComprasFacade sc = new SubComprasFacade();
+		sc = new SubComprasFacade();
 		SubFeirasFacade sf = new SubFeirasFacade();
-		Produto p = await sf.GetProduto(int.Parse(idProduto));
-		Console.WriteLine(p.idProduto);
+		p = await sf.GetProduto(int.Parse(idProduto));
+
 		// get produto e obter os limites
 		/* 
 		ls = valor do produto
@@ -232,7 +238,7 @@
 	}
 
 	private void submitValue(){
-
+		sc.AdicionarAoCarrinho(12345678, int.Parse(idProduto), 2, 1);
 		/*
 		
 		ta = round(ls - ls * fa, 2)

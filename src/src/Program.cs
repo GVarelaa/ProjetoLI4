@@ -23,6 +23,8 @@ SubFeirasFacade f = new SubFeirasFacade();
 SubUtilizadoresFacade uf = new SubUtilizadoresFacade();
 SubComprasFacade compras = new SubComprasFacade();
 
+//uf.RegistarCliente("cliente", "cliente@gmail.com", "example123", 12345678);
+
 //Feira f1 = new Feira("feira de ponte de lima", "Rural", "Muito boa", "Ponte de lima");
 //f.AddFeira(f1);
 //Feira f2 = await f.GetFeira(f1.nomeFeira);
