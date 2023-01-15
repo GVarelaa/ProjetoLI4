@@ -29,7 +29,7 @@
     }
 
     .produtos {
-        background-color: orange;
+        background-image: radial-gradient( circle farthest-corner at 5.6% 54.5%, rgba(47,71,79,1) 0%, rgba(159,188,198,1) 83.6% );
         display: grid;
         grid-template-columns: 20% auto;
         justify-self: center;
@@ -37,7 +37,6 @@
         font-size: 15px;
         margin: 50px;
         height: 20%;
-        border-color: orange;
         border-radius: 10px;
     }
 
@@ -95,7 +94,6 @@
     }
 
     .trash {
-        background-color: orange;
         justify-self: center;
         align-self: center;
     }
@@ -120,10 +118,70 @@
         font-size: 1.3em;
     }
 
+    .tracking-in-expand {
+        margin-top:50px;
+        -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+        animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    }
+
+
+    @@-webkit-keyframes tracking-in-expand {
+        0% {
+            letter-spacing: -0.5em;
+            opacity: 0;
+        }
+
+        40% {
+            opacity: 0.6;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @@keyframes tracking-in-expand {
+        0% {
+            letter-spacing: -0.5em;
+            opacity: 0;
+        }
+
+        40% {
+            opacity: 0.6;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .btn-grad {
+            background-image: linear-gradient(to right, #348F50 0%, #56B4D3  51%, #348F50  100%);
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+            margin-left:50px;
+            margin-top:50px
+    }
+
+    .btn-grad:hover {
+           background-position: right center; /* change the direction of the change here */
+           color: #fff;
+           text-decoration: none;
+    }
+         
+
 </style>
 
 
-<div class="top-bar">
+<div class="tracking-in-expand">
     <h1>Carrinho de compras</h1>
     <h3>Aqui pode ver o seu carrinho de compras</h3>
 </div>
@@ -131,7 +189,7 @@
 @foreach(var produtoCarrinho in carrinhoUser){
     <div class="produtos">
         <div class="img-container">
-            <img src=css/images/batata-vermelha-final-1.jpg width="100%" height="100%" />
+            <img style="border-radius:10px;" src=css/images/batata-vermelha-final-1.jpg width="100%" height="100%" />
         </div>
 
         <div class="right-content">
@@ -141,7 +199,7 @@
                         <p>@produtoCarrinho.Item1.nome</p>
                     </div>
                     <div class="price_quantity">
-                        <p> Preço original: <span style="color: red">@produtoCarrinho.Item1.preço</span></p>
+                        <p> Preço original: <span style="color: white">@produtoCarrinho.Item1.preço</span></p>
                         <p> Quantidade do Produto: <span style="color: blue">@produtoCarrinho.Item2 </span></p>
                         <p> Preço negociado: <span style="color: green">@produtoCarrinho.Item3€</span></p>
                     </div>
@@ -152,7 +210,7 @@
                     <p>@produtoCarrinho.Item1.descricao</p>
                     </div>
                 <div class="trash">
-                    <button style="background-color: orange" @onclick="disappear"><i class="fa fa-trash" style="color: grey ; font-size: 100px"></i></button>
+                    <button style="background-color: transparent" @onclick="disappear"><i class="fa fa-trash" style="color: grey ; font-size: 100px"></i></button>
                 </div>
 
             </div>
@@ -160,8 +218,8 @@
     </div>
 }
 
-<button class="primary-btn">
-    <a href="/finalizar" style="color: blue"><p>Finalizar compra!</p></a>
+<button class="btn-grad">
+    <a style= "text-decoration:none; color:white;" href="/finalizar">Finalizar compra</a>
 </button>
 
 @code {

@@ -92,12 +92,25 @@
         }
 
         .top-bar .product-content .button-submit {
-            background-color: darkgoldenrod;
-            padding: 4px;
+            background-image: linear-gradient(to right, #348F50 0%, #56B4D3 51%, #348F50 100%);
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
             color: white;
-            border-radius: 5px;
-            font-size: 2em;
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
         }
+
+        .top-bar .product-content .button-submit:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+        }
+
 
         #heart {
             color: palevioletred;
@@ -214,7 +227,7 @@
             </div>
             <div class="right">
                 <div class="heart-btn">
-                    <button style="background-color: rgba(159,188,198,1);border-radius:10px;">
+                    <button style="background-color: transparent;border-radius:10px;">
                         <i id="heart" class="fa fa-heart" style="font-size: 30px; padding: 10px 0 0 30px;"></i>
                     </button>
                     <button class="button-submit" @onclick="openPopup">Adicionar ao carrinho</button>
