@@ -1,4 +1,5 @@
 ﻿@page "/Negociacao"
+@using src.Data.BusinessLogic.SubFeiras
 
 <style>
 	body, html {
@@ -154,7 +155,7 @@
 <div class="container">
 	<div class=@popupState>
 		<h2 style=>Negociação finalizada</h2>
-		<h3>Valor final: @valorFinal €</h3>
+		<h3>Valor final: @valorfinal €</h3>
 		<button @onclick="closePopup"><p>OK</p></button>
 	</div>
 	
@@ -164,23 +165,30 @@
 
 @code {
 	private String popupState = "popup";
-	private List<float> clientValues;
-	private List<float> sellerValues;
+	private List<float> clientValues = new List<float>(3);
+	private List<float> sellerValues = new List<float>(4);
 	private float input;
-	private float valorFinal;
+	private float valorfinal;
+	private float li;
+	private float ls;
+	private float ta;
+
 
 	protected override async Task OnInitializedAsync()
 	{
-		valorFinal = 10f;
-		clientValues = new List<float>(3);
-		sellerValues = new List<float>(4);
-		sellerValues.Add(1);
-		sellerValues.Add(0);
-		sellerValues.Add(0);
-		sellerValues.Add(0);
+		// get produto e obter os limites
+		/* 
+		ls = valor do produto
+		li = ls - ls * ft
+		bool aceita = False
+		valorFinal = ls
+		*/
 		clientValues.Add(0);
 		clientValues.Add(0);
 		clientValues.Add(0);
+		sellerValues.Add(0);
+		sellerValues.Add(0);
+		sellerValues.Add(0);
 	}
 
 	private void openPopup(){
@@ -192,6 +200,34 @@
 	}
 
 	private void submitValue(){
+
+		/*
+		
+		ta = round(ls - ls * fa, 2)
+		print("ta " + str(ta))
+
+		if (input >= ta)
+		{
+			aceita = True;
+			vendido = n;
+		}
+		else if (n < li)
+		{
+			return
+		}
+		else
+		{
+			ls = round(ls - (ls - li) * fr, 2)
+			li = round(li + (ls - li) * fr, 2)
+				if (n > li)
+				{
+					li = n
+				}
+
+		}*/
+			
+			
+		
 		if (clientValues.Count == 3){
 			clientValues[0] = clientValues[1];
 			clientValues[1] = clientValues[2];

@@ -134,46 +134,46 @@
         <div class="produto-square">
             @if (shownProdutos[0] != null)
             {
-                <button><a href="catalogo/@nomeFeira/@shownProdutos[0]"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
-                <h1>@shownProdutos[0]</h1>
+                <button><a href="catalogo/@nomeFeira/"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
+                <h1>@shownProdutos[0].nome</h1>
             }
         </div>
-        <div class="produto-square">
+        @*<div class="produto-square">
             @if (shownProdutos[1] != null)
             {
-                <button><a href="catalogo/@nomeFeira/@shownProdutos[1]"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
-                <h1>@shownProdutos[1]</h1>
+                <button><a href="catalogo/@nomeFeira/@shownProdutos[1].idProduto"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
+                <h1>@shownProdutos[1].nome</h1>
             }
         </div>
         <div class="produto-square">
             @if (shownProdutos[2] != null)
             {
-                <button><a href="catalogo/@nomeFeira/@shownProdutos[2]"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
-                <h1>@shownProdutos[2]</h1>
+                <button><a href="catalogo/@nomeFeira/@shownProdutos[2].idProduto"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
+                <h1>@shownProdutos[2].nome</h1>
             }
         </div>
         <div class="produto-square">
             @if (shownProdutos[3] != null)
             {
-                <button><a href="catalogo/@nomeFeira/@shownProdutos[3]"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
-                <h1>@shownProdutos[3]</h1>
+                <button><a href="catalogo/@nomeFeira/@shownProdutos[3].idProduto"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
+                <h1>@shownProdutos[3].nome</h1>
             }
         </div>
         <div class="produto-square">
             @if (shownProdutos[4] != null)
             {
-                <button><a href="catalogo/@nomeFeira/@shownProdutos[4]"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
-                <h1>@shownProdutos[4]</h1>
+                <button><a href="catalogo/@nomeFeira/@shownProdutos[4].idProduto"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
+                <h1>@shownProdutos[4].nome</h1>
             }
 
         </div>
         <div class="produto-square">
             @if (shownProdutos[5] != null)
             {
-                <button><a href="catalogo/@nomeFeira/@shownProdutos[5]"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
-                <h1>@shownProdutos[5]</h1>
+                <button><a href="catalogo/@nomeFeira/@shownProdutos[5].idProduto"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
+                <h1>@shownProdutos[5].nome</h1>
             }
-        </div>
+        </div>*@
     </div>
     <div class="icon">
         <button @onclick="incrementCounter"><i class="fa fa-arrow-right"></i></button>
@@ -181,8 +181,8 @@
 </div>
 <div class="filtered-produto-container">
     <div class="filtered-produto">
-        <button><a href="catalogo/@nomeFeira/@filteredProduto"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
-        <h1>@filteredProduto</h1>
+        <button><a href="catalogo/@nomeFeira/@filteredProduto.idProduto"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
+        <h1>@filteredProduto.nome</h1>
     </div>
 </div>
 
@@ -195,18 +195,18 @@
     private String? descfeira;
 
     private List<Produto>? produtos;
-    private List<string>? shownProdutos;
+    private List<Produto>? shownProdutos;
     private String filterValue;
     private string produtosStyle = "grid";
     private string filteredStyle = "none";
-    private string filteredProduto;
+    private Produto filteredProduto;
     private int index;
 
     protected override async Task OnInitializedAsync()
     {
         this.index = 0;
         produtos = new List<Produto>();
-        shownProdutos = new List<string>(6);
+        shownProdutos = new List<Produto>(6);
         produtos.Add(new Produto("batata", 1.0f, 2, "", "", 2f, 2f, 2f, 2f, nomeFeira, 123));
         this.updateProdutos();
     }
@@ -239,7 +239,7 @@
             if (index * 6 + i + 1 <= produtos.Count)
             {
                 Produto f = produtos.ElementAt(index * 6 + i);
-                shownProdutos.Insert(i, f.nome);
+                shownProdutos.Insert(i, f);
             }
             else shownProdutos.Insert(i, null);
         }
@@ -259,7 +259,7 @@
         {
             if (produto.nome == filterValue)
             {
-                filteredProduto = produto.nome; ;
+                filteredProduto = produto;
                 foundProduto = true;
             }
         }

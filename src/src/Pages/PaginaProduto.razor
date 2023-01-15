@@ -1,4 +1,4 @@
-﻿@page "/catalogo/{nomeFeira}/{nomeProduto}"
+﻿@page "/catalogo/{nomeFeira}/{productId}"
 @using src.Data.BusinessLogic.SubFeiras
 @inject SubFeirasFacade Facade
 
@@ -83,6 +83,11 @@
 
         }
 
+        .top-bar .button-ctn {
+            display: grid;
+            grid-template-columns: 50% 50%;
+        }
+
         .top-bar .product-content button {
             background-color: darkgoldenrod;
             padding: 4px;
@@ -92,14 +97,130 @@
             font-size: 2em;
         }
 
+        .top-bar .product-content .price {
+            float: right;
+            color: darkgoldenrod;
+        }
+
+        .top-bar .product-content .stock{
+            float: right;
+            color: white;
+        }
+
+        .checked {
+            color: orange;
+        }
+        .not-checked{
+            color: white;
+        }
+
+        .aval-geral {
+            display: flex;
+        }
+
+        .aval-cliente {
+            display: flex;
+        }
+
+        .button-ctn {
+            float: right;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            margin-right: 40px;
+        }
+
+        .button-ctn .left {
+            border: solid;
+            align-self: center;
+        }
+
+        .button-ctn .right {
+            border: solid;
+            align-self: center;
+            text-align: center;
+            text-align: center;
+        }
+
+        .button-ctn .right p{
+            border: solid;
+        }
+
+        .stock {
+            margin-top: 10px;
+        }
+
+        .price {
+            margin-bottom: 10px;
+        }
+
+        .first-row {
+            display: grid;
+            grid-template-columns: auto auto;
+            margin-bottom: 35px;
+        }
+
+        .first-row p {
+            align-self: center;
+            justify-self: center;
+            font-size: 30px;
+        }
+
+        .avals {
+            margin-top: 15px;
+            float: left;
+            margin-left: 30px;
+            font-size: 1.5em;
+        }
+
+        .aval {
+            margin-left: 30px;
+        }
+
 </style>
 
 <div class="top-bar">
     <img src="css/images/batata-vermelha-final-1.jpg" width="300px" height="300px"/>
     <div class="product-content">
-        <h1>@nomeProduto</h1>
-        <p>10.0€</p>
-        <button @onclick="openPopup">Adicionar ao carrinho</button>
+        <h1>@p.nome</h1>
+        <div class="first-row">
+            <p>@p.categoria</p>
+            <p>@p.nifVendedor</p>
+        </div>
+        <div class="button-ctn">
+            <div class="left">
+                <i class="fa fa-heart" style="color: red ; font-size: 30px"></i>
+            </div>
+            <div class="right">
+                <p class="price">@p.preço€</p
+                <button @onclick="openPopup">Adicionar ao carrinho</button>
+                <p class="stock">Stock: @p.stock</p>
+            </div>
+        </div>
+        <div class="avals">
+            <div class="aval-geral">
+                <div><p>Avaliação geral: </p></div>
+                <div class="aval">
+                    <span class="fa fa-star checked" style="font-size: 20px"></span>
+                    <span class="fa fa-star checked" style="font-size: 20px"></span>
+                    <span class="fa fa-star checked" style="font-size: 20px"></span>
+                    <span class="fa fa-star not-checked" style="font-size: 20px"></span>
+                    <span class="fa fa-star not-checked" style="font-size: 20px"></span>
+                </div>
+            </div>
+            
+            <div class="aval-cliente">
+                <div><p>Avaliação do cliente: </p></div>
+                <div class="aval">
+                    <span class="fa fa-star checked" style="font-size: 20px"></span>
+                    <span class="fa fa-star checked" style="font-size: 20px"></span>
+                    <span class="fa fa-star checked" style="font-size: 20px"></span>
+                    <span class="fa fa-star not-checked" style="font-size: 20px"></span>
+                    <span class="fa fa-star not-checked" style="font-size: 20px"></span>
+                </div>            
+            </div>
+        </div>
+        
+        
     </div>
     
 </div>
@@ -126,7 +247,7 @@
     <br>
     <div class="options">
         <p><a href="/Negociacao"> Sim </a></p>
-        <p><a href="/catalogo/@nomeFeira/@nomeProduto" @onclick="closePopup"> Não </a></p>
+        <p><a href="/catalogo/@nomeFeira/@productId" @onclick="closePopup"> Não </a></p>
     </div>
     <br>
 </div>
@@ -136,17 +257,18 @@
     [Parameter]
     public String? nomeFeira { get; set; }
     [Parameter]
-    public String? nomeProduto{ get; set; }
-    private String? descProduto;
+    public String productId{ get; set; }
+    private Produto p;
     private String popupState = "popup";
 
     protected override async Task OnInitializedAsync()
     {
-        descProduto = "Produto muito fixe";//descProduto = await Facade.getProduto();
+        SubFeirasFacade sf = new SubFeirasFacade();
+        p = await sf.GetProduto(int.Parse(productId));
     }
 
-    public void OnGet(String nomeProduto, String nomeFeira){
-        this.nomeProduto = nomeProduto;
+    public void OnGet(String productId, String nomeFeira){
+        this.productId = productId;
         this.nomeFeira = nomeFeira;
     }
 
