@@ -70,9 +70,11 @@ public class ComprasDAO
 
         using (var connection = new SqlConnection(connectionString))
         {
-            int affected = connection.Execute("UPDATE Carrinho SET valorVenda=" + valorVenda + ", quantidade=quantidade+" + quantidade + " WHERE idProduto= " + idProduto);
+            var parameters1 = new { ValorVenda = valorVenda, Quantidade = quantidade, IdProduto = idProduto};
+            int affected = connection.Execute("UPDATE Carrinho SET valorVenda=@ValorVenda, quantidade=quantidade+@Quantidade WHERE idProduto=@IdProduto", parameters1);
             if (affected == 0) {
-                connection.Execute("INSERT INTO Carrinho (nifCliente, idProduto, valorVenda, quantidade) VALUES (" + nifCliente + "," + idProduto + "," + valorVenda + "," + quantidade + ")");
+                var parameters2 = new { NifCliente = nifCliente, IdProduto = idProduto, ValorVenda = valorVenda, Quantidade = quantidade};
+                connection.Execute("INSERT INTO Carrinho (nifCliente, idProduto, valorVenda, quantidade) VALUES (@NifCliente, @IdProduto, @ValorVenda, @Quantidade)", parameters2);
             }
         }
 
@@ -85,7 +87,8 @@ public class ComprasDAO
 
         using (var connection = new SqlConnection(connectionString))
         {
-            nrows = connection.Execute("DELETE FROM Carrinho WHERE (nifCliente=" + nifCliente + "and idProduto=" + idProduto + ")");
+            var parameters = new { NifCliente = nifCliente, IdProduto = idProduto};
+            nrows = connection.Execute("DELETE FROM Carrinho WHERE (nifCliente=@NifCliente and idProduto=@IdProduto)", parameters);
         }
 
         return nrows > 0;
@@ -98,7 +101,8 @@ public class ComprasDAO
 
         using (var connection = new SqlConnection(connectionString))
         {
-            idpds = connection.Query<(int, float, int)>("SELECT idProduto,valorVenda,quantidade FROM Carrinho WHERE nifCliente=" + nifCliente);
+            var parameters = new { NifCliente = nifCliente};
+            idpds = connection.Query<(int, float, int)>("SELECT idProduto,valorVenda,quantidade FROM Carrinho WHERE nifCliente=@NifCliente", parameters);
         }
 
         IEnumerable<(Produto, float, int)> pds = new List<(Produto, float, int)>();
@@ -129,11 +133,13 @@ public class ComprasDAO
                 {
                     foreach (var produto in produtos)
                     {
-                        connection.Execute("DELETE FROM Carrinho WHERE (nifCliente=" + nifCliente + "and idProduto=" + produto.Item1.idProduto + ")", transaction: transaction);
+                        var parameters1 = new { NifCliente = nifCliente, IdProduto = produto.Item1.idProduto};
+                        connection.Execute("DELETE FROM Carrinho WHERE (nifCliente=@NifCliente and idProduto=@IdProduto)", parameters1, transaction: transaction);
 
                         try
                         {
-                            connection.Execute("UPDATE Produto SET stock=stock -" + produto.Item3 + " WHERE idProduto=" + produto.Item1.idProduto, transaction: transaction);
+                            var parameters2 = new { Stock = produto.Item3, IdProduto = produto.Item1.idProduto};
+                            connection.Execute("UPDATE Produto SET stock=stock - @Stock WHERE idProduto=@IdProduto", parameters2, transaction: transaction);
                         }
                         catch (Exception)
                         {
@@ -146,8 +152,8 @@ public class ComprasDAO
 
                     foreach (var produto in produtos)
                     {
-                        connection.Execute("INSERT INTO ProdutoDaCompra (idCompra, valorVenda, idProduto, quantidade) VALUES ("
-                            + idCompra + "," + produto.Item3 + "," + produto.Item1.idProduto + "," + produto.Item3 + ")", transaction: transaction);
+                        var parameters3 = new { IdCompra = idCompra, ValorVenda = produto.Item3, IdProduto = produto.Item1.idProduto, Quantidade = produto.Item3};
+                        connection.Execute("INSERT INTO ProdutoDaCompra (idCompra, valorVenda, idProduto, quantidade) VALUES (@IdCompra, @ValorVenda, @IdProduto, @Quantidade)", parameters3, transaction: transaction);
                     }
 
                     transaction.Commit();

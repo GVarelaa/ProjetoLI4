@@ -1,6 +1,7 @@
 ﻿@page "/carrinho"
+@using src.Data.BusinessLogic.SubCompras
 @using src.Data.BusinessLogic.SubFeiras
-@inject SubFeirasFacade Facade
+@inject SubComprasFacade Facade
 
 <style>
     body, html {
@@ -9,128 +10,171 @@
         background-color: white;
     }
 
-    .top-content {
-        height: 15%;
-        display: grid;
-        font-size: 24px;
-        background-color: lightskyblue;
+    .top-bar {
+        background-color: darkslateblue;
+        border-bottom: solid;
+        border-bottom-color: var(--color-primary);
+        height: 20%;
+    }
+
+    .top-bar h3 {
+        margin-bottom: 1.5em
+    }
+
+    .top-bar h1 {
+        padding-top: 0.5em;
+        font-weight: bolder;
+        font-size: 3em;
+        color: white;
     }
 
     .produtos {
-        background-color: white;
+        background-color: orange;
         display: grid;
         grid-template-columns: 20% auto;
         justify-self: center;
         align-self: center;
         font-size: 15px;
         margin: 50px;
-        border: solid;
-        height: 40%;
+        height: 20%;
+        border-color: orange;
+        border-radius: 10px;
     }
 
     .img-container {
-        margin-top:25px;
-        width: 100%;
-        height: 100%;
+        border: solid;
+        width: 120px;
+        height: 120px;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .feira-square:before {
+        content: "";
+        float: left;
+        padding-top: 10%; /* initial ratio of 1:1*/
     }
 
     .right-content {
         border: solid;
         width: 90%;
-        height: 80%;
+        height: 90%;
         justify-self: center;
         align-self: center;
     }
 
     .name-product {
-        margin-top: 15px;
-        border:solid;
+        font-size: 2em;
     }
 
     .price_quantity {
         display: grid;
         margin-right: 20px;
         grid-template-columns: 60% 40%;
-        border:solid;
         margin-top: 25px;
     }
 
     .description {
-        margin-top: 30px;
-        margin-left: 30px;
-        margin-right: 15px;
         height: 100%;
-        border: solid;
+    }
+
+    .description h3 {
+        font-size: 1.5em;
     }
 
     .name-price-quantity {
-        margin-top: 30px;
-        margin-left: 30px;
-        margin-right: 15px;
         height: 100%;
-        border: solid;
+        align-self: center;
+        justify-self: center;
     }
 
     .top-row {
-        margin-top: 15px;
+        height: 100%;
         display: grid;
         grid-template-columns: 35% 50% 15%;
     }
 
     .trash {
-        margin-top: 50px;
+        background-color: orange;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .primary-btn{
+        background-color: var(--color-blue);
+        border: none;
+        border-radius: 20px;
+        width: 100px;
+        height: 50px;
+        align-self: center;
+        justify-self: center;
+        margin-bottom: 30px;
+    }
+
+    .primary-btn a{
+        text-decoration: none;
+    }
+
+    .primary-btn p {
+        color: white;
+        font-size: 1.3em;
     }
 
 </style>
 
 
-<div class="top-content">
-    <div align = "center">
-        <h3 style="margin-top: 50px ">Carrinho de Compras</h3>
-    </div>
+<div class="top-bar">
+    <h1>Carrinho de compras</h1>
+    <h3>Aqui pode ver o seu carrinho de compras</h3>
 </div>
 
-<div class="produtos">
-    <div class="img-container">
-        <img src=css/images/batata-vermelha-final-1.jpg width="75%" height="75%" />
-    </div>
+@foreach(var produtoCarrinho in carrinhoUser){
+    <div class="produtos">
+        <div class="img-container">
+            <img src=css/images/batata-vermelha-final-1.jpg width="100%" height="100%" />
+        </div>
 
-    <div class="right-content">  
-        <div class="top-row">
-            <div class="name-price-quantity">
-                <div class="name-product"> 
-                    <p> Nome do Produto </p> 
+        <div class="right-content">
+            <div class="top-row">
+                <div class="name-price-quantity">
+                    <div class="name-product">
+                        <p>@produtoCarrinho.Item1.nome</p>
+                    </div>
+                    <div class="price_quantity">
+                        <p> Preço original: <span style="color: red">@produtoCarrinho.Item1.preço</span></p>
+                        <p> Quantidade do Produto: <span style="color: blue">@produtoCarrinho.Item2 </span></p>
+                        <p> Preço negociado: <span style="color: green">@produtoCarrinho.Item3€</span></p>
+                    </div>
                 </div>
-                <div class="price_quantity"> 
-                    <p> Preço do Produto</p>
-                    <p> Quantidade do Produto</p>
+
+                <div class="description"> 
+                    <h3>Descrição: </h3> 
+                    <p>@produtoCarrinho.Item1.descricao</p>
+                    </div>
+                <div class="trash">
+                    <button style="background-color: orange" @onclick="disappear"><i class="fa fa-trash" style="color: grey ; font-size: 100px"></i></button>
                 </div>
+
             </div>
-
-            <div class="description"> <p> Descrição </p> </div>
-
-
-           <div class="trash">
-                <button @onclick = "disappear" ><i class="fa fa-trash" style="color: grey ; font-size: 100px"></i></button>
-           </div> 
-       
         </div>
     </div>
-</div>
+}
 
-<button>
-    <a href="/finalizar" style="color: blue"> Finalizar compra! </a>
+<button class="primary-btn">
+    <a href="/finalizar" style="color: blue"><p>Finalizar compra!</p></a>
 </button>
 
 @code {
-    private List<String> carrinhoUser;
+    private List<(src.Data.BusinessLogic.SubFeiras.Produto, float, int)> carrinhoUser;
 
     protected override async Task OnInitializedAsync()
     {
-        carrinhoUser = new List<String>();
-        carrinhoUser.Add("Produto1");
-        carrinhoUser.Add("Produto2");
-        carrinhoUser.Add("Produto3");
+        SubComprasFacade sc = new SubComprasFacade();
+        //carrinhoUser = (await sc.GetCarrinho(12345678)).ToList();
+        carrinhoUser = new List<(src.Data.BusinessLogic.SubFeiras.Produto, float, int)>();
+        carrinhoUser.Add((new Produto("teste1", 1f, 4, "Lorem Ipsum", null, 1f, 1f, 1f, 1f, null, 1), 3.5f, 2));
+        carrinhoUser.Add((new Produto("teste2", 1f, 4, "Lorem Ipsum asnas", null, 1f, 1f, 1f, 1f, null, 1), 3.5f, 2));
+        carrinhoUser.Add((new Produto("teste3", 1f, 4, "Lorem Ipsum aoiqwoqw", null, 1f, 1f, 1f, 1f, null, 1), 3.5f, 2));
     }
 
     protected void disappear()
