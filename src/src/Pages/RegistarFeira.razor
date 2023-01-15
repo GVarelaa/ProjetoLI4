@@ -11,9 +11,9 @@
 	.grid-container {
 		display: grid;
 		grid-template-columns: 1fr;
-		grid-template-rows: 1fr 1fr;
-		height: 40%;
-		margin-top: 50px;
+		grid-template-rows: 1fr 1fr 1fr;
+		height: 30%;
+		margin-top: 30px;
 		margin-right: 500px;
 		margin-left: 500px;
 	}
@@ -21,15 +21,15 @@
 
 </style>
 
-<br/> <br/> <br /> <br />
+<br/> <br/> <br /> <br /> <br />
 <h1 style="font:700">Registo em uma feira</h1>
 
 <div class="grid-container">
-		<input type="text" placeholder="Insira o nome da feira:" @bind="@nomeFeira" style="border-radius:10px ; margin-bottom: 80px" />
-		<input type="text" placeholder="Insira o seu nif:" @bind="@nif" style="border-radius:10px " />
+	<input type="text" id="name" placeholder="Insira o nome da feira" @bind="@nomeFeira" style="border-radius:10px ; margin-bottom: 20px; height: 40%" />
+	<input type="text" id="nif" placeholder="Insira o seu NIF" @bind="@nif" style="border-radius:10px; height: 40% " />
+	<button @onclick="registerInFeira" style="background-color:forestgreen; color:black ; border-radius: 10px; height: 30%; width: 40%; margin-left: 80px">Registar na feira</button>
 </div>
 
-<button @onclick="registerInFeira" style="background-color:forestgreen; color:black ; border-radius: 10px">Registar na feira</button>
 
 @code {
 	private int nif;
