@@ -92,11 +92,45 @@
         /* left: 150px;*/
         /*top: 0;*/
     }
+
+    .swirl-in-fwd {
+        -webkit-animation: swirl-in-fwd 0.6s ease-out both;
+        animation: swirl-in-fwd 0.6s ease-out both;
+    }
+
+@@-webkit-keyframes swirl-in-fwd {
+  0% {
+    -webkit-transform: rotate(-540deg) scale(0);
+            transform: rotate(-540deg) scale(0);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotate(0) scale(1);
+            transform: rotate(0) scale(1);
+    opacity: 1;
+  }
+}
+@@keyframes swirl-in-fwd {
+  0% {
+    -webkit-transform: rotate(-540deg) scale(0);
+            transform: rotate(-540deg) scale(0);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotate(0) scale(1);
+            transform: rotate(0) scale(1);
+    opacity: 1;
+  }
+}
+
+
     
 </style>
 
 <div class="menu-bar">
-    <a href="/"><img src="css/images/logo.png" width="150" /></a>
+    <div class="swirl-in-fwd">
+        <a href="/"><img src="css/images/logo.png" width="150" /></a>
+    </div>
       <ul>
                 <li><a href="/Registo">Sign Up</a></li>
                 <li><a href="/Login">Sign In</a></li>
