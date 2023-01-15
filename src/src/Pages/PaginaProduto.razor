@@ -8,7 +8,53 @@
         width: 100%;
         background-color: white;
     }
+
+    .desc {
+        margin: 50px;
+        position: absolute;
+        z-index: 1;
+    }
+
+    .desc p {
+        text-align: justify;
+        margin-top: 20px;
+    }
+
+    .popup {
+        margin-top: 0%;
+        border: solid;
+        text-align: center;
+        vertical-align: middle;
+        display:  table-cell;
+        width: 300px;
+        heght: 100px;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.1);
+        visibility : hidden;
+        transition: transform 0.4s;
+    }
+
+    .open-popup {
+        visibility: visible;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(1);
+        z-index: 10;
+        background-color: lightgreen;
+    }
+
+    .options {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+
 </style>
+
+<div style="background-color: darkslateblue; border-bottom: solid; border-bottom-color: var(--color-primary);">
+    <h1 style="padding-top: 0.5em; font-weight: bolder; font-size: 3em; color: white;">@nomeProduto</h1>
+	<h3 style="margin-bottom: 1.5em">Por favor, escolha a feira onde quer entrar</h3>
+</div>
 
 <div class="desc">
     <h2 style="text-align: left">Descrição do produto</h2>
@@ -40,9 +86,9 @@
 
 @code {
     [Parameter]
-    public String? nomeProduto{ get; set; }
+    public String? nomeFeira { get; set; }
     [Parameter]
-    public String? nomeFeira{ get; set; }
+    public String? nomeProduto{ get; set; }
     private String? descProduto;
     private String popupState = "popup";
 
