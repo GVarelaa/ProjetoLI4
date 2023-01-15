@@ -16,6 +16,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<SubFeirasFacade>();
 builder.Services.AddSingleton<SubComprasFacade>();
+builder.Services.AddSingleton<SubUtilizadoresFacade>();
 builder.Services.AddSingleton<LogicaNegocio>();
 
 var app = builder.Build();
