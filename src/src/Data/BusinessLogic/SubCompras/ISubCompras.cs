@@ -8,7 +8,7 @@ public interface ISubCompras
 
     public Task<IEnumerable<(Produto, float, int)>> GetCarrinho(int nifCliente);
 
-    public void AdicionarAoCarrinho(int nifCliente, int idProduto, float valorVenda);
+    public void AdicionarAoCarrinho(int nifCliente, int idProduto, float valorVenda, int quantidade);
 
     public Boolean DeleteProdutoCarrinho(int nifCliente, int idProduto);
 }
