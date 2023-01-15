@@ -34,51 +34,25 @@
 
 	private async Task Authenticate()
 	{
-		Cliente userAccount = await sf.GetCliente(Int32.Parse(model.nif));
-		if (userAccount == null)
-		{
-			Vendedor userAccount1 = await sf.GetVendedor(Int32.Parse(model.nif));
-			if (userAccount1 != null)
+		try {
+			int user = await sf.Autenticar(Int32.Parse(model.nif), model.password);
+			if (user == 1)
 			{
-				if (!userAccount1.passwordVendedor.Equals(model.password))
-				{
-					await js.InvokeVoidAsync("alert", "Invalid Password");
-					return;
-				}
-				else
-				{
-					var customAuthStateProvider = (CustomAuthenticationStateProvider)authStateProvider;
-					await customAuthStateProvider.UpdateAuthenticationState(new UserSession
-						{
-							Nif = model.nif,
-							Role = "Vendedor"
-						});
-				}
-			}
+				
+			} 
 			else
 			{
-				await js.InvokeVoidAsync("alert", "Invalid Nif");
-				return;
+				
 			}
-		}
-		else
-		{
-			if (!userAccount.passwordCliente.Equals(model.password))
-			{
-				await js.InvokeVoidAsync("alert", "Invalid Password");
-				return;
-			}
-			else
-			{
-				var customAuthStateProvider = (CustomAuthenticationStateProvider)authStateProvider;
-				await customAuthStateProvider.UpdateAuthenticationState(new UserSession
-					{
-						Nif = model.nif,
-						Role = "Cliente"
-					});
-			}
-		}
-		navManager.NavigateTo("/Feiras", true);
-	}
 
+
+		} catch (Exception e)
+		{
+			await js.InvokeVoidAsync("alert", e.Message);
+			return;
+		}
+		
+	}
 }
+
+
