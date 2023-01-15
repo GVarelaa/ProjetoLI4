@@ -1,5 +1,4 @@
 ﻿@page "/verprodutos"
-
 @using src.Data.BusinessLogic.SubFeiras
 @inject SubFeirasFacade Facade
 
@@ -10,31 +9,59 @@
 		width: 100%;
 	}
 
-	/*.produto {
-		width: 200px;
-		height: 50px;
-	}*/
+	.Produtos {
+		display: grid;
+		grid-template-columns: 20% 20% 20% 20% 20%;
+		margin-bottom: 20px;
+		margin-left: 300px;
+		margin-right: 300px;
+	}
+
+
+	.header {
+		border: double;
+		display: grid;
+		grid-template-columns: 20% 20% 20% 20% 20%;
+		margin-bottom: 20px;
+		margin-top: 10px;
+		margin-left: 300px;
+		margin-right: 300px;
+	}
 
 </style>
 
-<span><input type="text" id="Nif" name="Nif" placeholder="Inserir Nif do Vendedor" @bind=@nifVendedor></span>
+<br/>
 
-	@foreach(var produto in verProdutosVendedor().Result.ToList())
-	{
-		<p>Nome do Produto: @produto.nome</p>
-		<p>Nome da Feira associada ao Produto: @produto.nomeFeira</p>
-		<p>Preço do Produto: @produto.preço</p>
-		<p>Descrição do Produto: @produto.descricao</p>
-		<p>Stock do Produto: @produto.stock</p>
-		<p>Fator de Aceitação: @produto.fatorAceitacao</p>
-		<p>Fator de Tolerância: @produto.fatorTolerancia</p>
-		<p>Fator de Resposta: @produto.fatorResposta</p>
-		<br/>
-	}
+<h1>Ver Produtos associados a um vendedor</h1>
+
+<br/>
+
+<span><input type="text" id="Nif" placeholder="Inserir NIF do Vendedor" @bind=@nifVendedor></span>
+
+<br/><br/><br/><br/>
+
+<div class="header">
+	<p>Nome do Produto</p>
+	<p>Categoria</p>
+	<p>Preço</p>
+	<p>Stock</p>
+	<p>Feira</p>
+</div>
+			
+@foreach(Produto p in verProdutosVendedor().Result.ToList())
+{
+	<div class="Produtos">
+		<p >@p.nome</p>
+		<p >@p.categoria</p>
+		<p >@p.preço</p>
+		<p >@p.stock</p>
+		<p >@p.nomeFeira</p>
+	</div>
+}
 
 @code {
-
 	private int nifVendedor;
+
 
 	private async Task<List<Produto>> verProdutosVendedor()
 	{
