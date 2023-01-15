@@ -29,7 +29,7 @@
     }
 
     .produtos {
-        background-color: orange;
+        background-image: radial-gradient( circle farthest-corner at 5.6% 54.5%, rgba(47,71,79,1) 0%, rgba(159,188,198,1) 83.6% );
         display: grid;
         grid-template-columns: 20% auto;
         justify-self: center;
@@ -37,7 +37,6 @@
         font-size: 15px;
         margin: 50px;
         height: 20%;
-        border-color: orange;
         border-radius: 10px;
     }
 
@@ -95,7 +94,6 @@
     }
 
     .trash {
-        background-color: orange;
         justify-self: center;
         align-self: center;
     }
@@ -121,6 +119,7 @@
     }
 
     .tracking-in-expand {
+        margin-top:50px;
         -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
         animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
     }
@@ -168,6 +167,8 @@
             box-shadow: 0 0 20px #eee;
             border-radius: 10px;
             display: block;
+            margin-left:50px;
+            margin-top:50px
     }
 
     .btn-grad:hover {
@@ -198,7 +199,7 @@
                         <p>@produtoCarrinho.Item1.nome</p>
                     </div>
                     <div class="price_quantity">
-                        <p> Preço original: <span style="color: red">@produtoCarrinho.Item1.preço</span></p>
+                        <p> Preço original: <span style="color: white">@produtoCarrinho.Item1.preço</span></p>
                         <p> Quantidade do Produto: <span style="color: blue">@produtoCarrinho.Item2 </span></p>
                         <p> Preço negociado: <span style="color: green">@produtoCarrinho.Item3€</span></p>
                     </div>
@@ -209,7 +210,7 @@
                     <p>@produtoCarrinho.Item1.descricao</p>
                     </div>
                 <div class="trash">
-                    <button style="background-color: orange" @onclick="disappear"><i class="fa fa-trash" style="color: grey ; font-size: 100px"></i></button>
+                    <button style="background-color: transparent" @onclick="disappear"><i class="fa fa-trash" style="color: grey ; font-size: 100px"></i></button>
                 </div>
 
             </div>
