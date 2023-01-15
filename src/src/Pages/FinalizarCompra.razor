@@ -1,6 +1,8 @@
 ﻿@page "/finalizar"
 @using src.Data.BusinessLogic.SubCompras
 @inject SubComprasFacade Facade
+@using src.Data.BusinessLogic
+@inject LogicaNegocio LogicaNegocio
 
 <style>
 	html, body{
@@ -105,6 +107,8 @@
 	</div>
 </div>
 
+<button>Finalizar compra!</button>
+
 
 
 @code {
@@ -146,5 +150,10 @@
 		ccVisibility = "visible";
 		mbwayVisibility = "hidden";
 		mbVisibility = "hidden";
+	}
+
+	private void buy(){
+		LogicaNegocio ln = new LogicaNegocio();
+		ln.FinalizarCompra(12345678, firstName + lastName, address, telephoneNumber);
 	}
 }
