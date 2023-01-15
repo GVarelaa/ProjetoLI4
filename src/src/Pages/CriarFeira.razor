@@ -12,7 +12,7 @@
 	h1 {
 		font-weight:bolder;
 		font-size: 3em;
-		color: white;
+		color: black;
 	}
 
 	.top-row {
@@ -34,8 +34,8 @@
 			}
 
 			.left-container button {
-				width: 100px;
-				height: 50px;
+				width: 200px;
+				height: 60px;
 				transform: scale(0.8);
 			}
 
@@ -122,11 +122,71 @@
 		textarea{
 			font-size: 2em;
 		}
+
+	.tracking-in-expand {
+		margin: 50px;
+		-webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+		animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	}
+
+
+	@@-webkit-keyframes tracking-in-expand {
+		0% {
+			letter-spacing: -0.5em;
+			opacity: 0;
+		}
+
+		40% {
+			opacity: 0.6;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@@keyframes tracking-in-expand {
+		0% {
+			letter-spacing: -0.5em;
+			opacity: 0;
+		}
+
+		40% {
+			opacity: 0.6;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
+
+	.btn-grad {
+		background-image: linear-gradient(to right, #348F50 0%, #56B4D3 51%, #348F50 100%);
+		margin: 10px;
+		padding: 15px 45px;
+		text-align: center;
+		text-transform: uppercase;
+		transition: 0.5s;
+		background-size: 200% auto;
+		color: white;
+		box-shadow: 0 0 20px #eee;
+		border-radius: 10px;
+		display: block;
+		margin: auto;
+	}
+
+		.btn-grad:hover {
+			background-position: right center; /* change the direction of the change here */
+			color: #fff;
+			text-decoration: none;
+		}
+
+
 </style>
 
-<div style="background-color: darkslateblue; border-bottom: solid; border-bottom-color: var(--color-primary)">
-	<h1 style="padding-top: 0.5em;">Adicionar Feira</h1>
-	<h3 style="margin-bottom: 1.5em">Por favor, preencha os campos abaixo para criar uma feira</h3>
+<div class="tracking-in-expand">
+	<h1>Adicionar Feira</h1>
+	<h3>Por favor, preencha os campos abaixo para criar uma feira</h3>
 </div>
 
 <div class="content-container">
@@ -134,7 +194,7 @@
 		<div class="left-container">
 			<div class="img-container">
 			</div>
-			<button>
+			<button class="btn-grad">
 				<h3>Adicionar imagem</h3>
 			</button>
 
@@ -153,11 +213,8 @@
 	</div>
 	<div class="descricao">
 		<textarea id="description" rows="5" cols="33" spellcheck="false" placeholder="Insira a descrição da feira..." @bind="@description"></textarea>
-	</div>
-
-	<div class="btn-container">
-		<button @onclick="createFeira"><h1>Criar feira</h1></button>
-	</div>
+	</div><br />
+	<button class="btn-grad" @onclick="createFeira">Criar feira</button>
 </div>
 
 
