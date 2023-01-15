@@ -22,9 +22,9 @@ builder.Services.AddSingleton<SubComprasFacade>();
 
 //DAOConfig.createDatabase();
 
-//SubFeirasFacade f = new SubFeirasFacade();
-//SubUtilizadoresFacade uf = new SubUtilizadoresFacade();
-//SubComprasFacade compras = new SubComprasFacade();
+SubFeirasFacade f = new SubFeirasFacade();
+SubUtilizadoresFacade uf = new SubUtilizadoresFacade();
+SubComprasFacade compras = new SubComprasFacade();
 
 //Feira f1 = new Feira("feira de ponte de lima", "Rural", "Muito boa", "Ponte de lima");
 //f.AddFeira(f1);
@@ -46,16 +46,22 @@ builder.Services.AddSingleton<SubComprasFacade>();
 
 
 
-//Cliente c = new Cliente(12245677, "joao", "p", "joao@gmail.com", "123");
-
+//Cliente c = new Cliente(12245677, "joao", "joao@gmail.com", "123");
 //uf.AddCliente(c);
 //Cliente c1 = await uf.GetCliente(12245677);
 //Console.WriteLine(c1.Equals(c));
 
 
-//compras.AdicionarAoCarrinho(c.nifCliente, 4, 40);
+//compras.AdicionarAoCarrinho(12245677, 1, 40, );
 //compras.AdicionarAoCarrinho(c.nifCliente, 4, 20);
-
+/*try
+{
+    compras.FinalizarCompra(12245677, "arcos de valdevez", "arcos", "1234456");
+}
+catch (Exception) 
+{
+    Console.WriteLine("Fora de stock");
+*/
 //IEnumerable<(Produto, float)> carrinho = await compras.GetCarrinho(c.nifCliente);
 
 
@@ -87,8 +93,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
-app.UseAuthentication();
-app.UseAuthorization();
+
 app.UseRouting();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
