@@ -42,7 +42,6 @@
         align-self: center;
         width: 150px;
         height: 150px;
-        border: solid;
         margin-top: -30px;
     }
 
@@ -56,6 +55,11 @@
             height: 100%;
             width: 100%;
             border: solid;
+            border-width: 5px;
+        }
+
+        .feira-square button:hover{
+            border-color: dimgrey;
         }
 
         .feira-square h1 {
@@ -75,6 +79,10 @@
         align-self: center;
     }
 
+    .icon:hover {
+        color: var(--color-blue);
+    }
+
     .fa-arrow-left {
         font-size: 50px;
         color: var(--color-blue);
@@ -92,7 +100,6 @@
     }
 
     .filtered-feira {
-        border: solid;
         justify-self: center;
         align-self: center;
         width: 300px;
@@ -102,7 +109,15 @@
     .filtered-feira button {
         height: 100%;
         width: 100%;
+        border: solid;
+        border-width: 5px;
     }
+
+    .filtered-feira button:hover {
+        border-color: dimgrey;
+    }
+
+
 
 </style>
 

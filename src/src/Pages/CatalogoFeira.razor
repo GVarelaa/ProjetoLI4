@@ -42,7 +42,6 @@
         align-self: center;
         width: 150px;
         height: 150px;
-        border: solid;
         margin-top: -30px;
     }
 
@@ -56,6 +55,11 @@
             height: 100%;
             width: 100%;
             border: solid;
+            border-width: 5px;
+        }
+
+        .produto-square button:hover {
+            border-color: dimgrey;
         }
 
         .produto-square h1 {
@@ -92,7 +96,6 @@
     }
 
     .filtered-produto {
-        border: solid;
         justify-self: center;
         align-self: center;
         width: 300px;
@@ -100,8 +103,14 @@
     }
 
         .filtered-produto button {
+            border: solid;
             height: 100%;
             width: 100%;
+            border-width: 5px;
+        }
+
+        .filtered-produto button:hover {
+            border-color: dimgrey;
         }
 
 </style>
@@ -125,7 +134,7 @@
         <div class="produto-square">
             @if (shownProdutos[0] != null)
             {
-                <button><a href="catalogo/@nomeFeira/@shownProdutos"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
+                <button><a href="catalogo/@nomeFeira/@shownProdutos[0]"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
                 <h1>@shownProdutos[0]</h1>
             }
         </div>

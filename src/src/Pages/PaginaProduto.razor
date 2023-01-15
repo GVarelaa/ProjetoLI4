@@ -36,6 +36,11 @@
         transition: transform 0.4s;
     }
 
+    .popup a {
+        text-decoration: none;
+        color: white;
+    }
+
     .open-popup {
         visibility: visible;
         top: 50%;
@@ -49,11 +54,54 @@
         grid-template-columns: 50% 50%;
     }
 
+    .top-bar{
+        background-color: darkslateblue;
+        border-bottom: solid;
+        border-bottom-color: var(--color-primary);
+        display: grid;
+        grid-template-columns: 30% auto;
+        padding: 25px 50px 25px 100px;
+    }
+
+        .top-bar img {
+            float: left;
+            border: solid;
+            border-width: 3px;
+            border-color: grey;
+            border-radius: 10%;
+        }
+
+        .top-bar .product-content {
+            border: solid;
+        }
+
+        .top-bar .product-content h1 {
+            padding-top: 0.5em;
+            font-weight: bolder;
+            font-size: 3em;
+            color: white;
+
+        }
+
+        .top-bar .product-content button {
+            background-color: darkgoldenrod;
+            padding: 4px;
+            color: white;
+            border-radius: 5px;
+            float: right;
+            font-size: 2em;
+        }
+
 </style>
 
-<div style="background-color: darkslateblue; border-bottom: solid; border-bottom-color: var(--color-primary);">
-    <h1 style="padding-top: 0.5em; font-weight: bolder; font-size: 3em; color: white;">@nomeProduto</h1>
-	<h3 style="margin-bottom: 1.5em">Por favor, escolha a feira onde quer entrar</h3>
+<div class="top-bar">
+    <img src="css/images/batata-vermelha-final-1.jpg" width="300px" height="300px"/>
+    <div class="product-content">
+        <h1>@nomeProduto</h1>
+        <p>10.0€</p>
+        <button @onclick="openPopup">Adicionar ao carrinho</button>
+    </div>
+    
 </div>
 
 <div class="desc">
