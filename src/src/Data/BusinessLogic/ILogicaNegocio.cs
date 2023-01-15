@@ -25,6 +25,10 @@ public interface ILogicaNegocio
 
     public Task<int> GetAvaliacaoMediaProduto(int idProduto);
 
+    public Task<int> GetAvaliacao(int nifCliente, int idProduto);
+
+    public void AvaliarProduto(int nifCliente, int idProduto, int valorAval);
+
     public Produto AddProduto(Produto p);
 
     public void AddFeira(Feira f);
@@ -39,8 +43,6 @@ public interface ILogicaNegocio
     public Task<Cliente> GetCliente(int nifCliente);
 
     public Task<Vendedor> GetVendedor(int nifVendedor);
-
-    public Task<int> GetAvaliacao(int nifCliente, int idProduto);
 
     public void RegistarCliente(String nome, String email, String password, int nifCliente);
 

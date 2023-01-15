@@ -20,16 +20,13 @@
         }
 
     .menu-bar {
-        background-color: #3359a2;
-        height: 80px;
+        background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(14,174,87,1) 0%, rgba(12,116,117,1) 90% );        height: 80px;
         width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 0 5%;
         position: relative;
-        border-bottom: solid;
-        border-color: var(--color-primary);
     }
 
         .menu-bar ul {
@@ -53,7 +50,7 @@
                 }
 
                     .menu-bar ul li a:hover {
-                        color: var(--color-primary);
+                        color: var(--color-black);
                     }
 
     .fas {
@@ -72,7 +69,8 @@
         position: absolute;
         left: 0;
         top: 100%;
-        background-color: #3359a2;
+        margin-left: 25px;
+        background: rgba(12,116,117,1) 90%;  
     }
 
         .menu-bar ul li:hover .dropdown-menu ul {
@@ -90,13 +88,12 @@
         /*position: absolute;*/
         /* left: 150px;*/
         /*top: 0;*/
-        background-color: var(--color-blue);
     }
     
 </style>
 
 <div class="menu-bar">
-    <a href="/"><img src="css/images/logo.png" width="150px" /></a>
+    <a href="/"><img src="css/images/logo.png" width="150" /></a>
       <ul>
                 <li><a href="/Registo">Sign Up</a></li>
                 <li><a href="/Login">Sign In</a></li>

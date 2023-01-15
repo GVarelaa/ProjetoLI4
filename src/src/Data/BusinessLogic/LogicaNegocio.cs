@@ -79,6 +79,11 @@ public class LogicaNegocio : ILogicaNegocio
         return FeirasFacade.GetAvaliacaoMediaProduto(idProduto);
     }
 
+    public void AvaliarProduto(int nifCliente, int idProduto, int valorAval)
+    {
+        FeirasFacade.AvaliarProduto(nifCliente, idProduto, valorAval);
+    }
+
     public Produto AddProduto(Produto p)
     {
         return FeirasFacade.AddProduto(p);
