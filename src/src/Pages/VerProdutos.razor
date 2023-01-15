@@ -1,0 +1,46 @@
+﻿@page "/verprodutos"
+
+@using src.Data.BusinessLogic.SubFeiras
+@inject SubFeirasFacade Facade
+
+<style>
+
+	body, html {
+		height: 100%;
+		width: 100%;
+	}
+
+	/*.produto {
+		width: 200px;
+		height: 50px;
+	}*/
+
+</style>
+
+<span><input type="text" id="Nif" name="Nif" placeholder="Inserir Nif do Vendedor" @bind=@nifVendedor></span>
+
+	@foreach(var produto in verProdutosVendedor().Result.ToList())
+	{
+		<p>Nome do Produto: @produto.nome</p>
+		<p>Nome da Feira associada ao Produto: @produto.nomeFeira</p>
+		<p>Preço do Produto: @produto.preço</p>
+		<p>Descrição do Produto: @produto.descricao</p>
+		<p>Stock do Produto: @produto.stock</p>
+		<p>Fator de Aceitação: @produto.fatorAceitacao</p>
+		<p>Fator de Tolerância: @produto.fatorTolerancia</p>
+		<p>Fator de Resposta: @produto.fatorResposta</p>
+		<br/>
+	}
+
+@code {
+
+	private int nifVendedor;
+
+	private async Task<List<Produto>> verProdutosVendedor()
+	{
+		SubFeirasFacade f = new SubFeirasFacade();
+		Task<IEnumerable<Produto>> produtos = f.GetProdutosVendedor(nifVendedor);
+		return produtos.Result.ToList();
+	}
+
+}
