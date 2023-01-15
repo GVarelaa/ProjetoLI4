@@ -7,22 +7,22 @@ namespace src.Data.BusinessLogic.SubUsers;
 
     public class SubUtilizadoresFacade : ISubUtilizadores
     {
-        private ClientesDAO clientesDAO;
-        private VendedoresDAO vendedoresDAO;
+        private ClientesDAO Clientes;
+        private VendedoresDAO Vendedores;
 
         public SubUtilizadoresFacade()
         {
-            clientesDAO = ClientesDAO.GetInstance();
-            vendedoresDAO = VendedoresDAO.GetInstance();
+            Clientes = ClientesDAO.GetInstance();
+            Vendedores = VendedoresDAO.GetInstance();
         }
 
 
         public void RegistarCliente(String nome, String email, String password, int nifCliente)
         {
-            if( clientesDAO.Get(nifCliente) == null )
+            if( Clientes.Get(nifCliente) == null )
             {
                 Cliente cliente = new Cliente(nifCliente, nome, email, password);
-                clientesDAO.Insert(cliente);
+                Clientes.Insert(cliente);
             }
             else
             {
@@ -32,10 +32,10 @@ namespace src.Data.BusinessLogic.SubUsers;
 
         public void RegistarVendedor(String nome, String email, String password, int nifVendedor)
         {
-            if (vendedoresDAO.Get(nifVendedor) == null)
+            if (Vendedores.Get(nifVendedor) == null)
             {
                 Vendedor vendedor = new Vendedor(nifVendedor, nome, email, password);
-                vendedoresDAO.Insert(vendedor);
+                Vendedores.Insert(vendedor);
             }
             else
             {
@@ -45,21 +45,21 @@ namespace src.Data.BusinessLogic.SubUsers;
 
         public Task<int> Autenticar(int nif, String password)
         {
-    		Cliente cliente = clientesDAO.Get(nif);
+            Cliente cliente = Clientes.Get(nif);
+            
+            if(cliente != null)
+            {
+                if (cliente.passwordCliente.Equals(password))
+                {
+                    return 1;
+                }
+                else
+                {
+                    throw new WrongPasswordException("Password inválida!");
+                }
+            }
 
-	    	if (cliente != null)
-		    {
-			    if (cliente.passwordCliente.Equals(password))
-			    {
-				    return Task.FromResult(1);
-			    }
-			    else
-			    {
-				throw new WrongPasswordException("Password inválida!");
-			    }
-		    }
-
-    		Vendedor vendedor = vendedoresDAO.Get(nif);
+            Vendedor vendedor = Vendedores.Get(nif);
 
 	       	if (vendedor != null)
 		    {
@@ -77,37 +77,37 @@ namespace src.Data.BusinessLogic.SubUsers;
 
         public Task<IEnumerable<Cliente>> GetClientes()
         {
-            return Task.FromResult(clientesDAO.GetAll());
+            return Task.FromResult(Clientes.GetAll());
         }
 
         public Task<IEnumerable<Vendedor>> GetVendedores()
         {
-            return Task.FromResult(vendedoresDAO.GetAll());
+            return Task.FromResult(Vendedores.GetAll());
         }
 
         public Task<Cliente> GetCliente(int nifCliente)
         {
-            return Task.FromResult(clientesDAO.Get(nifCliente));
+            return Task.FromResult(Clientes.Get(nifCliente));
         }
 
         public Task<Vendedor> GetVendedor(int nifVendedor)
         {
-            return Task.FromResult(vendedoresDAO.Get(nifVendedor));
+            return Task.FromResult(Vendedores.Get(nifVendedor));
         }
 
         public Task<int> GetAvaliacao(int nifCliente, int idProduto)
         {
-            return Task.FromResult(clientesDAO.GetAvaliacao(nifCliente,idProduto));
+            return Task.FromResult(Clientes.GetAvaliacao(nifCliente,idProduto));
         }
         
         public void AddCliente(Cliente cliente)
         {
-           clientesDAO.Insert(cliente);
+           Clientes.Insert(cliente);
         }
 
         public void AddVendedor(Vendedor vendedor)
         {
-            vendedoresDAO.Insert(vendedor);
+            Vendedores.Insert(vendedor);
         }
 
 }

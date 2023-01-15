@@ -66,5 +66,24 @@ public class SubFeirasFacade
         Feiras.AddRegistoFeira(nomeFeira, nifVendedor);
     }
 
+    public Task<IEnumerable<(string produto, DateTime timestamp, float valorVenda, int quantidade, int nifCliente)>> HistoricoVendas(int nifVendedor)
+    {
+        IEnumerable<Produto> produtos = Produtos.GetProdutosVendedor(nifVendedor);
+        IEnumerable<(string produto, DateTime timestamp, float valorVenda, int quantidade, int nifCliente)> historico = new List<(string produto, DateTime timestamp, float valorVenda, int quantidade, int nifCliente)>();
+
+        foreach(Produto produto in produtos)
+        {
+            int idProduto = produto.idProduto;
+
+            IEnumerable<(DateTime timestamp, float valorVenda, int quantidade, int nifCliente)> compras = Produtos.GetComprasProduto(idProduto);
+
+            foreach(var compra in compras)
+            {
+                historico = historico.Append((produto.nome, compra.Item1, compra.Item2, compra.Item3, compra.Item4));
+            }
+        }
+
+        return Task.FromResult(historico);
+    }
 }
 
