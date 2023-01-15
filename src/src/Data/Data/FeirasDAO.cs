@@ -5,6 +5,7 @@ using Dapper.Contrib.Extensions;
 using Microsoft.Data.SqlClient;
 using Microsoft.VisualBasic;
 using src.Data.BusinessLogic.SubFeiras;
+using src.Data.BusinessLogic.Excecoes;
 
 namespace src.Data.Data;
 
@@ -45,7 +46,13 @@ public class FeirasDAO
         
         using (var connection = new SqlConnection(connectionString))
         {
-            connection.Insert<Feira>(f);
+            try {
+                connection.Insert<Feira>(f);
+            }
+            catch(Exception) {
+                throw new AlreadyExistsException("Feira já existente.");
+            }
+                
         }
                
         return f;
@@ -81,13 +88,20 @@ public class FeirasDAO
         return feiras;
     }
 
+
     public void AddRegistoFeira(String nomeFeira, int nifVendedor)
     {
         const string connectionString = DAOConfig.URL;
 
         using (var connection = new SqlConnection(connectionString))
         {
-            connection.Execute("INSERT INTO RegistoFeira VALUES ('" + nomeFeira + "'," + nifVendedor + ")");
+            try
+            {
+                connection.Execute("INSERT INTO RegistoFeira VALUES ('" + nomeFeira + "'," + nifVendedor + ")");
+            }
+            catch (Exception) {
+                throw new AlreadyExistsException("Registo na feira já efetuado anteriormente.");
+            }
         }
 
     }

@@ -23,13 +23,8 @@ builder.Services.AddSingleton<SubComprasFacade>();
 //DAOConfig.createDatabase();
 
 SubFeirasFacade f = new SubFeirasFacade();
-SubUtilizadoresFacade users = new SubUtilizadoresFacade();
-//users.AddVendedor(new Vendedor(223, "teste", "teste", "teste"));
-//f.AddRegistoFeira("feira de ponte de lima", 223);
-Produto p = new Produto("couves", (float)3.45, 200, "Batatas de Qualidade", "Produtos Agrícolas", 0, (float)0.2, (float)0.2, (float)0.2, "feira de ponte de lima", 223);
-f.AddProduto(p);
-//SubUtilizadoresFacade uf = new SubUtilizadoresFacade();
-//SubComprasFacade compras = new SubComprasFacade();
+SubUtilizadoresFacade uf = new SubUtilizadoresFacade();
+SubComprasFacade compras = new SubComprasFacade();
 
 //Feira f1 = new Feira("feira de ponte de lima", "Rural", "Muito boa", "Ponte de lima");
 //f.AddFeira(f1);
@@ -37,7 +32,8 @@ f.AddProduto(p);
 //Console.WriteLine(f1.Equals(f2));
 
 
-
+//Produto p = new Produto("couves", (float)3.45, 200, "Batatas de Qualidade", "Produtos Agrícolas", 0, (float)0.2, (float)0.2, (float)0.2, "feira de ponte de lima", 223);
+//Produto pcp = f.AddProduto(p);
 //Console.WriteLine(pcp);
 
 
@@ -50,16 +46,22 @@ f.AddProduto(p);
 
 
 
-//Cliente c = new Cliente(12245677, "joao", "p", "joao@gmail.com", "123");
-
+//Cliente c = new Cliente(12245677, "joao", "joao@gmail.com", "123");
 //uf.AddCliente(c);
 //Cliente c1 = await uf.GetCliente(12245677);
 //Console.WriteLine(c1.Equals(c));
 
 
-//compras.AdicionarAoCarrinho(c.nifCliente, 4, 40);
+//compras.AdicionarAoCarrinho(12245677, 1, 40, );
 //compras.AdicionarAoCarrinho(c.nifCliente, 4, 20);
-
+/*try
+{
+    compras.FinalizarCompra(12245677, "arcos de valdevez", "arcos", "1234456");
+}
+catch (Exception) 
+{
+    Console.WriteLine("Fora de stock");
+*/
 //IEnumerable<(Produto, float)> carrinho = await compras.GetCarrinho(c.nifCliente);
 
 
@@ -91,8 +93,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
-app.UseAuthentication();
-app.UseAuthorization();
+
 app.UseRouting();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
