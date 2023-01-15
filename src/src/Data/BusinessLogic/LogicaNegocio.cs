@@ -178,5 +178,10 @@ public class LogicaNegocio : ILogicaNegocio
             throw;
         }
     }
+
+    public Task<(bool, bool, double, double, double)> GetContraproposta(double fAceitacao, double ftolerancia, double fresposta, double limiteSuperior, double limiteInferior, double proposta)
+    {
+        return ComprasFacade.GetContraproposta(fAceitacao, ftolerancia, fresposta, limiteSuperior, limiteInferior, proposta); 
+    }
 }
 

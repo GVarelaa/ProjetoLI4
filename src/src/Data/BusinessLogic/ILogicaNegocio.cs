@@ -49,6 +49,8 @@ public interface ILogicaNegocio
     public void RegistarVendedor(String nome, String email, String password, int nifCliente);
 
     public Task<int> Autenticar(int nif, String password);
+
+    public Task<(bool, bool, double, double, double)> GetContraproposta(double fAceitacao, double ftolerancia, double fresposta, double limiteSuperior, double limiteInferior, double proposta);
 }
 
 

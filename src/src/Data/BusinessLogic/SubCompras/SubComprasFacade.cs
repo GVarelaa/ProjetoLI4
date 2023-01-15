@@ -53,4 +53,35 @@ public class SubComprasFacade : ISubCompras
     {
         return this.Compras.DeleteProdutoCarrinho(nifCliente, idProduto);
     }
+
+    public Task<(bool,bool,double,double,double)> GetContraproposta(double fAceitacao, double ftolerancia, double fresposta, double limiteSuperior, double limiteInferior, double proposta)
+    {
+        double ta = Math.Round(limiteSuperior - limiteSuperior * fAceitacao,2);
+        bool aceitou = false;
+        bool continua = true;
+        double valorResposta = 0;
+
+        if (proposta >= ta)
+        {
+            aceitou = true;
+            valorResposta = proposta;
+        }
+        else if (proposta < limiteInferior)
+        {
+            continua = false;
+        }
+        else
+        {
+            limiteSuperior = Math.Round(limiteSuperior - (limiteSuperior - limiteInferior) * fresposta, 2);
+            limiteInferior = Math.Round(limiteInferior + (limiteSuperior - limiteInferior) * fresposta, 2);
+            if (proposta>limiteInferior)
+            {
+                limiteInferior = proposta;
+            }
+        }
+
+        return Task.FromResult((continua, aceitou, valorResposta, limiteSuperior, limiteInferior));
+    }
+
+
 }
