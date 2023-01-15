@@ -6,7 +6,7 @@ using src.Data.Data;
 
 namespace src.Data.BusinessLogic.SubFeiras;
 
-public class SubFeirasFacade
+public class SubFeirasFacade : ISubFeiras
 {
     private FeirasDAO Feiras;
     private ProdutosDAO Produtos;

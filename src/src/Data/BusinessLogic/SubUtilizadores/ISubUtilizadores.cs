@@ -13,10 +13,6 @@ public interface ISubUtilizadores
 
     public Task<int> GetAvaliacao(int nifCliente, int idProduto);
 
-    public void AddCliente(Cliente cliente);
-
-    public void AddVendedor(Vendedor cliente);
-
     public void RegistarCliente(String nome, String email, String password, int nifCliente);
 
     public void RegistarVendedor(String nome, String email, String password, int nifCliente);

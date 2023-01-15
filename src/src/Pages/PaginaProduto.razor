@@ -89,12 +89,20 @@
             grid-template-columns: 50% 50%;
         }
 
-        .top-bar .product-content button {
+        .top-bar .product-content .button-submit {
             background-color: darkgoldenrod;
             padding: 4px;
             color: white;
             border-radius: 5px;
             font-size: 2em;
+        }
+
+        #heart {
+            color: palevioletred;
+        }
+
+        #heart:hover {
+            color: red;
         }
 
         .top-bar .product-content .price {
@@ -194,19 +202,24 @@
                 <p style="color: white;">Categoria: <span style="color: black">@p.categoria</span></p>
                 <p style="color: white">Feira: <span style="color: black">@nomeFeira</span></p>
                 <p style="color: white">Vendedor: <span style="color: black">@p.nifVendedor</span></p>
-                <p style="color: lawngreen">*Produto disponível para ser negociado</p>
+                @if(p.fatorAceitacao == -1){
+                    <p style="color: red">*Produto indisponível para ser negociado</p>
+                }
+                else{
+                    <p style="color: lawngreen">*Produto disponível para ser negociado</p>
+                }
             </div>
             <div class="right">
                 <div class="heart-btn">
-                    <i class="fa fa-heart" style="color: red ; font-size: 30px; padding: 10px 0 0 30px;"></i>
-                    <button @onclick="openPopup">Adicionar ao carrinho</button>
+                    <button style="background-color: darkslateblue"><i id="heart" class="fa fa-heart" style="font-size: 30px; padding: 10px 0 0 30px;"></i></button>
+                    <button class="button-submit" @onclick="openPopup">Adicionar ao carrinho</button>
                 </div>
                 <div class="bottom-row">
                     <div class="stock-preço" style="width: 100%">
                         <p class="stock">Stock: @p.stock</p>
                         <p class="price">Preço: @p.preço€</p>
                     </div>
-                    <p style="margin-top: 20px;">Avaliação geral: 5/5</p>
+                    <p style="margin-top: 20px;">Avaliação geral: @p.avaliacaoMedia/5</p>
                     <div class="aval-cliente" style="margin-top: 20px;">
                         <div>
                             <p>Avaliação do cliente: </p>
