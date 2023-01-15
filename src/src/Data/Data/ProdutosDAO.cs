@@ -43,7 +43,7 @@ public class ProdutosDAO
 
         using (var connection = new SqlConnection(connectionString))
         {
-            IEnumerable<int> ids = connection.Query<int>("SELECT idProduto FROM Produto WHERE nomeFeira=" + nomeFeira);
+            IEnumerable<int> ids = connection.Query<int>("SELECT idProduto FROM Produto WHERE nomeFeira='" + nomeFeira + "'");
 
             foreach(int id in ids)
             {

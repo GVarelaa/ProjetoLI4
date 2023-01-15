@@ -132,48 +132,48 @@
     </div>
     <div class="produtos">
         <div class="produto-square">
-            @if (shownProdutos[0] != null)
+            @if (@shownProducts[0] != null)
             {
-                <button><a href="catalogo/@nomeFeira/"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
-                <h1>@shownProdutos[0].nome</h1>
-            }
-        </div>
-        @*<div class="produto-square">
-            @if (shownProdutos[1] != null)
-            {
-                <button><a href="catalogo/@nomeFeira/@shownProdutos[1].idProduto"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
-                <h1>@shownProdutos[1].nome</h1>
+                <button><a href="catalogo/@nomeFeira/@shownProducts[0].idProduto"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
+                <h1>@shownProducts[0].nome</h1>
             }
         </div>
         <div class="produto-square">
-            @if (shownProdutos[2] != null)
+            @if (@shownProducts[1] != null)
             {
-                <button><a href="catalogo/@nomeFeira/@shownProdutos[2].idProduto"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
-                <h1>@shownProdutos[2].nome</h1>
+                <button><a href="catalogo/@nomeFeira/@shownProducts[1].idProduto"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
+                <h1>@shownProducts[1].nome</h1>
             }
         </div>
         <div class="produto-square">
-            @if (shownProdutos[3] != null)
+            @if (@shownProducts[2] != null)
             {
-                <button><a href="catalogo/@nomeFeira/@shownProdutos[3].idProduto"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
-                <h1>@shownProdutos[3].nome</h1>
+                <button><a href="catalogo/@nomeFeira/@shownProducts[2].idProduto"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
+                <h1>@shownProducts[2].nome</h1>
             }
         </div>
         <div class="produto-square">
-            @if (shownProdutos[4] != null)
+            @if (@shownProducts[3] != null)
             {
-                <button><a href="catalogo/@nomeFeira/@shownProdutos[4].idProduto"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
-                <h1>@shownProdutos[4].nome</h1>
+                <button><a href="catalogo/@nomeFeira/@shownProducts[3].idProduto"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
+                <h1>@shownProducts[3].nome</h1>
+            }
+        </div>
+        <div class="produto-square">
+            @if (shownProducts[4] != null)
+            {
+                <button><a href="catalogo/@nomeFeira/@shownProducts[4].idProduto"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
+                <h1>@shownProducts[4].nome</h1>
             }
 
         </div>
         <div class="produto-square">
-            @if (shownProdutos[5] != null)
+            @if (shownProducts[5] != null)
             {
-                <button><a href="catalogo/@nomeFeira/@shownProdutos[5].idProduto"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
-                <h1>@shownProdutos[5].nome</h1>
+                <button><a href="catalogo/@nomeFeira/@shownProducts[5].idProduto"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
+                <h1>@shownProducts[5].nome</h1>
             }
-        </div>*@
+        </div>
     </div>
     <div class="icon">
         <button @onclick="incrementCounter"><i class="fa fa-arrow-right"></i></button>
@@ -181,8 +181,8 @@
 </div>
 <div class="filtered-produto-container">
     <div class="filtered-produto">
-        <button><a href="catalogo/@nomeFeira/@filteredProduto.idProduto"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
-        <h1>@filteredProduto.nome</h1>
+        <button><a href="catalogo/@nomeFeira/@filteredProduto"><img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" /></a></button>
+        <h1>Teste</h1>
     </div>
 </div>
 
@@ -191,23 +191,28 @@
 
 @code {
     [Parameter]
-    public String? nomeFeira{ get; set; }
+    public String nomeFeira{ get; set; }
     private String? descfeira;
 
     private List<Produto>? produtos;
-    private List<Produto>? shownProdutos;
+    private List<Produto>? shownProducts;
     private String filterValue;
     private string produtosStyle = "grid";
     private string filteredStyle = "none";
-    private Produto filteredProduto;
+    private String filteredProduto;
     private int index;
 
     protected override async Task OnInitializedAsync()
     {
+        SubFeirasFacade sf = new SubFeirasFacade();
         this.index = 0;
-        produtos = new List<Produto>();
-        shownProdutos = new List<Produto>(6);
-        produtos.Add(new Produto("batata", 1.0f, 2, "", "", 2f, 2f, 2f, 2f, nomeFeira, 123));
+        //this.produtos = new List<Produto>();
+        Console.WriteLine("nome da feira: " + nomeFeira);
+        produtos = (await sf.GetProdutosFeira(nomeFeira)).ToList();
+        shownProducts = new List<Produto>(6);
+        filteredStyle = "none";
+        produtosStyle = "grid";
+        filteredProduto = "";
         this.updateProdutos();
     }
 
@@ -239,9 +244,9 @@
             if (index * 6 + i + 1 <= produtos.Count)
             {
                 Produto f = produtos.ElementAt(index * 6 + i);
-                shownProdutos.Insert(i, f);
+                shownProducts.Insert(i, f);
             }
-            else shownProdutos.Insert(i, null);
+            else shownProducts.Insert(i, null);
         }
     }
 
@@ -259,7 +264,7 @@
         {
             if (produto.nome == filterValue)
             {
-                filteredProduto = produto;
+                filteredProduto = produto.nome;
                 foundProduto = true;
             }
         }
