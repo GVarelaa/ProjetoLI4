@@ -25,20 +25,18 @@ public class ClientesDAO
         return clientes;
     }
 
-    public Cliente Get(int id)
-    {
-        const string connectionString = DAOConfig.URL;
+	public Cliente Get(int id)
+	{
+		const string connectionString = DAOConfig.URL;
+		Cliente cliente;
+		using (var connection = new SqlConnection(connectionString))
+		{
+			cliente = connection.Get<Cliente>(id);
+		}
+		return cliente;
+	}
 
-        Cliente cliente;
-        using (var connection = new SqlConnection(connectionString))
-        {
-            cliente = connection.Get<Cliente>(id);
-        }
-
-        return cliente;
-    }
-
-    public Cliente Insert(Cliente cliente)
+	public Cliente Insert(Cliente cliente)
     {
         const string connectionString = DAOConfig.URL;
 
@@ -53,13 +51,7 @@ public class ClientesDAO
 
     public void Delete(int id)
     {
-        const string connectionString = DAOConfig.URL;
-
-        Cliente cliente = Get(id);
-        using (var connection = new SqlConnection(connectionString))
-        {
-            connection.Delete<Cliente>(cliente);
-        }
+        
     }
 
     public IEnumerable<Cliente> GetAll()

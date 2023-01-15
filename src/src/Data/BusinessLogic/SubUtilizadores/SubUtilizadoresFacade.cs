@@ -43,38 +43,37 @@ namespace src.Data.BusinessLogic.SubUsers;
             }
         }
 
-        public int Autenticar(int nif, String password)
+        public Task<int> Autenticar(int nif, String password)
         {
-            Cliente cliente = clientesDAO.Get(nif);
-            
-            if(cliente != null)
-            {
-                if (cliente.passwordCliente.Equals(password))
-                {
-                    return 1;
-                }
-                else
-                {
-                    throw new WrongPasswordException("Password inválida!");
-                }
-            }
+    		Cliente cliente = clientesDAO.Get(nif);
 
-            Vendedor vendedor = vendedoresDAO.Get(nif);
+	    	if (cliente != null)
+		    {
+			    if (cliente.passwordCliente.Equals(password))
+			    {
+				    return Task.FromResult(1);
+			    }
+			    else
+			    {
+				throw new WrongPasswordException("Password inválida!");
+			    }
+		    }
 
-            if(vendedor != null)
-            {
-                if (vendedor.passwordVendedor.Equals(password))
-                {
-                    return 2;
-                }
-                else
-                {
-                    throw new WrongPasswordException("Password inválida!");
-                }
-            }
+    		Vendedor vendedor = vendedoresDAO.Get(nif);
 
-            throw new NonExistentAccountException("Conta inexistente!");
-        }
+	       	if (vendedor != null)
+		    {
+			    if (vendedor.passwordVendedor.Equals(password))
+			    {
+				    return Task.FromResult(2);
+			    }
+			    else
+			    {
+				    throw new WrongPasswordException("Password inválida!");
+			    }
+		    }   
+		    throw new NonExistentAccountException("Conta inexistente!");
+	    }
 
         public Task<IEnumerable<Cliente>> GetClientes()
         {

@@ -21,6 +21,6 @@ public interface ISubUtilizadores
 
     public void RegistarVendedor(String nome, String email, String password, int nifCliente);
 
-    public int Autenticar(int nif, String password);
+    public Task<int> Autenticar(int nif, String password);
 }
 
