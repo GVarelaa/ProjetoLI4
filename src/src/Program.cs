@@ -7,6 +7,7 @@ using src.Data.BusinessLogic;
 using src.Data.BusinessLogic.SubCompras;
 using src.Data.BusinessLogic.SubFeiras;
 using src.Data.BusinessLogic.SubUsers;
+using System.Net;
 using System.Runtime.CompilerServices;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,7 +26,27 @@ SubFeirasFacade f = new SubFeirasFacade();
 SubUtilizadoresFacade uf = new SubUtilizadoresFacade();
 SubComprasFacade compras = new SubComprasFacade();
 
+// NÃO APAGAR
 //uf.RegistarCliente("cliente", "cliente@gmail.com", "example123", 12345678);
+//Vendedor v = new Vendedor(223, "joao", "joao@gmail.com", "123");
+//uf.RegistarVendedor("joao", "joao@gmail.com", "123", 223);
+//f.AddRegistoFeira("Ponte dos Arcos Verdes", 223);
+//Produto p = new Produto("couves", (float)3.45, 200, "Batatas de Qualidade", "Produtos Agrícolas", 0, (float)0.2, (float)0.2, (float)0.2, "Ponte dos Arcos Verdes", 223);
+//Produto pcp = f.AddProduto(p);
+//////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Feira f1 = new Feira("feira de ponte de lima", "Rural", "Muito boa", "Ponte de lima");
 //f.AddFeira(f1);
@@ -33,15 +54,11 @@ SubComprasFacade compras = new SubComprasFacade();
 //Console.WriteLine(f1.Equals(f2));
 
 
-//Produto p = new Produto("couves", (float)3.45, 200, "Batatas de Qualidade", "Produtos Agrícolas", 0, (float)0.2, (float)0.2, (float)0.2, "feira de ponte de lima", 223);
-//Produto pcp = f.AddProduto(p);
 //Console.WriteLine(pcp);
 
 
-//f.AddRegistoFeira("feira de ponte de lima", 223);
 
-//Vendedor v = new Vendedor(223, "joao", "p", "joao@gmail.com", "123");
-//uf.AddVendedor(v);
+
 //Vendedor v1 = await uf.GetVendedor(223);
 //Console.WriteLine(v1.Equals(v));
 
