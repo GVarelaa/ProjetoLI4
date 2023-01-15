@@ -74,7 +74,7 @@ public class VendedoresDAO
         using (var connection = new SqlConnection(connectionString))
         {
             var parameters = new { NomeFeira = nomeFeira };
-            nifs = connection.Query<int>("SELECT nifVendedor FROM RegistoFeira WHERE nomeFeira='@NomeFeira'", parameters);
+            nifs = connection.Query<int>("SELECT nifVendedor FROM RegistoFeira WHERE nomeFeira=@NomeFeira", parameters);
         }
 
         IEnumerable<Vendedor> vs = new List<Vendedor>();
