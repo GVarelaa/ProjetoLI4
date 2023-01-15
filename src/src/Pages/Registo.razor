@@ -1,4 +1,5 @@
 ﻿@page "/Registo"
+@using src.Data.BusinessLogic.SubUsers
 
 <h3>Registo</h3>
 
@@ -34,7 +35,16 @@
 		Console.WriteLine(password);
 		Console.WriteLine(choice);
 
-		// backend
+		ISubUtilizadores subUsers = new SubUtilizadoresFacade();
+
+		if(choice.Equals("Cliente"))
+		{
+			subUsers.RegistarCliente("","",password,int.Parse(nif));
+		} else
+		{
+			subUsers.RegistarVendedor("", "", password, int.Parse(nif));
+		}
+
 	}
 
 	private void selectClient(){

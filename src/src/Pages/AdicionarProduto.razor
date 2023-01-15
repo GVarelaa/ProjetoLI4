@@ -7,6 +7,63 @@
 		height: 100%;
 	}
 
+	.tracking-in-expand {
+		margin: 50px;
+		-webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+		animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	}
+
+
+	@@-webkit-keyframes tracking-in-expand {
+		0% {
+			letter-spacing: -0.5em;
+			opacity: 0;
+		}
+
+		40% {
+			opacity: 0.6;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@@keyframes tracking-in-expand {
+		0% {
+			letter-spacing: -0.5em;
+			opacity: 0;
+		}
+
+		40% {
+			opacity: 0.6;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
+
+	.btn-grad {
+            background-image: linear-gradient(to right, #348F50 0%, #56B4D3  51%, #348F50  100%);
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+          }
+
+    .btn-grad:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+     }
+
 	.container{
 		margin: 40px;
 	}
@@ -51,13 +108,9 @@
 			border: solid;
 			width: 200px;
 			height: 200px;
-			background-color: green;
+			background-color: white;
 			justify-self: center;
 			align-self: center;
-		}
-
-		.form-container{
-
 		}
 
 		.form-container input {
@@ -126,14 +179,10 @@
 </style>
 
 <div class="container">
-	<div class="first-row">
-		<div class="title"><h1>Adicionar Produto</h1></div>
-	</div>
+	<div class="tracking-in-expand" style="font-size:50" ><h1>Adicionar Produto</h1></div>
 
 	<div class="second-row">
-		<div class="img-container">
-			<img src="css/images/batata-vermelha-final-1.jpg" width="100%" height="100%" />
-		</div>
+		<div class="img-container"></div>
 		<div class="form-container">
 			<form>
 				<span><input type="text" id="nif" placeholder="Inserir nif do Vendedor" @bind="@nifVendedor"></span>
@@ -160,7 +209,6 @@
 	<div class="desc-container">
 		<form>
 			<textarea rows="5" cols="50" name="description" @bind=@description>
-			Enter description here...
 			</textarea>
 		</form>
 	</div>
@@ -173,8 +221,7 @@
 			<span><input type="text" id="ft-resposta" name="ft-resposta" placeholder="Inserir fator de resposta" @bind=@fatorTolerancia></span>
 		</form>
 	</div>
-
-	<button @onclick="addProductFeira">Registar Produto na feira</button>
+		<button class="btn-grad" @onclick="addProductFeira">Registar Produto na feira</button>
 </div>
 
 @code {
