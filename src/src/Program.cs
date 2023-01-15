@@ -22,7 +22,12 @@ builder.Services.AddSingleton<SubComprasFacade>();
 
 //DAOConfig.createDatabase();
 
-//SubFeirasFacade f = new SubFeirasFacade();
+SubFeirasFacade f = new SubFeirasFacade();
+SubUtilizadoresFacade users = new SubUtilizadoresFacade();
+//users.AddVendedor(new Vendedor(223, "teste", "teste", "teste"));
+//f.AddRegistoFeira("feira de ponte de lima", 223);
+//Produto p = new Produto("couves", (float)3.45, 200, "Batatas de Qualidade", "Produtos Agrícolas", 0, (float)0.2, (float)0.2, (float)0.2, "feira de ponte de lima", 223);
+//f.AddProduto(p);
 //SubUtilizadoresFacade uf = new SubUtilizadoresFacade();
 //SubComprasFacade compras = new SubComprasFacade();
 
@@ -32,8 +37,7 @@ builder.Services.AddSingleton<SubComprasFacade>();
 //Console.WriteLine(f1.Equals(f2));
 
 
-//Produto p = new Produto("couves", (float)3.45, 200, "Batatas de Qualidade", "Produtos Agrícolas", 0, (float)0.2, (float)0.2, (float)0.2, "feira de ponte de lima", 223);
-//Produto pcp = f.AddProduto(p);
+
 //Console.WriteLine(pcp);
 
 
