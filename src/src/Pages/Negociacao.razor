@@ -172,9 +172,9 @@
 	<div class="semi">
 		<h1 style="margin-bottom: 100px;">Cliente</h1>
 		
-		@foreach(var f in clientValues){
-			@if(f != 0){
-				<div class="value-box"><p>@f</p></div>
+		@for(int i=0; i<3; i++){
+			@if(i+1 <= clientValues.Count){
+				<div class="value-box"><p>@clientValues[i]</p></div>
 			}
 		}
 		
@@ -185,9 +185,11 @@
 	</div>
 	<div class="semi">
 		<h1 style="margin-bottom: -25px">Vendedor</h1>
-		@foreach(var v in sellerValues){
-			@if(v != 0){
-				<div class="value-box"><p>@v</p></div>
+		@for (int i = 0; i < 4; i++)
+		{
+			@if (i + 1 <= sellerValues.Count)
+			{
+				<div class="value-box"><p>@sellerValues[i]</p></div>
 			}
 		}
 	</div>
@@ -198,7 +200,7 @@
 	<div class=@popupState>
 		<h2 style=>Negociação finalizada</h2>
 		<h3>Valor final: @valorfinal €</h3>
-		<button @onclick="closePopup"><a href="/catalogo/@p.nomeFeira/@p.idProduto"></a><p>OK</p></button>
+		<button @onclick="closePopup"><a href="/catalogo/@p.nomeFeira/@p.idProduto"><p>OK</p></a></button>
 	</div>
 </div>
 
@@ -247,13 +249,8 @@
 		bool aceita = False
 		valorFinal = ls
 		*/
-		clientValues.Add(0);
-		clientValues.Add(0);
-		clientValues.Add(0);
-		sellerValues.Add(0);
-		sellerValues.Add(0);
-		sellerValues.Add(0);
-		sellerValues.Add(p.preço);
+
+		sellerValues.Add((float)p.preço);
 		ls = p.preço;
 		li = ls - ls * p.fatorTolerancia;
 
@@ -274,8 +271,9 @@
 
 
 	private async void submitValue(){
-		var (aceita, continua, resposta, limiteSuperior, limiteInferior) = await ln.GetContraproposta(p.fatorAceitacao, p.fatorTolerancia, p.fatorResposta, ls, li, input);
-
+		var (continua, aceita, resposta, limiteSuperior, limiteInferior) = await ln.GetContraproposta(p.fatorAceitacao, p.fatorTolerancia, p.fatorResposta, ls, li, input);
+		this.ls = (float)limiteSuperior;
+		this.li = (float)limiteInferior;
 		if (aceita == true){
 			valorfinal = input;
 			openPopup();
@@ -287,11 +285,11 @@
 				{
 					clientValues[0] = clientValues[1];
 					clientValues[1] = clientValues[2];
-					clientValues[2] = input;
+					clientValues[2] = (float)resposta;
 				}
 				else
 				{
-					clientValues.Add(input);
+					clientValues.Add((float)input);
 				}
 
 				if (sellerValues.Count == 4)
@@ -299,7 +297,10 @@
 					sellerValues[0] = sellerValues[1];
 					sellerValues[1] = sellerValues[2];
 					sellerValues[2] = sellerValues[3];
-					sellerValues[3] = -1;
+					sellerValues[3] = (float)resposta;
+				}
+				else {
+					sellerValues.Add((float)limiteSuperior);
 				}
 			}
 			else {
