@@ -55,11 +55,13 @@
             height: 100%;
             width: 100%;
             border: solid;
-            border-width: 5px;
+            border-width: 8px;
+            border-radius: 4px;
+            border-color: rgba(14,174,87,1);
         }
 
         .produto-square button:hover {
-            border-color: dimgrey;
+            border-color: rgba(12,116,117,1);
         }
 
         .produto-square h1 {
@@ -81,12 +83,12 @@
 
     .fa-arrow-left {
         font-size: 50px;
-        color: var(--color-blue);
+        color: rgba(14,174,87,1);
     }
 
     .fa-arrow-right {
         font-size: 50px;
-        color: var(--color-blue);
+        color: rgba(12,116,117,1);
     }
 
     .filtered-produto-container {
@@ -113,10 +115,47 @@
             border-color: dimgrey;
         }
 
+
+    .tracking-in-expand {
+        -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+        animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    }
+
+
+    @@-webkit-keyframes tracking-in-expand {
+        0% {
+            letter-spacing: -0.5em;
+            opacity: 0;
+        }
+
+        40% {
+            opacity: 0.6;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @@keyframes tracking-in-expand {
+        0% {
+            letter-spacing: -0.5em;
+            opacity: 0;
+        }
+
+        40% {
+            opacity: 0.6;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
 </style>
 
-<div style="background-color: darkslateblue; border-bottom: solid; border-bottom-color: var(--color-primary);">
-    <h1 style="padding-top: 0.5em; font-weight: bolder; font-size: 3em; color: white;">Catálogo da feira</h1>
+<div class="tracking-in-expand">
+    <h1 style="padding-top: 0.5em; font-weight: bolder; font-size: 3em; color: black;">Catálogo da feira</h1>
     <h3 style="margin-bottom: 1.5em">Apresenta-se o catálogo da feira   <span style="color: darkgoldenrod; margin-left: 10px;">@nomeFeira</span></h3>
 </div>
 

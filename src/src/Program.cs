@@ -16,7 +16,6 @@ builder.Services.AddAuthenticationCore();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<ProtectedSessionStorage>();
-builder.Services.AddScoped<AuthenticationStateProvider,CustomAuthenticationStateProvider>();    
 builder.Services.AddSingleton<SubFeirasFacade>();
 builder.Services.AddSingleton<SubComprasFacade>();
 
