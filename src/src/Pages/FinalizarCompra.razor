@@ -98,9 +98,9 @@
 	<div class="credit-card">
 		<form>
 			<label for="ccnum">Número do cartão: </label><br />
-			<input type="text" id="ccnum" @bind="@ccNum" /><br /><br />
+			<input type="text" id="ccnum" @bind="@ccNum" required/><br /><br />
 			<label for="cccode"></label>Security code: <br />
-			<input type="text" id="cccode" @bind="@ccCode" /><br /><br />
+			<input type="text" id="cccode" @bind="@ccCode" required/><br /><br />
 			<label for="edate">Expiration date: </label><br />
 			<input type="date" id="edate" @bind="@expDate" />
 		</form>
