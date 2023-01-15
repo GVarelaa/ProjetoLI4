@@ -116,6 +116,42 @@ public class ProdutosDAO
         return Get((int) id);
     }
 
+    public void InsertAvaliacao(int nifCliente, int idProduto, int valorAval)
+    {
+        const string connectionString = DAOConfig.URL;
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            int affected = connection.Execute("UPDATE Avaliacao SET valorAval=" + valorAval + " WHERE (nifCliente=" + nifCliente + ", idProduto= " + idProduto + ")");
+            if (affected == 0)
+            {
+                connection.Execute("INSERT INTO Avaliacao (nifCliente, idProduto, valorAval) VALUES (" + nifCliente + "," + idProduto + "," + valorAval+ ")");
+            }
+        }
+    }
+
+    public void UpdateAvaliacaoProduto(int idProduto)
+    {
+        const string connectionString = DAOConfig.URL;
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            IEnumerable<int> avaliacoes = connection.Query<int>("SELECT * FROM Avaliacao WHERE idProduto=" + idProduto);
+
+            float soma = 0;
+            int n = 0;
+            foreach(var avaliacao in avaliacoes)
+            {
+                soma += avaliacao;
+                n++;
+            }
+
+            float avaliacaoMedia = soma / (float)n;
+
+            connection.Execute("UPDATE Produto SET avaliacaoMedia=" + avaliacaoMedia + "WHERE idProduto=" + idProduto);
+        }
+    }
+
     public Produto Delete(int key)
     {
         Produto p = Get(key);

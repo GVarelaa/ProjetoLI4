@@ -52,6 +52,12 @@ public class SubFeirasFacade : ISubFeiras
         return Task.FromResult(Produtos.GetAvaliacaoMediaProduto(idProduto));
     }
 
+    public void AvaliarProduto(int nifCliente, int idProduto, int valorAval)
+    {
+        this.Produtos.InsertAvaliacao(nifCliente, idProduto, valorAval);
+        this.Produtos.UpdateAvaliacaoProduto(idProduto);
+    }
+
     public Produto AddProduto(Produto p)
     {
         return Produtos.Insert(p);
