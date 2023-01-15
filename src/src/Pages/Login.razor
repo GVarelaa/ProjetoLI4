@@ -38,23 +38,11 @@
 			int user = await sf.Autenticar(Int32.Parse(model.nif), model.password);
 			if (user == 1)
 			{
-				var customAuthStateProvider = (CustomAuthenticationStateProvider)authStateProvider;
-				await customAuthStateProvider.UpdateAuthenticationState(new UserSession
-					{
-						Nif = model.nif,
-						Role = "Cliente"
-					});
-				await Task.Run(() => navManager.NavigateTo("/Feiras"));
+				
 			} 
 			else
 			{
-				var customAuthStateProvider = (CustomAuthenticationStateProvider)authStateProvider;
-				await customAuthStateProvider.UpdateAuthenticationState(new UserSession
-					{
-						Nif = model.nif,
-						Role = "Vendedor"
-					});
-				await Task.Run(() => navManager.NavigateTo("/Vendedor"));
+				
 			}
 
 
