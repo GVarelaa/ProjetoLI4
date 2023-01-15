@@ -1,6 +1,7 @@
 ﻿@page "/registarfeira"
 @using src.Data.BusinessLogic.SubFeiras
 @inject SubFeirasFacade Facade
+@inject IJSRuntime js
 
 <style>
 	body, html {
@@ -35,9 +36,17 @@
 	private int nif;
 	private string nomeFeira;
 
-	private void registerInFeira()
+	private async void registerInFeira()
 	{
 		SubFeirasFacade f = new SubFeirasFacade();
-		f.AddRegistoFeira(nomeFeira, nif);
+		try
+		{
+			f.AddRegistoFeira(nomeFeira, nif);
+		}
+		catch (Exception e)
+		{
+			await js.InvokeVoidAsync("alert", e.Message);
+			return;
+		}
 	}
 }
