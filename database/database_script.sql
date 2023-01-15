@@ -36,7 +36,7 @@ CREATE TABLE Produto (
 	stock INT NOT NULL CHECK(stock >= 0),
 	descricao VARCHAR(8000) NOT NULL,
 	categoria VARCHAR(45) NOT NULL,
-	avaliacaoMedia DECIMAL(1,1) NULL,
+	avaliacaoMedia FLOAT NULL,
 	fatorAceitacao FLOAT NULL,
 	fatorTolerancia FLOAT NULL,
 	fatorResposta FLOAT NULL,
