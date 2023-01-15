@@ -47,7 +47,7 @@ public class ProdutosDAO
 
             foreach(int id in ids)
             {
-                ps.Append(Get(id));
+                ps = ps.Append(Get(id));
             }
         }
         return ps;
@@ -64,7 +64,7 @@ public class ProdutosDAO
 
             foreach (int id in ids)
             {
-                ps.Append(Get(id));
+                ps = ps.Append(Get(id));
             }
         }
         return ps;
@@ -83,7 +83,7 @@ public class ProdutosDAO
         IEnumerable<Produto> favs = new List<Produto>();
         foreach (int idP in idsP)
         {
-            favs.Append(Get(idP));
+            favs = favs.Append(Get(idP));
         }
 
         return favs;
@@ -96,7 +96,7 @@ public class ProdutosDAO
 
         using (var connection = new SqlConnection(connectionString))
         {
-            idsP = connection.Query<Tuple<int, int>>("SELECT (idProduto,valorAval) FROM Avaliacao WHERE nifCliente=" + nifCliente);
+            idsP = connection.Query<Tuple<int, int>>("SELECT idProduto,valorAval FROM Avaliacao WHERE nifCliente=" + nifCliente);
         }
 
         return idsP;
@@ -158,4 +158,24 @@ public class ProdutosDAO
         return soma / (avals.Count());
     }
 
+    public IEnumerable<(DateTime timestamp, float valorVenda, int quantidade, int nifCliente)>GetComprasProduto(int idProduto)
+    {
+        const string connectionString = DAOConfig.URL;
+
+        IEnumerable<(DateTime, float, int, int)> compras = new List<(DateTime, float, int, int)>();
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            IEnumerable<(int, float, int)> transacoes = connection.Query<(int, float, int)>("SELECT idCompra,valorVenda,quantidade FROM ProdutoDaCompra WHERE idProduto=" + idProduto);
+
+            foreach(var transacao in transacoes)
+            {
+                IEnumerable<(int, DateTime)> compra = connection.Query<(int, DateTime)>("SELECT nifCliente, timestampCompra FROM Compra WHERE idCompra=" + idProduto);
+                compras = compras.Append((compra.First().Item2, transacao.Item2, transacao.Item3, compra.First().Item1));
+            }
+        }
+
+
+        return compras;
+    }
 }

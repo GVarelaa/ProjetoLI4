@@ -1,5 +1,22 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+@font-face {
+    font-family: 'latoregular';
+    src: url('/css/fonts/lato/lato-regular-webfont.woff2') format('woff2'), url('/css/fonts/lato/lato-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'latobold';
+    src: url('/css/fonts/lato_bold/lato-bold-webfont.woff2') format('woff2'), url('/css/fonts/lato_bold/lato-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
 :root {
     --color-primary: #15661b;
     --color-white: #e9e9e9;
@@ -8,10 +25,16 @@
 }
 
 html, body {
-
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'latoregular', 'latobold';
     text-align: center;
-    background-color: white
+    background-color: white;
+}
+
+htitle {
+    font-family: 'latobold';
+    color: black;
+    font-size: 50px;
+    margin-left: 70px;
 }
 
 h1:focus {

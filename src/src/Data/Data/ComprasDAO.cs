@@ -42,12 +42,13 @@ public class ComprasDAO
     {
         const string connectionString = DAOConfig.URL;
 
+        long id;
         using (var connection = new SqlConnection(connectionString))
         {
-            connection.Insert<Compra>(compra);
+            id = connection.Insert<Compra>(compra);
         }
 
-        return compra;
+        return Get((int)id);
     }
 
     public IEnumerable<Compra> GetAll()
@@ -62,28 +63,34 @@ public class ComprasDAO
         return compras;
     }
 
-    public void InsertProdutoCompra(int idCompra, int idProduto, int nifCliente, float valorVenda)
+    public void InsertProdutoCompra(int idCompra, int idProduto, float valorVenda)
     {
         const string connectionString = DAOConfig.URL;
 
         using (var connection = new SqlConnection(connectionString))
         {
-            connection.Execute("INSERT INTO ProdutoDaCompra (idCompra, nifCliente, valorVenda, idProduto) VALUES (" + idCompra + "," + nifCliente + "," + valorVenda + "," + idProduto + ")");
+            connection.Execute("INSERT INTO ProdutoDaCompra (idCompra, valorVenda, idProduto) VALUES (" + idCompra + "," + valorVenda + "," + idProduto + ")");
         }
     }
 
-    public void InsertProdutoCarrinho(int nifCliente, int idProduto, int valorVenda)
+    public void InsertProdutoCarrinho(int nifCliente, int idProduto, float valorVenda, int quantidade)
     {
         const string connectionString = DAOConfig.URL;
 
         using (var connection = new SqlConnection(connectionString))
         {
-            connection.Execute("INSERT INTO Carrinho (nifCliente,idProduto,valorVenda) VALUES (" + nifCliente + "," + idProduto + "," + valorVenda + ")");
+            IEnumerable<int> quantidades = connection.Query<int>("SELECT quantidade FROM Carrinho WHERE nifCliente=" + nifCliente + "and idProduto=" + idProduto);
+            int quantidadeAnterior = quantidades.First();
+
+            int affected = connection.Execute("UPDATE Carrinho SET valorVenda=" + valorVenda + ", quantidade=" + (quantidade+quantidadeAnterior) + " WHERE idProduto= " + idProduto);
+            if (affected == 0) {
+                connection.Execute("INSERT INTO Carrinho (nifCliente,idProduto,valorVenda) VALUES (" + nifCliente + "," + idProduto + "," + valorVenda + ")");
+            }
         }
 
     }
 
-    public Boolean DeleteProdutoCarinho(int nifCliente, int idProduto)
+    public Boolean DeleteProdutoCarrinho(int nifCliente, int idProduto)
     {
         const string connectionString = DAOConfig.URL;
         int nrows;
@@ -96,19 +103,19 @@ public class ComprasDAO
         return nrows > 0;
     }
 
-    public IEnumerable<Tuple<Produto, float>> GetProdutosCarrinho(int nifCliente)
+    public IEnumerable<(Produto, float, int)> GetProdutosCarrinho(int nifCliente)
     {
         const string connectionString = DAOConfig.URL;
-        IEnumerable<Tuple<int, float>> idpds;
+        IEnumerable<(int, float, int)> idpds;
 
         using (var connection = new SqlConnection(connectionString))
         {
-            idpds = connection.Query<Tuple<int, float>>("SELECT (idProduto,valorVenda) FROM Carrinho where nifCliente=" + nifCliente);
+            idpds = connection.Query<(int, float, int)>("SELECT idProduto,valorVenda,quantidade FROM Carrinho WHERE nifCliente=" + nifCliente);
         }
 
-        IEnumerable<Tuple<Produto, float>> pds = new List<Tuple<Produto, float>>();
+        IEnumerable<(Produto, float, int)> pds = new List<(Produto, float, int)>();
 
-        foreach (Tuple<int, float> t in idpds)
+        foreach ((int, float, int) t in idpds)
         {
             Produto produto;
             using (var connection = new SqlConnection(connectionString))
@@ -116,7 +123,7 @@ public class ComprasDAO
                 produto = connection.Get<Produto>(t.Item1);
             }
 
-            pds.Append(new Tuple<Produto, float>(produto, t.Item2));
+            pds = pds.Append((produto, t.Item2, t.Item3));
         }
 
         return pds;

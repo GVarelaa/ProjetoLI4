@@ -9,16 +9,14 @@ public class Vendedor
 {
     [ExplicitKey]
     public int nifVendedor { get; set; }
-    public String nomeProprio { get; set; }
-    public String apelido { get; set; }
+    public String nome { get; set; }
     public String email { get; set; }
     public String passwordVendedor { get; set; }
 
-    public Vendedor(int sellerNif, string name, string surname, string email, string password)
+    public Vendedor(int sellerNif, string name, string email, string password)
     {
         this.nifVendedor = sellerNif;
-        this.nomeProprio = name;
-        this.apelido = surname;
+        this.nome = name;
         this.email = email;
         this.passwordVendedor = password;
     }
@@ -29,15 +27,14 @@ public class Vendedor
     {
         return obj is Vendedor seller &&
                nifVendedor == seller.nifVendedor &&
-               nomeProprio.Equals(seller.nomeProprio) &&
-               apelido.Equals(seller.apelido) &&
+               nome.Equals(seller.nome) &&
                email.Equals(seller.email) &&
                passwordVendedor.Equals(seller.passwordVendedor);
     }
 
     public override string ToString()
     {
-        return nifVendedor + ", " + nomeProprio + ", " + apelido + ", " + email + ", " + passwordVendedor;
+        return nifVendedor + ", " + nome + ", " + email + ", " + passwordVendedor;
     }
 
 }

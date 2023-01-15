@@ -1,0 +1,176 @@
+﻿@page "/CriarFeira"
+@using src.Data.BusinessLogic.SubFeiras
+@inject SubFeirasFacade facade;
+
+<style>
+	html, body {
+		height: 100%;
+		width: 100%;
+		
+	}
+
+	h1 {
+		font-weight:bolder;
+		font-size: 3em;
+		color: white;
+	}
+
+	.top-row {
+		padding-top: 40px;
+		height: 30%;
+		display: grid;
+		grid-template-columns: 15% auto;
+	}
+
+		.left-container {
+			width: 100%;
+		}
+
+			.img-container{
+				border: solid;
+				padding-top: 100%;
+				width: 100%;
+				background-color: lightgray;
+			}
+
+			.left-container button {
+				width: 100px;
+				height: 50px;
+				transform: scale(0.8);
+			}
+
+	button {
+		background-color: var(--color-blue);
+		border: none;
+		border-radius: 100px;
+	}
+
+	.btn-container button {
+		width: 100px;
+		height: 50px;
+		align-self: center;
+		justify-self: center;
+		margin: 10px 0 10px 0;
+		border: solid;
+		background-color: darkslateblue;
+		border-color:darkslateblue;
+		border-width: 4px;
+	}
+
+	button h1 {
+		font-size: 20px;
+	}
+
+	.btn-container {
+	}
+
+	.right-container{
+		height: 100%;
+		width: 100%;
+	}
+
+		.form-container{
+			width: 100%;
+			display: flex;
+			justify-content: center;
+		}
+
+		.form-container form {
+			width: 100%;
+		}
+			.form-container label {
+				font-weight: bold;
+			}
+
+			.form-container input {
+				float: right;
+				height: 50px;
+				width: 90%;
+				margin-bottom: 30px;
+			}
+
+		.descricao {
+			margin-top: 1em;
+			height: 120px;
+		}
+
+			.descricao textarea {
+				width: 100%;
+				height: 100%;
+				resize: none;
+			}
+
+		.content-container {
+			margin: 0px 4% 0 4%;
+		}
+
+		input, textarea {
+			background-color: lightgray;
+			border-color: dimgray;
+			border-radius: 5px;
+			border-width: 3px;
+			text-align: center;
+			color: darkslategrey;
+			font-weight: bold;
+			text-decoration: none;
+		}
+
+		input {
+			font-size: 1.5em;
+		}
+
+		textarea{
+			font-size: 2em;
+		}
+</style>
+
+<div style="background-color: darkslateblue; border-bottom: solid; border-bottom-color: var(--color-primary)">
+	<h1 style="padding-top: 0.5em;">Adicionar Feira</h1>
+	<h3 style="margin-bottom: 1.5em">Por favor, preencha os campos abaixo para criar uma feira</h3>
+</div>
+
+<div class="content-container">
+	<div class="top-row">
+		<div class="left-container">
+			<div class="img-container">
+			</div>
+			<button>
+				<h3>Adicionar imagem</h3>
+			</button>
+
+		</div>
+
+		<div class="right-container">
+			<div class="form-container">
+				<form>
+					<input type="text" id="name" placeholder="Insira o nome da feira..." spellcheck="false"  @bind="@name" /><br />
+					<input type="text" id="theme" placeholder="Insira o tema da feira... Ex: feira agrícola" spellcheck="false" @bind="@theme" /><br />
+					<input type="text" id="place" placeholder="Insira o local da feira..." spellcheck="false" @bind="@local"><br />
+				</form>
+			</div>
+		</div>
+
+	</div>
+	<div class="descricao">
+		<textarea id="description" rows="5" cols="33" spellcheck="false" placeholder="Insira a descrição da feira..." @bind="@description"></textarea>
+	</div>
+
+	<div class="btn-container">
+		<button @onclick="createFeira"><h1>Criar feira</h1></button>
+	</div>
+</div>
+
+
+
+@code {
+	private String name;
+	private String theme;
+	private String local;
+	private String description;
+
+	private void createFeira(){
+		SubFeirasFacade f = new SubFeirasFacade();
+		Feira feira = new Feira(name, theme, description, local);
+		f.AddFeira(feira);
+	}
+}
