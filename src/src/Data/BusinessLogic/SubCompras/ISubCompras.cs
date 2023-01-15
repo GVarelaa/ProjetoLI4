@@ -11,4 +11,6 @@ public interface ISubCompras
     public void AdicionarAoCarrinho(int nifCliente, int idProduto, float valorVenda, int quantidade);
 
     public Boolean DeleteProdutoCarrinho(int nifCliente, int idProduto);
+
+    public Task<(bool, bool, double, double, double)> GetContraproposta(double fAceitacao, double ftolerancia, double fresposta, double limiteSuperior, double limiteInferior, double proposta);
 }
