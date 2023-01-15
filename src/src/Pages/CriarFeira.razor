@@ -6,31 +6,31 @@
 	html, body {
 		height: 100%;
 		width: 100%;
+		
+	}
+
+	h1 {
+		font-weight:bolder;
+		font-size: 3em;
+		color: white;
 	}
 
 	.top-row {
-		height: 40%;
+		padding-top: 40px;
+		height: 30%;
 		display: grid;
-		grid-template-columns: 30% auto;
+		grid-template-columns: 15% auto;
 	}
 
 		.left-container {
-			display: grid;
-			grid-template-columns: auto;
+			width: 100%;
 		}
 
 			.img-container{
 				border: solid;
-				width: 200px; 
-				height: 200px;
-				justify-self: center;
-				align-self: center;
-			}
-
-			.img-container:before {
-				content: "";
-				float: left;
-				padding-top: 10%; /* initial ratio of 1:1*/
+				padding-top: 100%;
+				width: 100%;
+				background-color: lightgray;
 			}
 
 			.left-container button {
@@ -38,9 +38,6 @@
 				height: 50px;
 				transform: scale(0.8);
 			}
-
-	.descricao{
-	}
 
 	button {
 		background-color: var(--color-blue);
@@ -54,6 +51,10 @@
 		align-self: center;
 		justify-self: center;
 		margin: 10px 0 10px 0;
+		border: solid;
+		background-color: darkslateblue;
+		border-color:darkslateblue;
+		border-width: 4px;
 	}
 
 	button h1 {
@@ -77,61 +78,88 @@
 		.form-container form {
 			width: 100%;
 		}
+			.form-container label {
+				font-weight: bold;
+			}
 
 			.form-container input {
-				height: 30px;
-				width: 70%;
+				float: right;
+				height: 50px;
+				width: 90%;
 				margin-bottom: 30px;
-				margin-top: 10px;
 			}
 
 		.descricao {
-			height: 40%;
+			margin-top: 1em;
+			height: 120px;
 		}
 
 			.descricao textarea {
-				width: 80%;
-				height: 90%;
+				width: 100%;
+				height: 100%;
+				resize: none;
 			}
+
+		.content-container {
+			margin: 0px 4% 0 4%;
+		}
+
+		input, textarea {
+			background-color: lightgray;
+			border-color: dimgray;
+			border-radius: 5px;
+			border-width: 3px;
+			text-align: center;
+			color: darkslategrey;
+			font-weight: bold;
+			text-decoration: none;
+		}
+
+		input {
+			font-size: 1.5em;
+		}
+
+		textarea{
+			font-size: 2em;
+		}
 </style>
 
+<div style="background-color: darkslateblue; border-bottom: solid; border-bottom-color: var(--color-primary)">
+	<h1 style="padding-top: 0.5em;">Adicionar Feira</h1>
+	<h3 style="margin-bottom: 1.5em">Por favor, preencha os campos abaixo para criar uma feira</h3>
+</div>
 
-
-<div class="top-row">
-	<div class="left-container">
-		<div class="img-container">
+<div class="content-container">
+	<div class="top-row">
+		<div class="left-container">
+			<div class="img-container">
+			</div>
+			<button>
+				<h3>Adicionar imagem</h3>
+			</button>
 
 		</div>
-		<button>
-			<h3>Adicionar imagem</h3>
-		</button>
-		
-	</div>
-	
-	<div class="right-container">
-		<h3>Adicionar Feira</h3><br />
-		<div class="form-container">
-			<form>
-				<label for="name">Nome da Feira: </label>
-				<input type="text" id="name" @bind="@name"/><br />
-				<label for="theme">Contexto da feira</label>
-				<input type="text" id="theme" @bind="@theme"/><br />
-				<label for="place">Local da feira: </label>
-				<input type="text" id="place" @bind="@local"><br />
-			</form>
+
+		<div class="right-container">
+			<div class="form-container">
+				<form>
+					<input type="text" id="name" placeholder="Insira o nome da feira..." spellcheck="false"  @bind="@name" /><br />
+					<input type="text" id="theme" placeholder="Insira o tema da feira... Ex: feira agrícola" spellcheck="false" @bind="@theme" /><br />
+					<input type="text" id="place" placeholder="Insira o local da feira..." spellcheck="false" @bind="@local"><br />
+				</form>
+			</div>
 		</div>
+
 	</div>
-	
+	<div class="descricao">
+		<textarea id="description" rows="5" cols="33" spellcheck="false" placeholder="Insira a descrição da feira..." @bind="@description"></textarea>
+	</div>
+
+	<div class="btn-container">
+		<button @onclick="createFeira"><h1>Criar feira</h1></button>
+	</div>
 </div>
 
-<div class="descricao">
-	<label for="description">Descreva a feira: </label>
-	<textarea id="description" rows="5" cols="33" @bind="@description"></textarea>
-</div>
-
-<div class="btn-container">
-	<button @onclick="createFeira"><h1>Criar feira</h1></button>
-</div>
 
 
 @code {
