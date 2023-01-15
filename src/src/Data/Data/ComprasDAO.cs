@@ -5,7 +5,7 @@ using src.Data.BusinessLogic.SubFeiras;
 using src.Data.BusinessLogic.SubCompras;
 using System;
 using Microsoft.Data.SqlClient;
-
+using System.Data.SqlClient;
 
 namespace src.Data.Data;
 
@@ -79,12 +79,9 @@ public class ComprasDAO
 
         using (var connection = new SqlConnection(connectionString))
         {
-            IEnumerable<int> quantidades = connection.Query<int>("SELECT quantidade FROM Carrinho WHERE nifCliente=" + nifCliente + "and idProduto=" + idProduto);
-            int quantidadeAnterior = quantidades.First();
-
-            int affected = connection.Execute("UPDATE Carrinho SET valorVenda=" + valorVenda + ", quantidade=" + (quantidade+quantidadeAnterior) + " WHERE idProduto= " + idProduto);
+            int affected = connection.Execute("UPDATE Carrinho SET valorVenda=" + valorVenda + ", quantidade=quantidade+" + quantidade + " WHERE idProduto= " + idProduto);
             if (affected == 0) {
-                connection.Execute("INSERT INTO Carrinho (nifCliente,idProduto,valorVenda) VALUES (" + nifCliente + "," + idProduto + "," + valorVenda + ")");
+                connection.Execute("INSERT INTO Carrinho (nifCliente, idProduto, valorVenda, quantidade) VALUES (" + nifCliente + "," + idProduto + "," + valorVenda + "," + quantidade + ")");
             }
         }
 
@@ -127,5 +124,49 @@ public class ComprasDAO
         }
 
         return pds;
+    }
+
+    public void FinalizarCompra(int nifCliente, IEnumerable<(Produto, float, int)> produtos, Compra compra) {
+        const string connectionString = DAOConfig.URL;
+
+        using (var connection = new SqlConnection(connectionString))
+        {   
+            connection.Open();
+            using (var transaction = connection.BeginTransaction())
+            {
+                try
+                {
+                    foreach (var produto in produtos)
+                    {
+                        connection.Execute("DELETE FROM Carrinho WHERE (nifCliente=" + nifCliente + "and idProduto=" + produto.Item1.idProduto + ")", transaction: transaction);
+
+                        try
+                        {
+                            connection.Execute("UPDATE Produto SET stock=stock -" + produto.Item3 + " WHERE idProduto=" + produto.Item1.idProduto, transaction: transaction);
+                        }
+                        catch (Exception)
+                        {
+                            transaction.Rollback();
+                            throw;
+                        }
+                    }
+
+                    int idCompra = (int)connection.Insert<Compra>(compra, transaction: transaction);
+
+                    foreach (var produto in produtos)
+                    {
+                        connection.Execute("INSERT INTO ProdutoDaCompra (idCompra, valorVenda, idProduto, quantidade) VALUES ("
+                            + idCompra + "," + produto.Item3 + "," + produto.Item1.idProduto + "," + produto.Item3 + ")", transaction: transaction);
+                    }
+
+                    transaction.Commit();
+                }
+                catch(Exception)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+        }
     }
 }

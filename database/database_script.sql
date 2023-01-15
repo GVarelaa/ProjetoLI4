@@ -28,12 +28,11 @@ CREATE TABLE RegistoFeira (
     FOREIGN KEY (nifVendedor) REFERENCES Vendedor (nifVendedor)
 );
 
-
 CREATE TABLE Produto (
 	idProduto INT NOT NULL IDENTITY(1,1),
 	nome VARCHAR(45) NOT NULL,
 	preço DECIMAL(5,2) NOT NULL,
-	stock INT NOT NULL,
+	stock INT NOT NULL CHECK(stock > 0),
 	descricao VARCHAR(8000) NOT NULL,
 	categoria VARCHAR(45) NOT NULL,
 	avaliacaoMedia DECIMAL(1,1) NULL,
@@ -104,3 +103,28 @@ CREATE TABLE ProdutoDaCompra (
     FOREIGN KEY (idProduto) REFERENCES Produto (idProduto)
 );
 
+
+
+INSERT INTO Vendedor (nifVendedor, nome, email, passwordVendedor) VALUES (123, 'gui', 'guivarela.com', 12345)
+
+INSERT INTO Feira (nomeFeira, tema, descricao, localFeira) VALUES ('ponte da barca', 'nao sei', 'nao sei', 'ponte')
+
+INSERT INTO RegistoFeira (nomeFeira, nifVendedor) VALUES ('ponte da barca', 123)
+
+	
+
+INSERT INTO Produto (nome, preço, stock, descricao, categoria, avaliacaoMedia, fatorAceitacao, fatorTolerancia, fatorResposta, nomeFeira,nifVendedor)
+			VALUES ('batatas', 5.0, 4, 'batatas', 'nao sei', 0, 0.5, 0.4, 0.2, 'ponte da barca', 123)
+
+
+UPDATE Produto SET stock= stock + 3 WHERE idProduto=1;
+
+SELECT * FROM Cliente
+
+SELECT * FROM Carrinho
+
+SELECT * FROM Compra
+
+SELECT * FROM Produto
+
+SELECT * FROM Vendedor

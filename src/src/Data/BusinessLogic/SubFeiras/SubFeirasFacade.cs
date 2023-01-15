@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using src.Data.BusinessLogic.Excecoes;
 using src.Data.Data;
 
 namespace src.Data.BusinessLogic.SubFeiras;
@@ -58,12 +59,27 @@ public class SubFeirasFacade
 
     public void AddFeira(Feira f)
     {
-        Feiras.Insert(f);
+        try
+        {
+            Feiras.Insert(f);
+        }
+        catch (AlreadyExistsException)
+        {
+            throw;
+        }
+            
     }
 
     public void AddRegistoFeira(String nomeFeira, int nifVendedor)
     {
-        Feiras.AddRegistoFeira(nomeFeira, nifVendedor);
+        try
+        {
+            Feiras.AddRegistoFeira(nomeFeira, nifVendedor);
+        }
+        catch (AlreadyExistsException)
+        {
+            throw;
+        }
     }
 
     public Task<IEnumerable<(string produto, DateTime timestamp, float valorVenda, int quantidade, int nifCliente)>> HistoricoVendas(int nifVendedor)
