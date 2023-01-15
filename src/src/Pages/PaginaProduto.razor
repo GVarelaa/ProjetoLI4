@@ -27,7 +27,7 @@
         vertical-align: middle;
         display:  table-cell;
         width: 300px;
-        heght: 100px;
+        height: 100px;
         position: absolute;
         top: 0;
         left: 50%;
@@ -55,13 +55,15 @@
     }
 
     .top-bar{
-        background-color: darkslateblue;
-        border-bottom: solid;
-        border-bottom-color: var(--color-primary);
+        background-image: radial-gradient( circle farthest-corner at 5.6% 54.5%,  rgba(47,71,79,1) 0%, rgba(159,188,198,1) 83.6% );      
         display: grid;
         grid-template-columns: 30% auto;
         padding: 25px 50px 25px 100px;
         height: 50%;
+        border-radius: 25px;
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-top: 50px;
     }
 
         .top-bar img {
@@ -151,6 +153,7 @@
         }
 
         .right-content {
+            text-transform: capitalize;
             height: 90%;
         }
 
@@ -199,19 +202,21 @@
         <h1>@p.nome</h1>
         <div class="product-content">
             <div class="left">
-                <p style="color: white;">Categoria: <span style="color: black">@p.categoria</span></p>
-                <p style="color: white">Feira: <span style="color: black">@nomeFeira</span></p>
-                <p style="color: white">Vendedor: <span style="color: black">@p.nifVendedor</span></p>
+                <p style="color: white;">Categoria: <span style="color: white">@p.categoria</span></p>
+                <p style="color: white">Feira: <span style="color: white">@nomeFeira</span></p>
+                <p style="color: white">Vendedor: <span style="color: white">@p.nifVendedor</span></p>
                 @if(p.fatorAceitacao == -1){
-                    <p style="color: red">*Produto indisponível para ser negociado</p>
+                    <p style="color: white">Produto indisponível para ser negociado</p>
                 }
                 else{
-                    <p style="color: lawngreen">*Produto disponível para ser negociado</p>
+                    <p style="color: white">Produto disponível para ser negociado</p>
                 }
             </div>
             <div class="right">
                 <div class="heart-btn">
-                    <button style="background-color: darkslateblue"><i id="heart" class="fa fa-heart" style="font-size: 30px; padding: 10px 0 0 30px;"></i></button>
+                    <button style="background-color: rgba(159,188,198,1);border-radius:10px;">
+                        <i id="heart" class="fa fa-heart" style="font-size: 30px; padding: 10px 0 0 30px;"></i>
+                    </button>
                     <button class="button-submit" @onclick="openPopup">Adicionar ao carrinho</button>
                 </div>
                 <div class="bottom-row">
@@ -219,11 +224,9 @@
                         <p class="stock">Stock: @p.stock</p>
                         <p class="price">Preço: @p.preço€</p>
                     </div>
-                    <p style="margin-top: 20px;">Avaliação geral: @p.avaliacaoMedia/5</p>
-                    <div class="aval-cliente" style="margin-top: 20px;">
-                        <div>
-                            <p>Avaliação do cliente: </p>
-                        </div>
+                    <p style="margin-top: 5px; color: white;">Avaliação geral: @p.avaliacaoMedia/5</p>
+                    <div class="aval-cliente">
+                        <p style="margin-top: 5px; color: white;">Avaliação do cliente: </p>
                         <div class="aval">
                             <span class="fa fa-star checked" style="font-size: 20px"></span>
                             <span class="fa fa-star checked" style="font-size: 20px"></span>
