@@ -33,7 +33,7 @@ CREATE TABLE Produto (
 	idProduto INT NOT NULL IDENTITY(1,1),
 	nome VARCHAR(45) NOT NULL,
 	preço DECIMAL(5,2) NOT NULL,
-	stock INT NOT NULL CHECK(stock > 0),
+	stock INT NOT NULL CHECK(stock >= 0),
 	descricao VARCHAR(8000) NOT NULL,
 	categoria VARCHAR(45) NOT NULL,
 	avaliacaoMedia DECIMAL(1,1) NULL,
