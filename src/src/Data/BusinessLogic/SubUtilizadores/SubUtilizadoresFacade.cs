@@ -51,7 +51,7 @@ namespace src.Data.BusinessLogic.SubUsers;
             {
                 if (cliente.passwordCliente.Equals(password))
                 {
-                    return 1;
+                    return Task.FromResult(1);
                 }
                 else
                 {
