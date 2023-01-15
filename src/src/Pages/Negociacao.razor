@@ -1,4 +1,6 @@
-﻿@page "/Negociacao"
+﻿@page "/Negociacao/{idProduto}"
+@using src.Data.BusinessLogic.SubCompras
+@inject SubComprasFacade Facade
 @using src.Data.BusinessLogic.SubFeiras
 
 <style>
@@ -62,14 +64,13 @@
 
 	.negociacao {
 		/*border: solid;*/
-		height: 80%;
+		height: 70%;
 		width: 100%;
 		display: grid;
 		grid-template-columns: 50% 50%;
 	}
 
 	.negociacao .semi {
-		border: solid;
 	}
 
 	.value-box {
@@ -122,9 +123,30 @@
 		color: white;
 	}
 
+	.top-bar {
+		background-color: darkslateblue;
+		border-bottom: solid;
+		border-bottom-color: var(--color-primary);
+		height: 15%;
+	}
+
+		.top-bar h3 {
+			margin-bottom: 1.5em
+		}
+
+		.top-bar h1 {
+			padding-top: 0.3em;
+			font-weight: bolder;
+			font-size: 3em;
+			color: white;
+		}
+
 </style>
 
-<h1>Negociacao</h1>
+<div class="top-bar">
+    <h1>Realizar negociação</h1>
+    <h3>Aqui pode negociar o valor do seu produto</h3>
+</div>
 
 <div class="negociacao">
 	<div class="semi">
@@ -158,12 +180,13 @@
 		<h3>Valor final: @valorfinal €</h3>
 		<button @onclick="closePopup"><p>OK</p></button>
 	</div>
-	
-	<button @onclick="openPopup" class="open"><p>Open Popup</p></button>
 </div>
+<button @onclick="openPopup" class="open"><p>Open Popup</p></button>
 
 
 @code {
+	[Parameter]
+	public String idProduto { get; set; }
 	private String popupState = "popup";
 	private List<float> clientValues = new List<float>(3);
 	private List<float> sellerValues = new List<float>(4);
@@ -173,9 +196,17 @@
 	private float ls;
 	private float ta;
 
+	public void OnGet(String productId)
+	{
+		this.idProduto = productId;
+	}
 
 	protected override async Task OnInitializedAsync()
 	{
+		SubComprasFacade sc = new SubComprasFacade();
+		SubFeirasFacade sf = new SubFeirasFacade();
+		Produto p = await sf.GetProduto(int.Parse(idProduto));
+		Console.WriteLine(p.idProduto);
 		// get produto e obter os limites
 		/* 
 		ls = valor do produto
@@ -189,6 +220,7 @@
 		sellerValues.Add(0);
 		sellerValues.Add(0);
 		sellerValues.Add(0);
+		sellerValues.Add(1f);
 	}
 
 	private void openPopup(){

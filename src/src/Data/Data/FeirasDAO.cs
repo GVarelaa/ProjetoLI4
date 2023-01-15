@@ -97,8 +97,8 @@ public class FeirasDAO
         {
             try
             {
-                var parameters = { NomeFeira = nomeFeira, NIFVendedor = nifVendedor };
-                connection.Execute("INSERT INTO RegistoFeira VALUES ('@NomeFeira', '@NIFVendedor')", parameters);
+                var parameters = new { NomeFeira = nomeFeira, NIFVendedor = nifVendedor };
+                connection.Execute("INSERT INTO RegistoFeira VALUES (@NomeFeira, @NIFVendedor)", parameters);
             }
             catch (Exception) {
                 throw new AlreadyExistsException("Registo na feira já efetuado anteriormente.");
