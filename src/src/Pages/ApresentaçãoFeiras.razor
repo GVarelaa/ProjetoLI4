@@ -37,8 +37,6 @@
 
     .feiras {
         height: 100%;
-        margin-left: 10%;
-        margin-right: 10%;
         display: grid;
         grid-template-columns: auto auto auto;
     }
@@ -49,6 +47,7 @@
         width: 150px;
         height: 150px;
         border: solid;
+        margin-top: -30px;
     }
 
         .feira-square:before {
@@ -60,17 +59,17 @@
         .feira-square button {
             height: 100%;
             width: 100%;
-
+            border: solid;
         }
 
         .feira-square h1 {
-            margin-top: 5px;
+            margin-top: 2px;
             font-size: 20px;
         }
 
     .feiras-container {
-        height: 70%;
-        grid-template-columns: 5% auto 5%;
+        height: 63%;
+        grid-template-columns: 15% auto 15%;
         grid-template-rows: auto;
         display: @feirasStyle;
     }
@@ -111,9 +110,12 @@
 
 </style>
 
-<div class="title-bar">
-    <h1>Escolha a feira</h1>
+<div style="background-color: darkslateblue; border-bottom: solid; border-bottom-color: var(--color-primary);">
+    <h1 style="padding-top: 0.5em; font-weight: bolder; font-size: 3em; color: white;">Apresentação das feiras</h1>
+	<h3 style="margin-bottom: 1.5em">Por favor, escolha a feira onde quer entrar</h3>
+</div>
 
+<div class="title-bar">
     <input type="text" placeholder="Procurar feira" @bind="@filterValue">
 
     <button @onclick="applyFilter"><i class="fa fa-search"></i></button>
