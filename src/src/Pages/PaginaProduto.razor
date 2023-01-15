@@ -27,7 +27,7 @@
         vertical-align: middle;
         display:  table-cell;
         width: 300px;
-        heght: 100px;
+        height: 100px;
         position: absolute;
         top: 0;
         left: 50%;
@@ -55,13 +55,15 @@
     }
 
     .top-bar{
-        background-color: darkslateblue;
-        border-bottom: solid;
-        border-bottom-color: var(--color-primary);
+        background-image: radial-gradient( circle farthest-corner at 5.6% 54.5%,  rgba(47,71,79,1) 0%, rgba(159,188,198,1) 83.6% );      
         display: grid;
         grid-template-columns: 30% auto;
         padding: 25px 50px 25px 100px;
         height: 50%;
+        border-radius: 25px;
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-top: 50px;
     }
 
         .top-bar img {
@@ -90,12 +92,25 @@
         }
 
         .top-bar .product-content .button-submit {
-            background-color: darkgoldenrod;
-            padding: 4px;
+            background-image: linear-gradient(to right, #348F50 0%, #56B4D3 51%, #348F50 100%);
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
             color: white;
-            border-radius: 5px;
-            font-size: 2em;
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
         }
+
+        .top-bar .product-content .button-submit:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+        }
+
 
         #heart {
             color: palevioletred;
@@ -151,6 +166,7 @@
         }
 
         .right-content {
+            text-transform: capitalize;
             height: 90%;
         }
 
@@ -199,19 +215,21 @@
         <h1>@p.nome</h1>
         <div class="product-content">
             <div class="left">
-                <p style="color: white;">Categoria: <span style="color: black">@p.categoria</span></p>
-                <p style="color: white">Feira: <span style="color: black">@nomeFeira</span></p>
-                <p style="color: white">Vendedor: <span style="color: black">@p.nifVendedor</span></p>
+                <p style="color: white;">Categoria: <span style="color: white">@p.categoria</span></p>
+                <p style="color: white">Feira: <span style="color: white">@nomeFeira</span></p>
+                <p style="color: white">Vendedor: <span style="color: white">@p.nifVendedor</span></p>
                 @if(p.fatorAceitacao == -1){
-                    <p style="color: red">*Produto indisponível para ser negociado</p>
+                    <p style="color: white">Produto indisponível para ser negociado</p>
                 }
                 else{
-                    <p style="color: lawngreen">*Produto disponível para ser negociado</p>
+                    <p style="color: white">Produto disponível para ser negociado</p>
                 }
             </div>
             <div class="right">
                 <div class="heart-btn">
-                    <button style="background-color: darkslateblue"><i id="heart" class="fa fa-heart" style="font-size: 30px; padding: 10px 0 0 30px;"></i></button>
+                    <button style="background-color: rgba(159,188,198,1);border-radius:10px;">
+                        <i id="heart" class="fa fa-heart" style="font-size: 30px; padding: 10px 0 0 30px;"></i>
+                    </button>
                     <button class="button-submit" @onclick="openPopup">Adicionar ao carrinho</button>
                 </div>
                 <div class="bottom-row">
@@ -219,11 +237,9 @@
                         <p class="stock">Stock: @p.stock</p>
                         <p class="price">Preço: @p.preço€</p>
                     </div>
-                    <p style="margin-top: 20px;">Avaliação geral: @p.avaliacaoMedia/5</p>
-                    <div class="aval-cliente" style="margin-top: 20px;">
-                        <div>
-                            <p>Avaliação do cliente: </p>
-                        </div>
+                    <p style="margin-top: 5px; color: white;">Avaliação geral: @p.avaliacaoMedia/5</p>
+                    <div class="aval-cliente">
+                        <p style="margin-top: 5px; color: white;">Avaliação do cliente: </p>
                         <div class="aval">
                             <span class="fa fa-star checked" style="font-size: 20px"></span>
                             <span class="fa fa-star checked" style="font-size: 20px"></span>
@@ -242,15 +258,7 @@
 <div class="desc">
     <h2 style="text-align: left">Descrição do produto</h2>
     <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quam felis, malesuada vel elementum id, molestie at odio. Donec at massa sem. Curabitur laoreet ut turpis eget euismod. Proin placerat dictum lorem, id hendrerit dui tristique nec. Duis eget lorem aliquam velit lacinia rhoncus. Suspendisse scelerisque sapien est, eget ultricies libero consequat sit amet. Pellentesque mollis ornare libero id tempor. Sed rutrum dolor eget dolor mattis tincidunt.
-
-        Vestibulum consectetur gravida mattis. Donec venenatis lobortis velit non interdum. Nunc lectus dolor, ultrices sed justo nec, malesuada posuere nisl. Vestibulum venenatis ipsum et felis iaculis fermentum. In et odio quis risus commodo vulputate. Ut id dui vitae tellus aliquet imperdiet quis sed massa. Quisque hendrerit augue vitae dolor aliquam ullamcorper. Proin tempus metus vitae rutrum condimentum.
-
-        Suspendisse mollis orci ac orci dictum, in fringilla risus varius. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam interdum rutrum justo vel tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Phasellus congue mauris non sodales facilisis. Duis hendrerit suscipit mauris non euismod. In nec dolor sit amet neque placerat accumsan. Mauris ut euismod ex. Praesent eu mauris purus. Fusce non scelerisque nisi. Pellentesque vitae mauris id enim tempus bibendum et euismod nibh. Mauris sodales ultricies porta. Curabitur posuere, magna ac sagittis consectetur, velit ex tincidunt dui, sit amet malesuada velit ipsum quis arcu. Vestibulum accumsan bibendum elit a fringilla.
-
-        Duis in est lobortis, commodo neque sit amet, vestibulum libero. Vestibulum ultricies ante et quam viverra, egestas volutpat magna ultrices. Sed imperdiet, mi et egestas ultrices, ipsum nulla suscipit dui, ac consectetur metus enim et nisl. Aliquam placerat finibus laoreet. Donec molestie viverra purus, non commodo est tincidunt at. Pellentesque tempus, est et pharetra finibus, neque diam pulvinar mauris, eget pulvinar nulla lorem et massa. Quisque malesuada congue felis et vestibulum. Morbi tincidunt venenatis erat. Quisque nec nunc at ex pulvinar luctus. Pellentesque vitae congue mauris. Nam rhoncus pharetra diam ac fermentum. Proin ex tortor, dignissim at augue consequat, mattis tincidunt libero. Nam eget augue vel turpis tempus viverra id at risus. Nulla vel lectus sodales, efficitur tellus sed, vulputate est. Phasellus suscipit erat sit amet laoreet suscipit.
-
-        Vestibulum eu malesuada mauris. Praesent a leo id mi tempus aliquam. Fusce fermentum eleifend lorem sit amet laoreet. Proin eleifend justo at gravida facilisis. Mauris fermentum euismod pretium. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla ultricies nibh eget imperdiet posuere. Vivamus ultricies mi velit, quis commodo mi tristique id. Nunc tempus laoreet mattis. Morbi sodales diam vitae velit rhoncus fermentum non vel nisi. Maecenas pulvinar ligula nisi, sed tristique justo rutrum id. Proin ex diam, sollicitudin sed ex rutrum, sollicitudin dictum lacus.
+        @p.descricao
     </p>
 </div>
 
