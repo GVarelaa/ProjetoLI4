@@ -43,28 +43,3 @@
 	<button><a href="/CriarFeira"><h1>Admin</h1></a></button>
 </div>
 
-
-
-<AuthorizeView Roles="Cliente">
-	
-</AuthorizeView>
-
-<AuthorizeView Roles="Vendedor">
-
-</AuthorizeView>
-
-
-@code{
-	[CascadingParameter]
-
-	private Task<AuthenticationState> authenticationState { get; set; }
-
-	private async Task DisplayGreetingAlert()
-	{
-		var authState = await authenticationState;
-		var message = $"Hello {authState.User.Identity.Name}";
-		await js.InvokeVoidAsync("alert", message);
-	}
-
-
-}
