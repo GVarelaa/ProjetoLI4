@@ -1,0 +1,22 @@
+﻿@page "/registarfeira"
+@using src.Data.BusinessLogic.SubFeiras
+@inject SubFeirasFacade Facade
+
+<h3>RegistarFeira</h3>
+
+<input type="text" placeholder="Insira o nome da feira:" @bind="@nomeFeira">
+<br>
+<input type="text" placeholder="Insira o seu nif:" @bind="@nif" />
+<br>
+<button @onclick="registerInFeira">Registar na feira</button>
+
+@code {
+	private int nif;
+	private string nomeFeira;
+
+	private void registerInFeira()
+	{
+		SubFeirasFacade f = new SubFeirasFacade();
+		f.AddRegistoFeira(nomeFeira, nif);
+	}
+}

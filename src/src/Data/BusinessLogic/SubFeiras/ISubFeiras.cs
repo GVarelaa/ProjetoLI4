@@ -19,7 +19,7 @@ public interface ISubFeiras
 
     public Task<int> GetAvaliacaoMediaProduto(int idProduto);
 
-    public void AddProduto(Produto p);
+    public Produto AddProduto(Produto p);
 
     public void AddFeira(Feira f);
 

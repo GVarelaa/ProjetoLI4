@@ -2,7 +2,7 @@ using src.Data.Data;
 using src.Data.BusinessLogic.SubFeiras;
 namespace src.Data.BusinessLogic.SubCompras;
 
-public class SubComprasFacade
+public class SubComprasFacade : ISubCompras
 {
     private ComprasDAO Compras;
     
