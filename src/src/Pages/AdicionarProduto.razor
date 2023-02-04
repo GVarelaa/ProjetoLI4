@@ -239,7 +239,7 @@
 	private void addProductFeira()
 	{
 		SubFeirasFacade f = new SubFeirasFacade();
-		Produto p = new Produto(nomeProduto, price, quantity, description, category, 0, fatorAceitaçao, fatorResposta, fatorTolerancia, nomeFeira, nifVendedor);
+		Produto p = new Produto(nomeProduto, price, quantity, description, category, 0, fatorAceitaçao, fatorTolerancia, fatorResposta, nomeFeira, nifVendedor);
 		p = f.AddProduto(p);
 	}
 }
