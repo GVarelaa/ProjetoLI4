@@ -227,7 +227,7 @@
     protected override async Task OnInitializedAsync()
     {
         SubComprasFacade sc = new SubComprasFacade();
-        carrinhoUser = (await sc.GetCarrinho(12345678)).ToList();
+        carrinhoUser = (await sc.GetCarrinho(987654321)).ToList();
         //carrinhoUser = new List<(src.Data.BusinessLogic.SubFeiras.Produto, float, int)>();
         //carrinhoUser.Add((new Produto("teste1", 1f, 4, "Lorem Ipsum", null, 1f, 1f, 1f, 1f, null, 1), 3.5f, 2));
         //carrinhoUser.Add((new Produto("teste2", 1f, 4, "Lorem Ipsum asnas", null, 1f, 1f, 1f, 1f, null, 1), 3.5f, 2));

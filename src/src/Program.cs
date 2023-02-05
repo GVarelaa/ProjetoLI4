@@ -29,6 +29,19 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+SubFeirasFacade f = new SubFeirasFacade();
+SubUtilizadoresFacade uf = new SubUtilizadoresFacade();
+SubComprasFacade compras = new SubComprasFacade();
+
+// NÃO APAGAR
+//uf.RegistarCliente("cliente", "cliente@gmail.com", "example123", 12345678);
+//Vendedor v = new Vendedor(223, "joao", "joao@gmail.com", "123");
+//uf.RegistarVendedor("joao", "joao@gmail.com", "123", 223);
+//f.AddRegistoFeira("Ponte dos Arcos Verdes", 223);
+//Produto p = new Produto("couves", (float)3.45, 200, "Batatas de Qualidade", "Produtos Agrícolas", 0, (float)0.2, (float)0.2, (float)0.2, "Ponte dos Arcos Verdes", 223);
+//Produto pcp = f.AddProduto(p);
+//////////////////////////
+
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();

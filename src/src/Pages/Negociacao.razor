@@ -274,12 +274,13 @@
 
 
 	private async void submitValue(){
-		var (aceita, continua, resposta, limiteSuperior, limiteInferior) = await ln.GetContraproposta(p.fatorAceitacao, p.fatorTolerancia, p.fatorResposta, ls, li, input);
-
+		var (continua, aceita, resposta, limiteSuperior, limiteInferior) = await ln.GetContraproposta(p.fatorAceitacao, p.fatorTolerancia, p.fatorResposta, ls, li, input);
+		ls = (float)limiteSuperior;
+		li = (float)limiteInferior;
 		if (aceita == true){
 			valorfinal = input;
 			openPopup();
-			sc.AdicionarAoCarrinho(12345678, int.Parse(idProduto), (float)input, 1);
+			sc.AdicionarAoCarrinho(987654321, int.Parse(idProduto), (float)input, 1);
 		} 
 		else {
 			if (continua){
@@ -299,7 +300,7 @@
 					sellerValues[0] = sellerValues[1];
 					sellerValues[1] = sellerValues[2];
 					sellerValues[2] = sellerValues[3];
-					sellerValues[3] = -1;
+					sellerValues[3] = (float)limiteSuperior;
 				}
 			}
 			else {
